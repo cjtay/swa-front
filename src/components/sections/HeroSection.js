@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import HeroBackground from "../backgrounds/HeroBackground";
 
 const HeroSection = () => {
   return (
     <Wrapper>
+      <HeroBackground />
       <ContentWrapper>
-        <div>Hero Section</div>
         <Hero>
           <Text>
             <Title>Singapore Women's Association</Title>
