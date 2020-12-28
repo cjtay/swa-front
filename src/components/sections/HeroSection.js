@@ -1,8 +1,14 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import Image from "gatsby-image";
 import styled from "styled-components";
 import HeroBackground from "../backgrounds/HeroBackground";
 
 const HeroSection = () => {
+  const data = useStaticQuery(getHeroImage);
+
+  console.log(data);
+
   return (
     <Wrapper>
       <HeroBackground />
@@ -16,10 +22,10 @@ const HeroSection = () => {
               fugit laborum vero iste unde enim aliquid in nemo ea, optio ex
               architecto!
             </Description>
-            <div class="btn btn-cta primary-light">action</div>
+            <div>button action</div>
           </Text>
           <Img>
-            <img src="https://source.unsplash.com/random" alt="" />
+            <Image fluid={data.file.childImageSharp.fluid} alt="swa logo" />
           </Img>
         </Hero>
       </ContentWrapper>
@@ -94,4 +100,22 @@ const Img = styled.div`
 
 const Description = styled.p`
   margin: 0.5em 0;
+`;
+
+// ----------- graphql -------------------
+
+export const getHeroImage = graphql`
+  {
+    file(
+      sourceInstanceName: { eq: "images" }
+      relativePath: { eq: "hero-img.jpg" }
+    ) {
+      relativePath
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
 `;

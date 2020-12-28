@@ -8,11 +8,6 @@ const HeroBackground = () => {
 
 export default HeroBackground;
 
-const Wrapper = styled.div`
-  position: relative;
-  z-index: -1;
-`;
-
 const Wave = styled.img`
   position: absolute;
   z-index: -1;
