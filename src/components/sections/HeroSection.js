@@ -65,7 +65,7 @@ const Hero = styled.div`
   }
 `;
 
-const Text = styled.div`
+const Text = styled.p`
   margin-bottom: 1em;
   max-width: 100%;
 
@@ -76,6 +76,7 @@ const Text = styled.div`
 
 const Title = styled.h1`
   color: var(--color-white);
+  font-weight: 700;
 `;
 
 const Img = styled.div`
