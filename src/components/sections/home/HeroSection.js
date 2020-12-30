@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import Image from "gatsby-image";
 import styled from "styled-components";
-import HeroBackground from "../backgrounds/HeroBackground";
+import HeroBackground from "../../backgrounds/HeroBackground";
 
 const HeroSection = () => {
   const data = useStaticQuery(getHeroImage);
