@@ -1,9 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { ButtonDark } from "../../../styles/buttons/ButtonStyles";
+import { Wrapper, ContentWrapper } from "../../../styles/wrappers/Wrapper";
+import FeaturedBackground from "../../backgrounds/FeaturedBackground";
 
 const FeaturedSection = () => {
   return (
     <Wrapper>
+      <FeaturedBackground />
       <ContentWrapper>
         <Header>
           <Title>Featured events</Title>
@@ -12,7 +16,9 @@ const FeaturedSection = () => {
             non consequuntur odio obcaecati, consectetur in saepe officiis
             maxime vero ipsam ipsa exercitationem.
           </Description>
-          <Button>View all events</Button>
+          <ButtonPosition>
+            <ButtonDark>View all event</ButtonDark>
+          </ButtonPosition>
         </Header>
 
         <FeaturedList>
@@ -51,27 +57,17 @@ const FeaturedSection = () => {
 
 export default FeaturedSection;
 
-const Wrapper = styled.div`
-  /* position: relative; */
-`;
-
-const ContentWrapper = styled.div`
-  width: 90%;
-  max-width: 980px;
-  margin: 0.5em auto 0 auto;
-  padding: 1em 1.5em;
-`;
-
 const Title = styled.h2`
-  margin-bottom: 0.2em;
-`;
-
-const EventTitle = styled.h4`
-  margin-bottom: 0.2em;
+  margin-bottom: 0.2em 0;
+  color: var(--color-primary-3);
 `;
 
 const Description = styled.p`
   margin: 0.5em 0;
+`;
+
+const EventTitle = styled.h4`
+  margin-bottom: 0.2em;
 `;
 
 const Header = styled.div`
@@ -85,7 +81,7 @@ const Header = styled.div`
   }
 `;
 
-const Button = styled.div`
+const ButtonPosition = styled.div`
   align-self: center;
   margin-bottom: 1.5em;
 
@@ -94,14 +90,14 @@ const Button = styled.div`
   }
 `;
 
-const FeaturedList = styled.div`
+const FeaturedList = styled.ul`
   @media (min-width: 600px) {
     max-width: 550px;
     margin-left: auto;
   }
 `;
 
-const Card = styled.div`
+const Card = styled.li`
   background: rgba(112, 49, 140, 0.7);
   background: -webkit-linear-gradient(
     bottom right,

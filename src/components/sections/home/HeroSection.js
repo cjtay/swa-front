@@ -3,6 +3,8 @@ import { graphql, useStaticQuery } from "gatsby";
 import Image from "gatsby-image";
 import styled from "styled-components";
 import HeroBackground from "../../backgrounds/HeroBackground";
+import { ButtonLight } from "../../../styles/buttons/ButtonStyles";
+import { Wrapper, ContentWrapper } from "../../../styles/wrappers/Wrapper";
 
 const HeroSection = () => {
   const data = useStaticQuery(getHeroImage);
@@ -22,7 +24,7 @@ const HeroSection = () => {
               fugit laborum vero iste unde enim aliquid in nemo ea, optio ex
               architecto!
             </Description>
-            <div>button action</div>
+            <ButtonLight>More</ButtonLight>
           </Text>
           <Img>
             <Image fluid={data.file.childImageSharp.fluid} alt="swa logo" />
@@ -34,16 +36,6 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
-const Wrapper = styled.div`
-  position: relative;
-`;
-
-const ContentWrapper = styled.div`
-  width: 90%;
-  max-width: 980px;
-  margin: 0 auto;
-`;
 
 const Hero = styled.div`
   border-radius: 10px;
@@ -59,7 +51,7 @@ const Hero = styled.div`
     justify-content: space-between;
     padding: 1em;
     align-items: center;
-    max-height: 70vh;
+    max-height: 70%;
     overflow: hidden;
     /* background-color: transparent; */
   }

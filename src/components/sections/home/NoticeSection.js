@@ -1,6 +1,6 @@
 import React from "react";
-
 import styled from "styled-components";
+import { Wrapper, ContentWrapper } from "../../../styles/wrappers/Wrapper";
 
 const AnnouncementSection = () => {
   return (
@@ -21,14 +21,13 @@ const AnnouncementSection = () => {
 
 export default AnnouncementSection;
 
-const Wrapper = styled.div`
-  position: relative;
+const Title = styled.h2`
+  margin-bottom: 0.2em 0;
+  color: var(--color-primary-3);
 `;
 
-const ContentWrapper = styled.div`
-  width: 90%;
-  max-width: 980px;
-  margin: 0 auto;
+const Description = styled.p`
+  margin: 0.5em 0;
 `;
 
 const Notice = styled.div`
@@ -43,13 +42,4 @@ const Notice = styled.div`
     margin: 0 auto;
     margin-top: 2em;
   }
-`;
-
-const Title = styled.h3`
-  color: var(--color-dark);
-  font-weight: 700;
-`;
-
-const Description = styled.p`
-  margin: 0.5em 0;
 `;

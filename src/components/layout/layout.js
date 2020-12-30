@@ -1,33 +1,31 @@
 import React from "react";
 // import Footer from "./footer";
-// import Navbar from "./navbar";
+import Navbar from "./navbar";
 import styled from "styled-components";
 
 const Layout = ({ children }) => {
   return (
-    <>
-      <Container>
-        <Header>header</Header>
-        {/* <Navbar /> */}
+    <Wrapper>
+      <NavWrapper>
+        <Navbar />
         {children}
         {/* <Footer /> */}
         <Footer>footer</Footer>
-      </Container>
-    </>
+      </NavWrapper>
+    </Wrapper>
   );
 };
 
 export default Layout;
 
-const Container = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+const Wrapper = styled.div`
+  position: relative;
 `;
 
-const Header = styled.header`
-  background-color: grey;
+const NavWrapper = styled.div`
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
 `;
 
 const Footer = styled.footer`

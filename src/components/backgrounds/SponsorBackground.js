@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import bg1 from "../../images/bg-1.svg";
+import bg2 from "../../images/bg-2.svg";
 
 const HeroBackground = () => {
-  return <Wave img src={bg1} alt="background" />;
+  return <Wave img src={bg2} alt="background" />;
 };
 
 export default HeroBackground;
@@ -12,19 +12,17 @@ const Wave = styled.img`
   position: absolute;
   z-index: -1;
   width: 100%;
-  top: -13em;
-  transform: scale(1.8);
+  bottom: -2em;
+  transform: scale(2);
 
   @media (min-width: 600px) {
-    top: 0em;
-    transform: scale(1.5);
+    bottom: -5em;
+    transform: scale(1.3);
   }
   @media (min-width: 900px) {
-    top: -8em;
-    transform: scale(1.1);
+    bottom: -5em;
   }
   @media (min-width: 1200px) {
-    top: -22em;
-    transform: scale(2);
+    bottom: -5em;
   }
 `;
