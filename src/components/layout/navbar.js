@@ -1,129 +1,163 @@
 import React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
-import PageLinks from "../../constants/links";
+import { Link } from "gatsby";
+import { ButtonLight } from "../../styles/buttons/ButtonStyles";
+
+import { FaHome, FaHandsHelping, FaBook } from "react-icons/fa";
+import { BsFillPeopleFill, BsCalendar } from "react-icons/bs";
 
 import styled from "styled-components";
 import logo from "../../assets/logo.png";
 
+const navData = [
+  {
+    id: 1,
+    text: "Home",
+    url: "/",
+    icon: <FaHome />,
+  },
+  {
+    id: 2,
+    text: "What",
+    url: "/what/",
+    icon: <BsFillPeopleFill />,
+  },
+  {
+    id: 3,
+    text: "How",
+    url: "/how/",
+    icon: <FaBook />,
+  },
+  {
+    id: 4,
+    text: "Events",
+    url: "/events/",
+    icon: <BsCalendar />,
+  },
+  {
+    id: 5,
+    text: "Participate",
+    url: "/participate/",
+    icon: <FaHandsHelping />,
+  },
+];
+
 const Navbar = ({ toggleSidebar }) => {
-  const data = useStaticQuery(getNavData);
-  console.log("logo: ", data.file.childImageSharp.fluid);
-  return (
-    <nav>
-      <Header>
-        <Logo>
-          <img src={logo} alt="" />
-          <LogoTitle>Singapore Women's Association</LogoTitle>
-        </Logo>
-
-        <Nav>
-          <NavList>
-            <PageLinks />
-          </NavList>
-        </Nav>
-
-        <Link to="/participate/donate">
-          <button>Donate</button>
+  const tempLinks = navData.map(link => {
+    return (
+      <li key={link.id}>
+        <Link to={link.url}>
+          <MenuItem>
+            <span>{link.icon}</span>
+            <div>{link.text}</div>
+          </MenuItem>
         </Link>
-      </Header>
-    </nav>
+      </li>
+    );
+  });
+
+  return (
+    <Wrapper>
+      <Logo>
+        <img src={logo} alt="" />
+        <LogoTitle>Singapore Women's Association</LogoTitle>
+      </Logo>
+
+      <MenuContainer>
+        <MenuWrapper>{tempLinks}</MenuWrapper>
+        <CTA>Donate</CTA>
+      </MenuContainer>
+    </Wrapper>
   );
 };
 
 export default Navbar;
 
-export const getNavData = graphql`
-  {
-    file(
-      sourceInstanceName: { eq: "assets" }
-      relativePath: { eq: "logo.png" }
-    ) {
-      sourceInstanceName
-      relativePath
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
+const Wrapper = styled.div`
+  position: relative;
+  top: 0px;
+  display: grid;
+  grid-template-rows: auto auto;
+  padding: 1em 3em;
+  justify-content: center;
+  color: var(--color-white);
+  border: 1px solid red;
+
+  @media (min-width: 1000px) {
+    grid-template-columns: 500px auto;
+    justify-content: space-between;
+    /* justify-content: space-between; */
   }
 `;
 
-const Header = styled.header`
-  padding: 1em 5% 2em 5%;
+const MenuContainer = styled.div`
+  display: grid;
+  grid-template-rows: 40px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+  /* width: 100; */
+  @media (min-width: 1000px) {
+    grid-template-columns: auto 100px;
+  }
+`;
 
+const MenuWrapper = styled.ul`
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: repeat(5, auto);
+  /* justify-content: center;
+  align-items: center; */
   @media (min-width: 600px) {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 15px 15%;
-    /* background-color: var(--color-primary-1); */
+    margin-left: auto;
+    margin-right: 1em;
+  }
+`;
+
+const MenuItem = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0.3em;
+  align-items: center;
+  padding: 0.3em 0.5em;
+  border-radius: 10px;
+  transition: 0.3s ease-out;
+  span {
+    margin-top: 5px;
+  }
+
+  :hover {
+    background-color: var(--color-black-transparent);
   }
 `;
 
 const Logo = styled.div`
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 50px auto;
+  gap: 1.5em;
   align-items: center;
+  /* justify-content: center; */
   cursor: pointer;
+  border: 1px red solid;
 
   img {
-    width: 50px;
-    height: 50px;
     background-color: var(--color-white);
-    padding: 0.1em;
+    width: 50px;
+    padding: 0.2em;
     border-radius: 100%;
     margin-right: 10px;
-
-    @media (min-width: 600px) {
-      width: 60px;
-      height: 60px;
-      padding: 0.2em;
-    }
   }
 `;
 
-const LogoTitle = styled.div`
-  color: var(--color-white);
-  font-size: 1.4rem;
-  font-weight: 700;
-  text-align: left;
-
-  @media (min-width: 600px) {
+const LogoTitle = styled.h3`
+  @media (min-width: 1000px) {
     display: none;
-    font-size: 0.9rem;
-    text-transform: uppercase;
   }
 `;
 
-const Nav = styled.nav`
-  margin: 1em auto 0 auto;
-`;
+const CTA = styled(ButtonLight)`
+  display: none;
 
-const NavList = styled.div`
-  text-align: center;
-  list-style: none;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: var(--color-white);
-
-  li {
+  @media (min-width: 1000px) {
     display: inline-block;
-    padding: 0.2em 0em;
-  }
-
-  a {
-    padding: 0.2em 0.4em;
-    transition: all 0.5s ease;
-
-    :hover {
-      border-bottom: 2px solid var(--color-white);
-    }
-    :focus {
-      outline: none;
-      background-color: var(--color-primary-4);
-      border-radius: 0.3em;
-    }
   }
 `;
