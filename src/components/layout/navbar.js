@@ -80,7 +80,7 @@ const Wrapper = styled.div`
   padding: 1em 3em;
   justify-content: center;
   color: var(--color-white);
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   @media (min-width: 1000px) {
     grid-template-columns: 500px auto;
@@ -94,7 +94,7 @@ const MenuContainer = styled.div`
   grid-template-rows: 40px;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   /* width: 100; */
   @media (min-width: 1000px) {
     grid-template-columns: auto 100px;
@@ -137,7 +137,7 @@ const Logo = styled.div`
   align-items: center;
   /* justify-content: center; */
   cursor: pointer;
-  border: 1px red solid;
+  /* border: 1px red solid; */
 
   img {
     background-color: var(--color-white);
