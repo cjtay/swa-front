@@ -127,7 +127,6 @@ const Dropdown = styled.div`
     font-weight: 300;
 
     :hover {
-      display: block;
       background-color: var(--color-primary-1);
       color: var(--color-white);
     }
@@ -141,6 +140,10 @@ const DropdownContent = styled.div`
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   background-color: var(--color-white);
   z-index: 1;
+
+  :hover {
+    display: block;
+  }
 
   a {
     float: none;
