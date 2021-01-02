@@ -3,8 +3,8 @@ import Layout from "../components/layout/layout";
 import styled from "styled-components";
 import { Wrapper, ContentWrapper } from "../styles/wrappers/Wrapper";
 import { Header, Title, Description } from "../styles/SectionHeaders";
+import DropDownContent from "../components/sections/events/DropDownContent";
 
-import { IoIosArrowDown } from "react-icons/io";
 import angela from "../images/wls.jpg";
 
 const Events = () => {
@@ -23,30 +23,26 @@ const Events = () => {
           <SearchSection>
             <FilterSection>
               <Label>Filter by date range</Label>
-              <Dropdown>
-                <button>
-                  <div>Select</div>
-                  <IoIosArrowDown />
-                </button>
-                <DropdownContent>
-                  <a href="/">Link 1</a>
-                  <a href="/">Link 2</a>
-                  <a href="/">Link 3</a>
-                </DropdownContent>
-              </Dropdown>
+              <DropDownContent
+                content={
+                  <>
+                    <a href="/">Item 1</a>
+                    <a href="/">Item 2</a>
+                    <a href="/">Item 3</a>
+                  </>
+                }
+              />
 
               <Label>Filter by programme</Label>
-              <Dropdown>
-                <button>
-                  <div>Select</div>
-                  <IoIosArrowDown />
-                </button>
-                <DropdownContent>
-                  <a href="/">Link 1</a>
-                  <a href="/">Link 2</a>
-                  <a href="/">Link 3</a>
-                </DropdownContent>
-              </Dropdown>
+              <DropDownContent
+                content={
+                  <>
+                    <a href="/">Item A</a>
+                    <a href="/">Item B</a>
+                    <a href="/">Item C</a>
+                  </>
+                }
+              />
             </FilterSection>
             <List>
               <Card>
@@ -107,56 +103,6 @@ const Label = styled.div`
   font-size: 0.8rem;
   color: var(--color-primary-1);
   margin-bottom: 0.3 em;
-`;
-
-const Dropdown = styled.div`
-  overflow: hidden;
-
-  button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.3em 1em;
-    width: 220px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background-color: inherit;
-    border-radius: 5px;
-    border: 1px solid var(--color-primary-1);
-    font-weight: 300;
-
-    :hover {
-      background-color: var(--color-primary-1);
-      color: var(--color-white);
-    }
-  }
-`;
-
-const DropdownContent = styled.div`
-  display: none;
-  position: absolute;
-  min-width: 250px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  background-color: var(--color-white);
-  z-index: 1;
-
-  :hover {
-    display: block;
-  }
-
-  a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-
-    :hover {
-      background-color: #ddd;
-    }
-  }
 `;
 
 // https://stackoverflow.com/questions/58963030/drop-down-menu-using-styled-components-how-to-properly-use-class-selectors

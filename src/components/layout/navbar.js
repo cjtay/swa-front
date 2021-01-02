@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
+import Image from "gatsby-image";
 import { ButtonLight } from "../../styles/buttons/ButtonStyles";
 
 import { FaHome, FaHandsHelping, FaBook } from "react-icons/fa";
 import { BsFillPeopleFill, BsCalendar } from "react-icons/bs";
 
 import styled from "styled-components";
-import logo from "../../assets/logo.png";
 
 const navData = [
   {
@@ -42,6 +42,9 @@ const navData = [
 ];
 
 const Navbar = ({ toggleSidebar }) => {
+  const data = useStaticQuery(getLogo);
+  console.log("logo: ", data.file.childImageSharp.fluid);
+
   const tempLinks = navData.map(link => {
     return (
       <li key={link.id}>
@@ -58,7 +61,7 @@ const Navbar = ({ toggleSidebar }) => {
   return (
     <Wrapper>
       <Logo>
-        <img src={logo} alt="" />
+        <Image fluid={data.file.childImageSharp.fluid} alt="logo" />
         <LogoTitle>Singapore Women's Association</LogoTitle>
       </Logo>
 
@@ -71,6 +74,21 @@ const Navbar = ({ toggleSidebar }) => {
 };
 
 export default Navbar;
+
+export const getLogo = graphql`
+  {
+    file(
+      sourceInstanceName: { eq: "assets" }
+      relativePath: { eq: "logo.png" }
+    ) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
 
 const Wrapper = styled.div`
   position: relative;
