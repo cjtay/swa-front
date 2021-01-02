@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { IoIosArrowDown } from "react-icons/io";
 
 const DropDownContent = ({ content }) => {
+  const [open, setOpen] = useState(false);
+
   return (
     <Dropdown>
-      <button>
+      <button onClick={() => setOpen(!open)}>
         <div>Select</div>
         <IoIosArrowDown />
       </button>
-      <DropdownContent>{content}</DropdownContent>
+      {open && <DropdownContent>{content}</DropdownContent>}
     </Dropdown>
   );
 };
@@ -17,7 +19,7 @@ const DropDownContent = ({ content }) => {
 export default DropDownContent;
 
 const DropdownContent = styled.div`
-  display: none;
+  display: block;
   position: absolute;
   min-width: 250px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -41,8 +43,8 @@ const DropdownContent = styled.div`
 const Dropdown = styled.div`
   overflow: hidden;
 
-  :hover ${DropdownContent} {
-    display: block;
+  /* :hover ${DropdownContent} {
+    display: block; */
   }
 
   button {
