@@ -63,6 +63,11 @@ const Navbar = ({ toggleSidebar }) => {
       <Logo>
         <Image fluid={data.file.childImageSharp.fluid} alt="logo" />
         <LogoTitle>Singapore Women's Association</LogoTitle>
+        <MenuIcon>
+          <div />
+          <div />
+          <div />
+        </MenuIcon>
       </Logo>
 
       <MenuContainer>
@@ -120,8 +125,9 @@ const MenuContainer = styled.div`
 `;
 
 const MenuWrapper = styled.ul`
+  /* display: none; */
   display: grid;
-  gap: 0.5em;
+  gap: 0.1em;
   grid-template-columns: repeat(5, auto);
   /* justify-content: center;
   align-items: center; */
@@ -150,10 +156,10 @@ const MenuItem = styled.div`
 
 const Logo = styled.div`
   display: grid;
-  grid-template-columns: 50px auto;
-  gap: 1.5em;
+  grid-template-columns: 50px auto 50px;
+  gap: 1em;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
   cursor: pointer;
   /* border: 1px red solid; */
 
@@ -167,8 +173,31 @@ const Logo = styled.div`
 `;
 
 const LogoTitle = styled.h3`
+  font-size: 1.2em;
   @media (min-width: 1000px) {
     display: none;
+  }
+`;
+
+const MenuIcon = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+  width: 3em;
+  height: 3em;
+  border-radius: 50px;
+  border: 2px solid var(--color-white);
+
+  @media (min-width: 1000px) {
+    display: none;
+  }
+
+  div {
+    height: 0.1em;
+    width: 1.3em;
+    background-color: var(--color-white);
   }
 `;
 
