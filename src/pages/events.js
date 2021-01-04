@@ -49,6 +49,7 @@ const Events = () => {
                 />
               </FilterItem>
             </FilterSection>
+
             <List>
               <Card>
                 <EventInfoContainer>
@@ -114,7 +115,6 @@ const SearchSection = styled.div`
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
-  border: 2px solid red;
 `;
 
 const FilterSection = styled.div`
@@ -134,7 +134,7 @@ const FilterItem = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 1em;
-  border: 1px solid red;
+
   width: 100%;
 
   :first-child {
@@ -147,7 +147,6 @@ const Label = styled.div`
   font-size: 0.8rem;
   color: var(--color-primary-1);
   margin-bottom: 0.3 em;
-  border: 2px solid blue;
 `;
 
 // https://stackoverflow.com/questions/58963030/drop-down-menu-using-styled-components-how-to-properly-use-class-selectors

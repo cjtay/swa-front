@@ -55,5 +55,4 @@ const Button = styled.button`
   border-radius: 5px;
   border: 1px solid var(--color-primary-1);
   font-weight: 300;
-  border: 2px solid green;
 `;

@@ -80,7 +80,7 @@ const Navbar = () => {
           <MenuWrapper>{tempLinks}</MenuWrapper>
           <CTA>Donate</CTA>
         </MenuContainer>
-        <MenuMobileContainer>
+        <MenuMobileContainer isOpen={isOpen}>
           <MenuMobileWrapper isOpen={isOpen}>{tempLinks}</MenuMobileWrapper>
         </MenuMobileContainer>
       </Wrapper>
@@ -108,9 +108,10 @@ export const getLogo = graphql`
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: auto auto;
-  padding: 1em 1em;
+  /* padding: 1em 1em; */
   justify-content: center;
   color: var(--color-white);
+
   @media (min-width: 960px) {
     grid-template-columns: repeat(2, auto);
     justify-content: space-between;
@@ -119,7 +120,6 @@ const Wrapper = styled.div`
 
 const MenuContainer = styled.div`
   display: none;
-  /* border: 1px solid red; */
   /* width: 100; */
   @media (min-width: 960px) {
     display: grid;
@@ -144,11 +144,15 @@ const MenuWrapper = styled.ul`
 
 const MenuMobileContainer = styled.div`
   position: absolute;
+  visibility: ${props => (props.isOpen ? "visible" : "hidden")};
   z-index: 1;
   /* display: ; */
   width: 100%;
   margin-top: 5em;
   color: var(--color-primary-1);
+  @media (min-width: 960px) {
+    display: none;
+  }
 `;
 
 const MenuMobileWrapper = styled.ul`
