@@ -5,27 +5,23 @@ import styled from "styled-components";
 
 const Layout = ({ children }) => {
   return (
-    <>
+    <LayoutWrapper>
       <Navbar />
       {children}
       {/* <Footer /> */}
       <Footer>footer</Footer>
-    </>
+    </LayoutWrapper>
   );
 };
 
 export default Layout;
 
-// const Wrapper = styled.div`
-//   position: relative;
-// `;
-
-// const NavWrapper = styled.div`
-//   width: 100%;
-//   max-width: 980px;
-//   margin: 0 auto;
-// `;
-
+const LayoutWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+`;
 const Footer = styled.footer`
   background-color: yellow;
   margin-top: auto;

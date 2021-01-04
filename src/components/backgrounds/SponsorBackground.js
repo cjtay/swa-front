@@ -9,11 +9,11 @@ const HeroBackground = () => {
 export default HeroBackground;
 
 const Wave = styled.img`
-  position: absolute;
+  position: relative;
   z-index: -1;
   width: 100%;
-  bottom: -2em;
-  transform: scale(2);
+  top: -400px;
+  transform: scale(1.2);
 
   @media (min-width: 600px) {
     bottom: -5em;

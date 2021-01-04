@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import Image from "gatsby-image";
 import { ButtonLight } from "../../styles/buttons/ButtonStyles";
@@ -17,13 +17,13 @@ const navData = [
   },
   {
     id: 2,
-    text: "What",
+    text: "About",
     url: "/what/",
     icon: <BsFillPeopleFill />,
   },
   {
     id: 3,
-    text: "How",
+    text: "Programmes",
     url: "/how/",
     icon: <FaBook />,
   },
@@ -42,8 +42,9 @@ const navData = [
 ];
 
 const Navbar = ({ toggleSidebar }) => {
+  const [toggle, setToggle] = useState(false);
+  console.log("toggle: ", toggle);
   const data = useStaticQuery(getLogo);
-  console.log("logo: ", data.file.childImageSharp.fluid);
 
   const tempLinks = navData.map(link => {
     return (
@@ -59,22 +60,29 @@ const Navbar = ({ toggleSidebar }) => {
   });
 
   return (
-    <Wrapper>
-      <Logo>
-        <Image fluid={data.file.childImageSharp.fluid} alt="logo" />
-        <LogoTitle>Singapore Women's Association</LogoTitle>
-        <MenuIcon>
-          <div />
-          <div />
-          <div />
-        </MenuIcon>
-      </Logo>
+    <>
+      <Wrapper>
+        <Logo>
+          <Image fluid={data.file.childImageSharp.fluid} alt="logo" />
+          <LogoTitle>Singapore Women's Association</LogoTitle>
+          <MenuIcon onClick={() => setToggle(!toggle)}>
+            <div />
+            <div />
+            <div />
+          </MenuIcon>
+        </Logo>
 
-      <MenuContainer>
-        <MenuWrapper>{tempLinks}</MenuWrapper>
-        <CTA>Donate</CTA>
-      </MenuContainer>
-    </Wrapper>
+        <MenuContainer>
+          <MenuWrapper>{tempLinks}</MenuWrapper>
+          <CTA>Donate</CTA>
+        </MenuContainer>
+      </Wrapper>
+      {toggle && (
+        <MenuMobileContainer>
+          <MenuMobileWrapper>{tempLinks}</MenuMobileWrapper>
+        </MenuMobileContainer>
+      )}
+    </>
   );
 };
 
@@ -96,36 +104,33 @@ export const getLogo = graphql`
 `;
 
 const Wrapper = styled.div`
-  position: relative;
-  top: 0px;
   display: grid;
   grid-template-rows: auto auto;
-  padding: 1em 3em;
+  padding: 1em 1em;
   justify-content: center;
   color: var(--color-white);
-  /* border: 1px solid red; */
 
-  @media (min-width: 1000px) {
-    grid-template-columns: 500px auto;
+  @media (min-width: 960px) {
+    grid-template-columns: repeat(2, auto);
     justify-content: space-between;
-    /* justify-content: space-between; */
   }
 `;
 
 const MenuContainer = styled.div`
-  display: grid;
-  grid-template-rows: 40px;
-  justify-content: center;
-  align-items: center;
+  display: none;
+
   /* border: 1px solid red; */
   /* width: 100; */
-  @media (min-width: 1000px) {
+  @media (min-width: 960px) {
+    display: grid;
+    grid-template-rows: 40px;
+    justify-content: center;
+    align-items: center;
     grid-template-columns: auto 100px;
   }
 `;
 
 const MenuWrapper = styled.ul`
-  /* display: none; */
   display: grid;
   gap: 0.1em;
   grid-template-columns: repeat(5, auto);
@@ -135,6 +140,34 @@ const MenuWrapper = styled.ul`
     margin-left: auto;
     margin-right: 1em;
   }
+`;
+
+const MenuMobileContainer = styled.div`
+  position: absolute;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  border: 2px solid blue;
+  color: var(--color-primary-1);
+
+  @media (min-width: 960px) {
+    display: none;
+  }
+`;
+
+const MenuMobileWrapper = styled.ul`
+  display: grid;
+  gap: 0.5em;
+  grid-template-rows: repeat(5, auto);
+  width: 80%;
+  height: 50%;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 5em auto 0 auto;
+  padding: 1em 0;
+  background-color: var(--color-white);
 `;
 
 const MenuItem = styled.div`
@@ -174,7 +207,7 @@ const Logo = styled.div`
 
 const LogoTitle = styled.h3`
   font-size: 1.2em;
-  @media (min-width: 1000px) {
+  @media (min-width: 960px) {
     display: none;
   }
 `;
@@ -189,8 +222,9 @@ const MenuIcon = styled.div`
   height: 3em;
   border-radius: 50px;
   border: 2px solid var(--color-white);
+  cursor: pointer;
 
-  @media (min-width: 1000px) {
+  @media (min-width: 960px) {
     display: none;
   }
 
@@ -204,7 +238,7 @@ const MenuIcon = styled.div`
 const CTA = styled(ButtonLight)`
   display: none;
 
-  @media (min-width: 1000px) {
+  @media (min-width: 960px) {
     display: inline-block;
   }
 `;

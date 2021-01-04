@@ -7,47 +7,49 @@ import florray from "../../../images/florray.png";
 import moephosis from "../../../images/moephosis.png";
 import teamsalon from "../../../images/teamsalon.png";
 import yvonne from "../../../images/yvonne.png";
-import SponsorBackground from "../../backgrounds/SponsorBackground";
+// import SponsorBackground from "../../backgrounds/SponsorBackground";
 
 const SponsorSection = () => {
   return (
-    <Wrapper>
-      <SponsorBackground />
-      <ContentWrapper>
-        <div class="sponsors-header">
-          <Title>Sponsors</Title>
-          <Description>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
-            accusamus fugiat expedita modi eveniet maxime aperiam excepturi
-            repellendus similique! Molestiae sequi ex minima labore culpa
-            pariatur dicta omnis blanditiis enim.
-          </Description>
-        </div>
+    <>
+      <Wrapper>
+        <ContentWrapper>
+          <div class="sponsors-header">
+            <Title>Sponsors</Title>
+            <Description>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
+              accusamus fugiat expedita modi eveniet maxime aperiam excepturi
+              repellendus similique! Molestiae sequi ex minima labore culpa
+              pariatur dicta omnis blanditiis enim.
+            </Description>
+          </div>
 
-        <List>
-          <Item>
-            <Logo src={crystaltime} alt="crystal time logo" />
-          </Item>
-          <Item>
-            <Logo src={florray} alt="crystal time logo" />
-          </Item>
-          <Item>
-            <Logo src={moephosis} alt="crystal time logo" />
-          </Item>
-          <Item>
-            <Logo src={teamsalon} alt="crystal time logo" />
-          </Item>
-          <Item>
-            <Logo src={yvonne} alt="crystal time logo" />
-            {/* <img
+          <List>
+            <Item>
+              <Logo src={crystaltime} alt="crystal time logo" />
+            </Item>
+            <Item>
+              <Logo src={florray} alt="crystal time logo" />
+            </Item>
+            <Item>
+              <Logo src={moephosis} alt="crystal time logo" />
+            </Item>
+            <Item>
+              <Logo src={teamsalon} alt="crystal time logo" />
+            </Item>
+            <Item>
+              <Logo src={yvonne} alt="crystal time logo" />
+              {/* <img
               src="/images/yvonne.png"
               alt="yvonne creative logo"
               class="sponsor-logo"
             /> */}
-          </Item>
-        </List>
-      </ContentWrapper>
-    </Wrapper>
+            </Item>
+          </List>
+        </ContentWrapper>
+      </Wrapper>
+      {/* <SponsorBackground /> */}
+    </>
   );
 };
 

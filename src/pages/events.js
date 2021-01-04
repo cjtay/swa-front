@@ -10,6 +10,7 @@ import angela from "../images/wls.jpg";
 const Events = () => {
   return (
     <Layout>
+      <SectionBackground />
       <Wrapper>
         <ContentWrapper>
           <Header>
@@ -68,6 +69,98 @@ const Events = () => {
                   </div>
                 </ImgContainer>
               </Card>
+              <Card>
+                <EventInfoContainer>
+                  <EventTitle>Lunar New Year Lunch</EventTitle>
+                  <EventDescription>
+                    This year on 27 February 2019, we celebrated our 42nd Lunar
+                    New Year Lunch for the Elderly...
+                  </EventDescription>
+                  <Author>
+                    <AuthorPhoto>
+                      <img src={angela} alt="Angela" />
+                    </AuthorPhoto>
+                    <AuthorInfoContainer>
+                      <AuthorName>Angela</AuthorName>
+                      <PublishDate>10 Feb 2021</PublishDate>
+                    </AuthorInfoContainer>
+                  </Author>
+                </EventInfoContainer>
+                <ImgContainer>
+                  <div class="img">
+                    <img src="https://source.unsplash.com/random" alt="" />
+                  </div>
+                </ImgContainer>
+              </Card>
+              <Card>
+                <EventInfoContainer>
+                  <EventTitle>Lunar New Year Lunch</EventTitle>
+                  <EventDescription>
+                    This year on 27 February 2019, we celebrated our 42nd Lunar
+                    New Year Lunch for the Elderly...
+                  </EventDescription>
+                  <Author>
+                    <AuthorPhoto>
+                      <img src={angela} alt="Angela" />
+                    </AuthorPhoto>
+                    <AuthorInfoContainer>
+                      <AuthorName>Angela</AuthorName>
+                      <PublishDate>10 Feb 2021</PublishDate>
+                    </AuthorInfoContainer>
+                  </Author>
+                </EventInfoContainer>
+                <ImgContainer>
+                  <div class="img">
+                    <img src="https://source.unsplash.com/random" alt="" />
+                  </div>
+                </ImgContainer>
+              </Card>
+              <Card>
+                <EventInfoContainer>
+                  <EventTitle>Lunar New Year Lunch</EventTitle>
+                  <EventDescription>
+                    This year on 27 February 2019, we celebrated our 42nd Lunar
+                    New Year Lunch for the Elderly...
+                  </EventDescription>
+                  <Author>
+                    <AuthorPhoto>
+                      <img src={angela} alt="Angela" />
+                    </AuthorPhoto>
+                    <AuthorInfoContainer>
+                      <AuthorName>Angela</AuthorName>
+                      <PublishDate>10 Feb 2021</PublishDate>
+                    </AuthorInfoContainer>
+                  </Author>
+                </EventInfoContainer>
+                <ImgContainer>
+                  <div class="img">
+                    <img src="https://source.unsplash.com/random" alt="" />
+                  </div>
+                </ImgContainer>
+              </Card>
+              <Card>
+                <EventInfoContainer>
+                  <EventTitle>Lunar New Year Lunch</EventTitle>
+                  <EventDescription>
+                    This year on 27 February 2019, we celebrated our 42nd Lunar
+                    New Year Lunch for the Elderly...
+                  </EventDescription>
+                  <Author>
+                    <AuthorPhoto>
+                      <img src={angela} alt="Angela" />
+                    </AuthorPhoto>
+                    <AuthorInfoContainer>
+                      <AuthorName>Angela</AuthorName>
+                      <PublishDate>10 Feb 2021</PublishDate>
+                    </AuthorInfoContainer>
+                  </Author>
+                </EventInfoContainer>
+                <ImgContainer>
+                  <div class="img">
+                    <img src="https://source.unsplash.com/random" alt="" />
+                  </div>
+                </ImgContainer>
+              </Card>
             </List>
           </SearchSection>
         </ContentWrapper>
@@ -77,6 +170,30 @@ const Events = () => {
 };
 
 export default Events;
+
+const SectionBackground = styled.div`
+  background: rgba(112, 49, 140, 1);
+  background: -webkit-linear-gradient(
+    bottom right,
+    rgba(112, 49, 140, 1),
+    rgba(132, 137, 199, 1)
+  );
+  background: -moz-linear-gradient(
+    bottom right,
+    rgba(112, 49, 140, 1),
+    rgba(132, 137, 199, 1)
+  );
+  background: linear-gradient(
+    to top left,
+    rgba(112, 49, 140, 1),
+    rgba(132, 137, 199, 1)
+  );
+  position: absolute;
+  top: 0;
+  height: 110px;
+  width: 100%;
+  z-index: -1;
+`;
 
 const SearchSection = styled.div`
   width: 100%;
