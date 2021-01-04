@@ -23,27 +23,31 @@ const Events = () => {
           </Header>
           <SearchSection>
             <FilterSection>
-              <Label>Filter by date range</Label>
-              <DropDownContent
-                content={
-                  <>
-                    <a href="/">Item 1</a>
-                    <a href="/">Item 2</a>
-                    <a href="/">Item 3</a>
-                  </>
-                }
-              />
+              <FilterItem>
+                <Label>Filter by date range</Label>
+                <DropDownContent
+                  content={
+                    <>
+                      <a href="/">Item 1</a>
+                      <a href="/">Item 2</a>
+                      <a href="/">Item 3</a>
+                    </>
+                  }
+                />
+              </FilterItem>
 
-              <Label>Filter by programme</Label>
-              <DropDownContent
-                content={
-                  <>
-                    <a href="/">Item A</a>
-                    <a href="/">Item B</a>
-                    <a href="/">Item C</a>
-                  </>
-                }
-              />
+              <FilterItem>
+                <Label>Filter by programme</Label>
+                <DropDownContent
+                  content={
+                    <>
+                      <a href="/">Item A</a>
+                      <a href="/">Item B</a>
+                      <a href="/">Item C</a>
+                    </>
+                  }
+                />
+              </FilterItem>
             </FilterSection>
             <List>
               <Card>
@@ -51,7 +55,7 @@ const Events = () => {
                   <EventTitle>Lunar New Year Lunch</EventTitle>
                   <EventDescription>
                     This year on 27 February 2019, we celebrated our 42nd Lunar
-                    New Year Lunch for the Elderly...
+                    New Year Lunch for the Elderly... This year on 27 February
                   </EventDescription>
                   <Author>
                     <AuthorPhoto>
@@ -64,100 +68,11 @@ const Events = () => {
                   </Author>
                 </EventInfoContainer>
                 <ImgContainer>
-                  <div class="img">
-                    <img src="https://source.unsplash.com/random" alt="" />
-                  </div>
-                </ImgContainer>
-              </Card>
-              <Card>
-                <EventInfoContainer>
-                  <EventTitle>Lunar New Year Lunch</EventTitle>
-                  <EventDescription>
-                    This year on 27 February 2019, we celebrated our 42nd Lunar
-                    New Year Lunch for the Elderly...
-                  </EventDescription>
-                  <Author>
-                    <AuthorPhoto>
-                      <img src={angela} alt="Angela" />
-                    </AuthorPhoto>
-                    <AuthorInfoContainer>
-                      <AuthorName>Angela</AuthorName>
-                      <PublishDate>10 Feb 2021</PublishDate>
-                    </AuthorInfoContainer>
-                  </Author>
-                </EventInfoContainer>
-                <ImgContainer>
-                  <div class="img">
-                    <img src="https://source.unsplash.com/random" alt="" />
-                  </div>
-                </ImgContainer>
-              </Card>
-              <Card>
-                <EventInfoContainer>
-                  <EventTitle>Lunar New Year Lunch</EventTitle>
-                  <EventDescription>
-                    This year on 27 February 2019, we celebrated our 42nd Lunar
-                    New Year Lunch for the Elderly...
-                  </EventDescription>
-                  <Author>
-                    <AuthorPhoto>
-                      <img src={angela} alt="Angela" />
-                    </AuthorPhoto>
-                    <AuthorInfoContainer>
-                      <AuthorName>Angela</AuthorName>
-                      <PublishDate>10 Feb 2021</PublishDate>
-                    </AuthorInfoContainer>
-                  </Author>
-                </EventInfoContainer>
-                <ImgContainer>
-                  <div class="img">
-                    <img src="https://source.unsplash.com/random" alt="" />
-                  </div>
-                </ImgContainer>
-              </Card>
-              <Card>
-                <EventInfoContainer>
-                  <EventTitle>Lunar New Year Lunch</EventTitle>
-                  <EventDescription>
-                    This year on 27 February 2019, we celebrated our 42nd Lunar
-                    New Year Lunch for the Elderly...
-                  </EventDescription>
-                  <Author>
-                    <AuthorPhoto>
-                      <img src={angela} alt="Angela" />
-                    </AuthorPhoto>
-                    <AuthorInfoContainer>
-                      <AuthorName>Angela</AuthorName>
-                      <PublishDate>10 Feb 2021</PublishDate>
-                    </AuthorInfoContainer>
-                  </Author>
-                </EventInfoContainer>
-                <ImgContainer>
-                  <div class="img">
-                    <img src="https://source.unsplash.com/random" alt="" />
-                  </div>
-                </ImgContainer>
-              </Card>
-              <Card>
-                <EventInfoContainer>
-                  <EventTitle>Lunar New Year Lunch</EventTitle>
-                  <EventDescription>
-                    This year on 27 February 2019, we celebrated our 42nd Lunar
-                    New Year Lunch for the Elderly...
-                  </EventDescription>
-                  <Author>
-                    <AuthorPhoto>
-                      <img src={angela} alt="Angela" />
-                    </AuthorPhoto>
-                    <AuthorInfoContainer>
-                      <AuthorName>Angela</AuthorName>
-                      <PublishDate>10 Feb 2021</PublishDate>
-                    </AuthorInfoContainer>
-                  </Author>
-                </EventInfoContainer>
-                <ImgContainer>
-                  <div class="img">
-                    <img src="https://source.unsplash.com/random" alt="" />
+                  <div>
+                    <img
+                      src="https://source.unsplash.com/random/800x600"
+                      alt=""
+                    />
                   </div>
                 </ImgContainer>
               </Card>
@@ -203,15 +118,27 @@ const SearchSection = styled.div`
 `;
 
 const FilterSection = styled.div`
+  padding: 1em 2em;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+
+  @media (min-width: 600px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+`;
+
+const FilterItem = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+  margin-top: 1em;
+  border: 1px solid red;
+  width: 100%;
 
-  border: 1px solid blue;
-  @media (min-width: 600px) {
-    flex-direction: row;
-    align-items: flex-start;
+  :first-child {
+    margin-top: 0;
   }
 `;
 
@@ -220,13 +147,23 @@ const Label = styled.div`
   font-size: 0.8rem;
   color: var(--color-primary-1);
   margin-bottom: 0.3 em;
+  border: 2px solid blue;
 `;
 
 // https://stackoverflow.com/questions/58963030/drop-down-menu-using-styled-components-how-to-properly-use-class-selectors
 
-const List = styled.ul``;
+const List = styled.ul`
+  width: 100%;
+`;
 
 const Card = styled.li`
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  max-width: 600px;
+  border-radius: 15px;
+  margin: 1em auto;
+  padding: 0.5em;
+
   @media (min-width: 600px) {
     display: flex;
     flex-direction: row-reverse;
@@ -234,18 +171,19 @@ const Card = styled.li`
 `;
 
 const EventInfoContainer = styled.div`
-  width: 70%;
+  width: 100%;
 `;
 
-const EventTitle = styled.h3``;
+const EventTitle = styled.h4`
+  color: var(--color-primary-4);
+`;
 
 const EventDescription = styled.p`
   color: var(--color-font-dark);
 `;
 
 const ImgContainer = styled.div`
-  width: 30%;
-  max-height: 180px;
+  width: 100%;
   overflow: hidden;
 
   img {
@@ -255,6 +193,7 @@ const ImgContainer = styled.div`
     margin-left: auto;
     margin-right: auto;
     background-color: var(--color-white);
+    border-radius: 10px;
   }
 
   @media (min-width: 600px) {
@@ -264,6 +203,7 @@ const ImgContainer = styled.div`
 
 const Author = styled.div`
   display: flex;
+  margin: 0.5em 0;
 `;
 
 const AuthorPhoto = styled.div`

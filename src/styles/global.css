@@ -3,9 +3,9 @@
 /* ---------------------------------------------------------- */
 :root {
   --color-white: rgb(255, 255, 255, 1);
-  --color-white-transparent: rgb(255, 255, 255, 0.7);
+  --color-white-transparent: rgb(255, 255, 255, 0.85);
   --color-black: black;
-  --color-black-transparent: rgba(0, 0, 0, 0.3);
+  --color-black-transparent: rgba(0, 0, 0, 0.4);
   --color-darkgrey: grey;
   --color-grey: grey;
   --color-lightgrey: rgba(226, 226, 226, 1);

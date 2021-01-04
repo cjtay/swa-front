@@ -6,13 +6,13 @@ const DropDownContent = ({ content }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <Dropdown>
-      <button onClick={() => setOpen(!open)}>
+    <>
+      <Button onClick={() => setOpen(!open)}>
         <div>Select</div>
         <IoIosArrowDown />
-      </button>
+      </Button>
       {open && <DropdownContent>{content}</DropdownContent>}
-    </Dropdown>
+    </>
   );
 };
 
@@ -23,8 +23,10 @@ const DropdownContent = styled.div`
   position: absolute;
   min-width: 250px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  background-color: var(--color-white);
+  background-color: var(--color-white-transparent);
   z-index: 1;
+  border-radius: 10px;
+  /* margin-top: 0.5em; */
 
   a {
     float: none;
@@ -35,30 +37,23 @@ const DropdownContent = styled.div`
     text-align: left;
 
     :hover {
-      background-color: #ddd;
+      background-color: var(--color-black-transparent);
     }
   }
 `;
 
-const Dropdown = styled.div`
-  overflow: hidden;
-
-  /* :hover ${DropdownContent} {
-    display: block; */
-  }
-
-  button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.3em 1em;
-    width: 220px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background-color: inherit;
-    border-radius: 5px;
-    border: 1px solid var(--color-primary-1);
-    font-weight: 300;
-  }
+const Button = styled.button`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3em 1em;
+  width: 220px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: inherit;
+  border-radius: 5px;
+  border: 1px solid var(--color-primary-1);
+  font-weight: 300;
+  border: 2px solid green;
 `;
