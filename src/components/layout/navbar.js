@@ -41,16 +41,16 @@ const navData = [
   },
 ];
 
-const Navbar = ({ toggleSidebar }) => {
-  const [toggle, setToggle] = useState(false);
-  console.log("toggle: ", toggle);
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const data = useStaticQuery(getLogo);
 
   const tempLinks = navData.map(link => {
     return (
       <li key={link.id}>
         <Link to={link.url}>
-          <MenuItem>
+          <MenuItem isOpen={isOpen}>
             <span>{link.icon}</span>
             <div>{link.text}</div>
           </MenuItem>
@@ -59,13 +59,17 @@ const Navbar = ({ toggleSidebar }) => {
     );
   });
 
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <Wrapper>
         <Logo>
           <Image fluid={data.file.childImageSharp.fluid} alt="logo" />
           <LogoTitle>Singapore Women's Association</LogoTitle>
-          <MenuIcon onClick={() => setToggle(!toggle)}>
+          <MenuIcon onClick={handleClick}>
             <div />
             <div />
             <div />
@@ -76,12 +80,10 @@ const Navbar = ({ toggleSidebar }) => {
           <MenuWrapper>{tempLinks}</MenuWrapper>
           <CTA>Donate</CTA>
         </MenuContainer>
-      </Wrapper>
-      {toggle && (
         <MenuMobileContainer>
-          <MenuMobileWrapper>{tempLinks}</MenuMobileWrapper>
+          <MenuMobileWrapper isOpen={isOpen}>{tempLinks}</MenuMobileWrapper>
         </MenuMobileContainer>
-      )}
+      </Wrapper>
     </>
   );
 };
@@ -109,7 +111,6 @@ const Wrapper = styled.div`
   padding: 1em 1em;
   justify-content: center;
   color: var(--color-white);
-
   @media (min-width: 960px) {
     grid-template-columns: repeat(2, auto);
     justify-content: space-between;
@@ -118,7 +119,6 @@ const Wrapper = styled.div`
 
 const MenuContainer = styled.div`
   display: none;
-
   /* border: 1px solid red; */
   /* width: 100; */
   @media (min-width: 960px) {
@@ -145,41 +145,45 @@ const MenuWrapper = styled.ul`
 const MenuMobileContainer = styled.div`
   position: absolute;
   z-index: 1;
-  display: block;
+  /* display: ; */
   width: 100%;
-  height: 100vh;
-  border: 2px solid blue;
+  margin-top: 5em;
   color: var(--color-primary-1);
-
-  @media (min-width: 960px) {
-    display: none;
-  }
 `;
 
 const MenuMobileWrapper = styled.ul`
   display: grid;
   gap: 0.5em;
   grid-template-rows: repeat(5, auto);
-  width: 80%;
-  height: 50%;
+  opacity: ${props => (props.isOpen ? 0.95 : 0)};
+  visibility: ${props => (props.isOpen ? "visible" : "hidden")};
+  width: 60%;
+  height: 100%;
   border-radius: 10px;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  margin: 5em auto 0 auto;
-  padding: 1em 0;
+  margin: 0 auto;
+  padding: 1em 0 1em 2em;
   background-color: var(--color-white);
+  transform: ${props => (props.isOpen ? "translateX(0)" : "translateX(450px)")};
+  transition: 0.5s ease-in-out;
+
+  @media (min-width: 960px) {
+    display: none;
+  }
 `;
 
 const MenuItem = styled.div`
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 0.3em;
-  align-items: center;
-  padding: 0.3em 0.5em;
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: ${props => props.isOpen && "flex-start"}; */
+  /* align-items: stretch; */
+  padding: 0.3em 0.6em;
+  width: 100%;
   border-radius: 10px;
   transition: 0.3s ease-out;
   span {
-    margin-top: 5px;
+    margin-right: 1em;
   }
 
   :hover {
@@ -193,7 +197,6 @@ const Logo = styled.div`
   gap: 1em;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   /* border: 1px red solid; */
 
   img {

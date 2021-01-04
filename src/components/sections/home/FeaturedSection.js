@@ -27,11 +27,11 @@ const FeaturedSection = () => {
           <Card>
             <Text>
               <EventTitle>Lunar New Year Lunch 2019</EventTitle>
-              <p class="event-description">
+              <Description>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.Eaque
                 nihil non consequuntur odio obcaecati, consectetur in saepe
                 officiis maxime vero ipsam ipsa
-              </p>
+              </Description>
             </Text>
             <ImageContainer>
               <img src="https://source.unsplash.com/random" alt="img" />
@@ -41,11 +41,11 @@ const FeaturedSection = () => {
           <Card>
             <Text>
               <EventTitle>Annual Charity Dinner 2018</EventTitle>
-              <p class="event-description">
+              <Description>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.Eaque
                 nihil non consequuntur odio obcaecati, consectetur in saepe
                 officiis maxime vero ipsam ipsa
-              </p>
+              </Description>
             </Text>
             <ImageContainer>
               <img src="https://source.unsplash.com/random" alt="img" />
@@ -106,7 +106,7 @@ const Card = styled.li`
   }
 `;
 
-const Text = styled.p`
+const Text = styled.div`
   color: var(--color-white);
 `;
 const ImageContainer = styled.div`

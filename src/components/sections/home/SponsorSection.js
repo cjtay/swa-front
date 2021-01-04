@@ -14,15 +14,13 @@ const SponsorSection = () => {
     <>
       <Wrapper>
         <ContentWrapper>
-          <div class="sponsors-header">
-            <Title>Sponsors</Title>
-            <Description>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
-              accusamus fugiat expedita modi eveniet maxime aperiam excepturi
-              repellendus similique! Molestiae sequi ex minima labore culpa
-              pariatur dicta omnis blanditiis enim.
-            </Description>
-          </div>
+          <Title>Sponsors</Title>
+          <Description>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
+            accusamus fugiat expedita modi eveniet maxime aperiam excepturi
+            repellendus similique! Molestiae sequi ex minima labore culpa
+            pariatur dicta omnis blanditiis enim.
+          </Description>
 
           <List>
             <Item>

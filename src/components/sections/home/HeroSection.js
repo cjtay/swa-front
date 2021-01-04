@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import Image from "gatsby-image";
 import styled from "styled-components";
@@ -8,8 +8,13 @@ import { Wrapper, ContentWrapper } from "../../../styles/wrappers/Wrapper";
 
 const HeroSection = () => {
   const data = useStaticQuery(getHeroImage);
+  const [flag, setFlag] = useState(false);
 
   console.log(data);
+
+  const handleClick = () => {
+    setFlag(!flag);
+  };
 
   return (
     <Wrapper>
@@ -24,7 +29,9 @@ const HeroSection = () => {
               fugit laborum vero iste unde enim aliquid in nemo ea, optio ex
               architecto!
             </Description>
-            <ButtonLight>More</ButtonLight>
+            <ButtonLight onClick={handleClick}>
+              More : {flag ? "true" : "false"}
+            </ButtonLight>
           </Text>
           <Img>
             <Image fluid={data.file.childImageSharp.fluid} alt="swa logo" />
@@ -57,7 +64,7 @@ const Hero = styled.div`
   }
 `;
 
-const Text = styled.p`
+const Text = styled.div`
   margin-bottom: 1em;
   max-width: 100%;
 
