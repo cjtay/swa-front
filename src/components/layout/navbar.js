@@ -111,6 +111,7 @@ const Wrapper = styled.div`
   /* padding: 1em 1em; */
   justify-content: center;
   color: var(--color-white);
+  margin-bottom: 2em;
 
   @media (min-width: 960px) {
     grid-template-columns: repeat(2, auto);
