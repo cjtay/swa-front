@@ -24,26 +24,27 @@ const Events = () => {
           <SearchSection>
             <FilterSection>
               <FilterItem>
-                <Label>Filter by date range</Label>
+                <Label htmlFor="time">Select time</Label>
                 <DropDownContent
                   content={
                     <>
-                      <a href="/">Item 1</a>
-                      <a href="/">Item 2</a>
-                      <a href="/">Item 3</a>
+                      <div value="all">All</div>
+                      <div value="lastmonth">Last month</div>
+                      <div value="thisyear">This year</div>
+                      <div value="lastyear">Last year</div>
                     </>
                   }
                 />
               </FilterItem>
-
               <FilterItem>
-                <Label>Filter by programme</Label>
+                <Label htmlFor="programme">Select programme</Label>
                 <DropDownContent
                   content={
                     <>
-                      <a href="/">Item A</a>
-                      <a href="/">Item B</a>
-                      <a href="/">Item C</a>
+                      <div value="all">All</div>
+                      <div value="lastmonth">Last month</div>
+                      <div value="thisyear">This year</div>
+                      <div value="lastyear">Last year</div>
                     </>
                   }
                 />
@@ -113,38 +114,62 @@ const SectionBackground = styled.div`
 
 const SearchSection = styled.div`
   width: 100%;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
+  @media (min-width: 600px) {
+    margin-top: 1em;
+  }
 `;
 
 const FilterSection = styled.div`
-  padding: 1em 2em;
-  border: 1px solid lightgray;
+  width: 100%;
+  border: 1px solid var(--color-lightgrey);
   border-radius: 10px;
-
+  padding: 1em;
+  background-color: var(--color-primary-4);
+  background: -webkit-linear-gradient(
+    bottom right,
+    rgba(112, 49, 140, 1),
+    rgba(132, 137, 199, 1)
+  );
+  background: -moz-linear-gradient(
+    bottom right,
+    rgba(112, 49, 140, 1),
+    rgba(132, 137, 199, 1)
+  );
+  background: linear-gradient(
+    to top left,
+    rgba(112, 49, 140, 1),
+    rgba(132, 137, 199, 1)
+  );
   @media (min-width: 600px) {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
+    max-width: 600px;
+    margin: 0 auto;
   }
 `;
 
 const FilterItem = styled.div`
-  display: flex;
-  flex-direction: column;
   margin-top: 1em;
-  width: 100%;
-
   :first-child {
-    margin-top: 0;
+    margin-top: 0em;
+  }
+  select {
+    width: 100%;
+  }
+  @media (min-width: 600px) {
+    margin-top: 0em;
+    select {
+      width: 250px;
+    }
   }
 `;
 
 const Label = styled.div`
   font-weight: 300;
   font-size: 0.8rem;
-  color: var(--color-primary-1);
+  color: var(--color-white);
   margin-bottom: 0.3 em;
 `;
 
@@ -152,6 +177,7 @@ const Label = styled.div`
 
 const List = styled.ul`
   width: 100%;
+  margin-top: 2em;
 `;
 
 const Card = styled.li`

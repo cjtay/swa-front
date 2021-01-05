@@ -108,14 +108,15 @@ export const getLogo = graphql`
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: auto auto;
-  /* padding: 1em 1em; */
-  justify-content: center;
+  justify-content: space-between;
   color: var(--color-white);
-  margin-bottom: 2em;
+  padding: 1em;
+  margin: 0.5em auto;
 
   @media (min-width: 960px) {
-    grid-template-columns: repeat(2, auto);
-    justify-content: space-between;
+    grid-template-columns: 100px auto;
+    width: 100%;
+    max-width: 1200px;
   }
 `;
 
