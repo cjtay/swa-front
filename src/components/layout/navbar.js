@@ -63,6 +63,10 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       <Wrapper>
@@ -80,8 +84,13 @@ const Navbar = () => {
           <MenuWrapper>{tempLinks}</MenuWrapper>
           <CTA>Donate</CTA>
         </MenuContainer>
-        <MenuMobileContainer isOpen={isOpen}>
-          <MenuMobileWrapper isOpen={isOpen}>{tempLinks}</MenuMobileWrapper>
+        <MenuMobileContainer isOpen={isOpen} onClick={handleClose}>
+          <MenuMobileWrapper isOpen={isOpen}>
+            <Backdrop isOpen={isOpen} onClick={handleClose}>
+              Close
+            </Backdrop>
+            {tempLinks}
+          </MenuMobileWrapper>
         </MenuMobileContainer>
       </Wrapper>
     </>
@@ -123,6 +132,7 @@ const Wrapper = styled.div`
 const MenuContainer = styled.div`
   display: none;
   /* width: 100; */
+  border: 2px solid red;
   @media (min-width: 960px) {
     display: grid;
     grid-template-rows: 40px;
@@ -144,14 +154,32 @@ const MenuWrapper = styled.ul`
   }
 `;
 
+const Backdrop = styled.div`
+  position: absolute;
+  visibility: ${props => (props.isOpen ? "visible" : "hidden")};
+  top: -10px;
+  right: -10px;
+  padding: 0.7em 1em;
+  cursor: pointer;
+
+  background-color: var(--color-grey);
+  color: var(--color-white);
+  font-size: 0.8rem;
+  border-radius: 50px;
+`;
+
 const MenuMobileContainer = styled.div`
   position: absolute;
   visibility: ${props => (props.isOpen ? "visible" : "hidden")};
   z-index: 1;
   /* display: ; */
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100vh;
   margin-top: 5em;
   color: var(--color-primary-1);
+  /* border: 2px solid red; */
   @media (min-width: 960px) {
     display: none;
   }
@@ -164,7 +192,7 @@ const MenuMobileWrapper = styled.ul`
   opacity: ${props => (props.isOpen ? 0.95 : 0)};
   visibility: ${props => (props.isOpen ? "visible" : "hidden")};
   width: 60%;
-  height: 100%;
+  height: 300px;
   border-radius: 10px;
   justify-content: start;
   align-items: center;
