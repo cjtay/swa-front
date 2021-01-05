@@ -67,7 +67,7 @@ const EventPage = ({ data }) => {
 
           <PostContainer>
             <PostImage>
-              <img src="https://source.unsplash.com/random/" alt="post-photo" />
+              <img src="https://source.unsplash.com/random/" alt="random" />
             </PostImage>
             <ImageCaption>This is an image caption</ImageCaption>
           </PostContainer>
@@ -76,7 +76,7 @@ const EventPage = ({ data }) => {
             <PostImage>
               <img
                 src="https://source.unsplash.com/random/1200x800"
-                alt="post-photo"
+                alt="random"
               />
             </PostImage>
             <ImageCaption>This is a wide image</ImageCaption>
@@ -86,7 +86,7 @@ const EventPage = ({ data }) => {
             <PostImage left>
               <img
                 src="https://source.unsplash.com/random/900x800"
-                alt="post-photo"
+                alt="random"
               />
             </PostImage>
 
@@ -117,39 +117,39 @@ const EventPage = ({ data }) => {
             <Gallery>
               <GalleryImg
                 src="https://source.unsplash.com/cssvEZacHvQ"
-                alt="post-photo"
+                alt="random"
                 tall
               />
 
               <GalleryImg
                 src="https://source.unsplash.com/O-8Fmpx7HqQ"
-                alt="post-photo"
+                alt="random"
               />
 
               <GalleryImg
                 src="https://source.unsplash.com/FpATXvTxEI4"
-                alt="post-photo"
+                alt="random"
                 wide
               />
 
               <GalleryImg
                 src="https://source.unsplash.com/EwKXn5CapA4"
-                alt="post-photo"
+                alt="random"
               />
 
               <GalleryImg
                 src="https://source.unsplash.com/FpATXvTxEI4"
-                alt="post-photo"
+                alt="random"
               />
 
               <GalleryImg
                 src="https://source.unsplash.com/EwKXn5CapA4"
-                alt="post-photo"
+                alt="random"
               />
 
               <GalleryImg
                 src="https://source.unsplash.com/vltMzn0jqsA"
-                alt="post-photo"
+                alt="random"
                 wide
               />
             </Gallery>
@@ -158,39 +158,39 @@ const EventPage = ({ data }) => {
             <Gallery>
               <GalleryImg
                 src="https://source.unsplash.com/cssvEZacHvQ"
-                alt="post-photo"
+                alt="random"
                 tall
               />
 
               <GalleryImg
                 src="https://source.unsplash.com/O-8Fmpx7HqQ"
-                alt="post-photo"
+                alt="random"
               />
 
               <GalleryImg
                 src="https://source.unsplash.com/FpATXvTxEI4"
-                alt="post-photo"
+                alt="random"
                 wide
               />
 
               <GalleryImg
                 src="https://source.unsplash.com/EwKXn5CapA4"
-                alt="post-photo"
+                alt="random"
               />
 
               <GalleryImg
                 src="https://source.unsplash.com/FpATXvTxEI4"
-                alt="post-photo"
+                alt="random"
               />
 
               <GalleryImg
                 src="https://source.unsplash.com/EwKXn5CapA4"
-                alt="post-photo"
+                alt="random"
               />
 
               <GalleryImg
                 src="https://source.unsplash.com/vltMzn0jqsA"
-                alt="post-photo"
+                alt="random"
                 wide
               />
             </Gallery>
