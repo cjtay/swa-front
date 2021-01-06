@@ -14,13 +14,10 @@ export const query = graphql`
       slug
       title
       summary
-      smallPhoto {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
+      author {
+        name
       }
+      programme
     }
   }
 `;
@@ -42,13 +39,16 @@ const EventPageTemplate = ({ data }) => {
           <PostContainer>
             <PostInfo>
               <div>
-                <span>Programme: </span>Lunar New Year Lunch
+                <span>Programme: </span>
+                {event.programme}
               </div>
               <div>
-                <span>Date: </span>12 Feb 2021
+                <span>Date: </span>
+                {event.published_at}
               </div>
               <div>
-                <span>Author: </span>Lynette
+                <span>Author: </span>
+                {event.author.name}
               </div>
             </PostInfo>
           </PostContainer>

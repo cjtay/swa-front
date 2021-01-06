@@ -1,5 +1,5 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import styled from "styled-components";
 import { ButtonDark } from "../../../styles/buttons/ButtonStyles";
 import { Wrapper, ContentWrapper } from "../../../styles/wrappers/Wrapper";
@@ -42,7 +42,9 @@ const FeaturedSection = () => {
             maxime vero ipsam ipsa exercitationem.
           </Description>
           <ButtonPosition>
-            <ButtonDark>View all event</ButtonDark>
+            <Link to="/events/">
+              <ButtonDark>View all event</ButtonDark>
+            </Link>
           </ButtonPosition>
         </Header>
 

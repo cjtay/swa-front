@@ -1,33 +1,36 @@
 import React from "react";
+import { Link } from "gatsby";
 import Image from "gatsby-image";
 import styled from "styled-components";
 
 const EventCard = ({ event }) => {
   return (
-    <Card>
-      <EventInfoContainer>
-        <EventTitle>{event.title}</EventTitle>
-        <EventDescription>{event.summary}</EventDescription>
-        <Author>
-          <AuthorPhoto>
-            <Image
-              fluid={event.author.authorPhoto.childImageSharp.fluid}
-              alt={event.title}
-            />
-          </AuthorPhoto>
-          <AuthorInfoContainer>
-            <AuthorName>{event.author.name}</AuthorName>
-            <PublishDate>{event.published_at}</PublishDate>
-          </AuthorInfoContainer>
-        </Author>
-      </EventInfoContainer>
-      <ImgContainer>
-        <Image
-          fluid={event.smallPhoto.childImageSharp.fluid}
-          alt={event.title}
-        />
-      </ImgContainer>
-    </Card>
+    <Link to={`/events/${event.slug}`}>
+      <Card>
+        <EventInfoContainer>
+          <EventTitle>{event.title}</EventTitle>
+          <EventDescription>{event.summary}</EventDescription>
+          <Author>
+            <AuthorPhoto>
+              <Image
+                fluid={event.author.authorPhoto.childImageSharp.fluid}
+                alt={event.title}
+              />
+            </AuthorPhoto>
+            <AuthorInfoContainer>
+              <AuthorName>{event.author.name}</AuthorName>
+              <PublishDate>{event.published_at}</PublishDate>
+            </AuthorInfoContainer>
+          </Author>
+        </EventInfoContainer>
+        <ImgContainer>
+          <Image
+            fluid={event.smallPhoto.childImageSharp.fluid}
+            alt={event.title}
+          />
+        </ImgContainer>
+      </Card>
+    </Link>
   );
 };
 

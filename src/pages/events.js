@@ -182,6 +182,7 @@ export const getEvents = graphql`
         summary
         published_at(formatString: "Do MMM YYYY")
         id
+        slug
         smallPhoto {
           childImageSharp {
             fluid {
