@@ -131,8 +131,7 @@ const Wrapper = styled.div`
 
 const MenuContainer = styled.div`
   display: none;
-  /* width: 100; */
-  border: 2px solid red;
+
   @media (min-width: 960px) {
     display: grid;
     grid-template-rows: 40px;

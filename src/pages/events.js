@@ -1,13 +1,15 @@
 import React from "react";
+import { graphql } from "gatsby";
+// import Image from "gatsby-image";
 import Layout from "../components/layout/layout";
 import styled from "styled-components";
 import { Wrapper, ContentWrapper } from "../styles/wrappers/Wrapper";
 import { Header, Title, Description } from "../styles/SectionHeaders";
 import DropDownContent from "../components/sections/events/DropDownContent";
+import EventCard from "../components/sections/events/EventCard";
 
-import angela from "../images/wls.jpg";
-
-const Events = () => {
+const Events = ({ data }) => {
+  const eventList = data.allStrapiEvent.nodes;
   return (
     <Layout>
       <SectionBackground />
@@ -52,32 +54,9 @@ const Events = () => {
             </FilterSection>
 
             <List>
-              <Card>
-                <EventInfoContainer>
-                  <EventTitle>Lunar New Year Lunch</EventTitle>
-                  <EventDescription>
-                    This year on 27 February 2019, we celebrated our 42nd Lunar
-                    New Year Lunch for the Elderly... This year on 27 February
-                  </EventDescription>
-                  <Author>
-                    <AuthorPhoto>
-                      <img src={angela} alt="Angela" />
-                    </AuthorPhoto>
-                    <AuthorInfoContainer>
-                      <AuthorName>Angela</AuthorName>
-                      <PublishDate>10 Feb 2021</PublishDate>
-                    </AuthorInfoContainer>
-                  </Author>
-                </EventInfoContainer>
-                <ImgContainer>
-                  <div>
-                    <img
-                      src="https://source.unsplash.com/random/800x600"
-                      alt=""
-                    />
-                  </div>
-                </ImgContainer>
-              </Card>
+              {eventList.map(event => (
+                <EventCard event={event} key={event.id} />
+              ))}
             </List>
           </SearchSection>
         </ContentWrapper>
@@ -180,82 +159,37 @@ const List = styled.ul`
   margin-top: 2em;
 `;
 
-const Card = styled.li`
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(20px);
-  max-width: 600px;
-  border-radius: 15px;
-  margin: 1em auto;
-  padding: 0.5em;
+// -----------------------------------------
+// ...GatsbyImageSharpFluid
+// -----------------------------------------
 
-  @media (min-width: 600px) {
-    display: flex;
-    flex-direction: row-reverse;
+export const getEvents = graphql`
+  {
+    allStrapiEvent {
+      totalCount
+      nodes {
+        author {
+          name
+          authorPhoto {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        title
+        summary
+        published_at(formatString: "Do MMM YYYY")
+        id
+        smallPhoto {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
   }
-`;
-
-const EventInfoContainer = styled.div`
-  width: 100%;
-`;
-
-const EventTitle = styled.h4`
-  color: var(--color-primary-4);
-`;
-
-const EventDescription = styled.p`
-  color: var(--color-font-dark);
-`;
-
-const ImgContainer = styled.div`
-  width: 100%;
-  overflow: hidden;
-
-  img {
-    display: block;
-    max-width: 100%;
-    max-height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: var(--color-white);
-    border-radius: 10px;
-  }
-
-  @media (min-width: 600px) {
-    margin-right: 1em;
-  }
-`;
-
-const Author = styled.div`
-  display: flex;
-  margin: 0.5em 0;
-`;
-
-const AuthorPhoto = styled.div`
-  max-height: 30px;
-  overflow: hidden;
-  border-radius: 50px;
-  margin-right: 0.5em;
-
-  img {
-    display: block;
-    max-width: 30px;
-    max-height: auto;
-    margin-left: auto;
-    margin-right: auto;
-  }
-`;
-const AuthorInfoContainer = styled.div`
-  margin-bottom: 0.5em;
-`;
-
-const AuthorName = styled.div`
-  font-size: 0.8rem;
-  font-weight: 400;
-  color: var(--color-black);
-`;
-
-const PublishDate = styled.div`
-  font-size: 0.7rem;
-  font-weight: 300;
-  color: var(--color-darkgrey);
 `;

@@ -10,8 +10,6 @@ const HeroSection = () => {
   const data = useStaticQuery(getHeroImage);
   const [flag, setFlag] = useState(false);
 
-  console.log(data);
-
   const handleClick = () => {
     setFlag(!flag);
   };
