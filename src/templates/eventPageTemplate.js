@@ -1,21 +1,42 @@
 import React from "react";
+import { graphql } from "gatsby";
 // import ReactMarkdown from "react-markdown";
 import Layout from "../components/layout/layout";
 // import Image from "gatsby-image";
 import styled from "styled-components";
 import { Wrapper, ContentWrapper } from "../styles/wrappers/Wrapper";
 
-const EventPage = ({ data }) => {
+export const query = graphql`
+  query getSingleEvent($slug: String) {
+    strapiEvent(slug: { eq: $slug }) {
+      id
+      published_at(formatString: "Do MMM YYYY")
+      slug
+      title
+      summary
+      smallPhoto {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`;
+
+const EventPageTemplate = ({ data }) => {
+  console.log("from template ", data.strapiEvent.title);
+  const event = data.strapiEvent;
   return (
     <Layout>
       <SectionBackground />
+
       <Wrapper>
         <FeatureImage src="https://source.unsplash.com/random/" alt="" />
         <ContentWrapper>
           <PostContainer>
-            <PostTitle>
-              A Skill to Learn in 2021: Intercultural Competency
-            </PostTitle>
+            <PostTitle>{event.title}</PostTitle>
           </PostContainer>
 
           <PostContainer>
@@ -67,27 +88,27 @@ const EventPage = ({ data }) => {
 
           <PostContainer>
             <PostImage>
-              <img src="https://source.unsplash.com/random/" alt="post-photo" />
+              {/* <img src="https://source.unsplash.com/random/" alt="post-photo" /> */}
             </PostImage>
             <ImageCaption>This is an image caption</ImageCaption>
           </PostContainer>
 
           <PostContainerWide>
             <PostImage>
-              <img
+              {/* <img
                 src="https://source.unsplash.com/random/1200x800"
                 alt="random"
-              />
+              /> */}
             </PostImage>
             <ImageCaption>This is a wide image</ImageCaption>
           </PostContainerWide>
 
           <PostContainer>
             <PostImage left>
-              <img
+              {/* <img
                 src="https://source.unsplash.com/random/900x800"
                 alt="random"
-              />
+              /> */}
             </PostImage>
 
             <PostParagraph>
@@ -245,7 +266,7 @@ const EventPage = ({ data }) => {
   );
 };
 
-export default EventPage;
+export default EventPageTemplate;
 
 const SectionBackground = styled.div`
   background: rgba(112, 49, 140, 1);

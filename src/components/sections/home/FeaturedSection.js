@@ -16,6 +16,7 @@ const FeaturedSection = () => {
           title
           summary
           id
+          slug
           smallPhoto {
             childImageSharp {
               fluid {

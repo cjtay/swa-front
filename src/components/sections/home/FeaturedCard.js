@@ -1,23 +1,25 @@
 import React from "react";
 import Image from "gatsby-image";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import { Description } from "../../../styles/SectionHeaders";
 
 const FeaturedCard = ({ event }) => {
-  console.log(event.smallPhoto.childImageSharp.fluid);
   return (
-    <Card>
-      <ImageContainer>
-        <Image
-          fluid={event.smallPhoto.childImageSharp.fluid}
-          alt={event.title}
-        />
-      </ImageContainer>
-      <Text>
-        <EventTitle>{event.title}</EventTitle>
-        <Description>{event.summary}</Description>
-      </Text>
-    </Card>
+    <Link to={`/events/${event.slug}`}>
+      <Card>
+        <ImageContainer>
+          <Image
+            fluid={event.smallPhoto.childImageSharp.fluid}
+            alt={event.title}
+          />
+        </ImageContainer>
+        <Text>
+          <EventTitle>{event.title}</EventTitle>
+          <Description>{event.summary}</Description>
+        </Text>
+      </Card>
+    </Link>
   );
 };
 
