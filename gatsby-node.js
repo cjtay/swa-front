@@ -31,3 +31,37 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 };
+
+exports.onCreateNode = async ({
+  node,
+  actions,
+  store,
+  cache,
+  createNodeId,
+}) => {
+  const { createNode } = actions;
+
+  let photo_gallery = node.images;
+
+  if (node.internal.type === "StrapiEvent") {
+    if (photo_gallery.length > 0) {
+      photo_gallery.forEach(el => console.log(el));
+      const images = await Promise.all(
+        photo_gallery.map(el =>
+          createRemoteFileNode({
+            url: `http://localhost:1337/${el.url}`,
+            parentNodeId: node.id,
+            store,
+            cache,
+            createNode,
+            createNodeId,
+          })
+        )
+      );
+
+      photo_gallery.forEach((image, i) => {
+        image.localFile___NODE = images[i].id;
+      });
+    }
+  }
+};

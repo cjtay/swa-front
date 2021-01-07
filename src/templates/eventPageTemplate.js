@@ -40,6 +40,17 @@ export const query = graphql`
         }
         boxed
         wide
+        photo_gallery {
+          formats {
+            thumbnail {
+              childImageSharp {
+                original {
+                  src
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
