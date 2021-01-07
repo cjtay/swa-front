@@ -129,7 +129,7 @@ const EventPageTemplate = ({ data }) => {
                         fluid={photo.formats.small.childImageSharp.fluid}
                       />
                     </Gallery>
-                  ))}
+                  ))} 
                 </PostContainer>
               )} */}
             </div>
@@ -374,7 +374,7 @@ const FeatureImage = styled.img`
   height: 20vh;
 `;
 
-const Highlight = styled.p`
+const Highlight = styled.div`
   background-color: var(--color-primary-light);
   border: 1px solid var(--color-primary-2);
   border-radius: 10px;
@@ -382,57 +382,39 @@ const Highlight = styled.p`
   font-weight: 400;
 `;
 
-const Gallery = styled.div`
-  display: grid;
-  max-width: 100%;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1em;
-  align-items: stretch;
-  grid-auto-rows: 300px;
-  grid-auto-flow: dense;
-  background-color: #333;
-  padding: 1em;
-`;
+// const Gallery = styled.div`
+//   display: grid;
+//   max-width: 100%;
+//   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+//   gap: 1em;
+//   align-items: stretch;
+//   grid-auto-rows: 300px;
+//   grid-auto-flow: dense;
+//   background-color: #333;
+//   padding: 1em;
+// `;
 
-const GalleryImg = styled.img`
-  border: 1px solid white;
-  max-width: 100%;
-  object-fit: cover;
+// const GalleryImg = styled.img`
+//   border: 1px solid white;
+//   max-width: 100%;
+//   object-fit: cover;
 
-  @media (min-width: 900px) {
-    grid-column: ${props => props.wide && "span 2"};
-    grid-row: ${props => props.tall && "span 2"};
-  }
-`;
+//   @media (min-width: 900px) {
+//     grid-column: ${props => props.wide && "span 2"};
+//     grid-row: ${props => props.tall && "span 2"};
+//   }
+// `;
 
-const Bullets = styled.ul`
-  list-style-type: disc;
-  background-color: var(--color-lightgrey);
-  border: 1px solid var(--color-primary-2);
-  border-radius: 10px;
-  padding: 1em 1em 1em 2em;
-  font-weight: 400;
-  font-size: inherit;
+// const Bullets = styled.ul`
+//   list-style-type: disc;
+//   background-color: var(--color-lightgrey);
+//   border: 1px solid var(--color-primary-2);
+//   border-radius: 10px;
+//   padding: 1em 1em 1em 2em;
+//   font-weight: 400;
+//   font-size: inherit;
 
-  li {
-    margin: 1em auto;
-  }
-`;
-// export const query = graphql`
-//   query SingleEvent($slug: String) {
-//     strapiEvent(slug: { eq: $slug }) {
-//       id
-//       description
-//       slug
-//       title
-//       published_at(formatString: "MMM Do YYYY")
-//       mainPhoto {
-//         childImageSharp {
-//           fluid {
-//             ...GatsbyImageSharpFluid
-//           }
-//         }
-//       }
-//     }
+//   li {
+//     margin: 1em auto;
 //   }
 // `;
