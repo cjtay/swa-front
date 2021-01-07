@@ -2,29 +2,54 @@ import React from "react";
 import { graphql } from "gatsby";
 // import ReactMarkdown from "react-markdown";
 import Layout from "../components/layout/layout";
-// import Image from "gatsby-image";
+import Image from "gatsby-image";
 import styled from "styled-components";
 import { Wrapper, ContentWrapper } from "../styles/wrappers/Wrapper";
-
+// ...GatsbyImageSharpFluid
 export const query = graphql`
   query getSingleEvent($slug: String) {
     strapiEvent(slug: { eq: $slug }) {
-      id
-      published_at(formatString: "Do MMM YYYY")
-      slug
-      title
-      summary
       author {
         name
       }
+      id
       programme
+      published_at(formatString: "Do MMM YYYY")
+      slug
+      summary
+      title
+      eventContent {
+        sectionTitle
+        singleParagraph
+        singlePhoto {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        photo_position
+        photoCaption
+        paragraph_text
+        paragraph_photo {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        boxed
+        wide
+      }
     }
   }
 `;
 
 const EventPageTemplate = ({ data }) => {
-  console.log("from template ", data.strapiEvent.title);
   const event = data.strapiEvent;
+  const content = data.strapiEvent.eventContent;
+  console.log("content: ", content);
+
   return (
     <Layout>
       <SectionBackground />
@@ -53,88 +78,64 @@ const EventPageTemplate = ({ data }) => {
             </PostInfo>
           </PostContainer>
 
-          <PostContainer>
-            <PostParagraph>
-              Normal paragraph without title.
-              <br />
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Perspiciatis est incidunt animi optio expedita praesentium
-              laudantium quidem esse reiciendis, debitis, repudiandae laboriosam
-              error quo recusandae dolorem rem placeat quas. Quibusdam!
-            </PostParagraph>
-          </PostContainer>
-          <PostContainer>
-            <PostSectionTitle>
-              This is a section with a section title
-            </PostSectionTitle>
-            <PostParagraph>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Perspiciatis est incidunt animi optio expedita praesentium
-              laudantium quidem esse reiciendis, debitis, repudiandae laboriosam
-              error quo recusandae dolorem rem placeat quas. Quibusdam!
-            </PostParagraph>
-          </PostContainer>
+          {content.map((item, index) => (
+            <div key={index}>
+              {item.sectionTitle !== null && (
+                <PostContainer wide={item.wide && "wide"}>
+                  <PostSectionTitle>{item.sectionTitle}</PostSectionTitle>
+                </PostContainer>
+              )}
+              {item.singleParagraph !== null && (
+                <PostContainer wide={item.wide && "wide"}>
+                  {item.boxed ? (
+                    <Highlight>
+                      <PostParagraph>{item.singleParagraph}</PostParagraph>
+                    </Highlight>
+                  ) : (
+                    <PostParagraph>{item.singleParagraph}</PostParagraph>
+                  )}
+                </PostContainer>
+              )}
+              {item.singlePhoto !== null && (
+                <PostContainer wide={item.wide && "wide"}>
+                  <PostImage>
+                    <Image
+                      fluid={item.singlePhoto.childImageSharp.fluid}
+                      alt="test"
+                    />
+                  </PostImage>
+                  {item.photoCaption !== null && (
+                    <ImageCaption>{item.photoCaption}</ImageCaption>
+                  )}
+                </PostContainer>
+              )}
+              {item.paragraph_text !== null && (
+                <PostContainer wide={item.wide && "wide"}>
+                  <PostImage position={item.photo_position}>
+                    <Image
+                      fluid={item.paragraph_photo.childImageSharp.fluid}
+                      alt={event.title}
+                    />
+                  </PostImage>
 
-          <PostContainerWide>
-            <PostParagraph>
-              Wide paragraph.
-              <br />
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Perspiciatis est incidunt animi optio expedita praesentium
-              laudantium quidem esse reiciendis, debitis, repudiandae laboriosam
-              error quo recusandae dolorem rem placeat quas. Quibusdam!
-            </PostParagraph>
-          </PostContainerWide>
+                  <PostParagraph>{item.paragraph_text}</PostParagraph>
+                </PostContainer>
+              )}
+              {/* {item.photo_gallery !== null && (
+                <PostContainer wide={item.wide && "wide"}>
+                  {item.photo_gallery.map((photo, index) => (
+                    <Gallery key={index}>
+                      <Image
+                        fluid={photo.formats.small.childImageSharp.fluid}
+                      />
+                    </Gallery>
+                  ))}
+                </PostContainer>
+              )} */}
+            </div>
+          ))}
 
-          <PostContainer>
-            <PostImage>
-              {/* <img src="https://source.unsplash.com/random/" alt="post-photo" /> */}
-            </PostImage>
-            <ImageCaption>This is an image caption</ImageCaption>
-          </PostContainer>
-
-          <PostContainerWide>
-            <PostImage>
-              {/* <img
-                src="https://source.unsplash.com/random/1200x800"
-                alt="random"
-              /> */}
-            </PostImage>
-            <ImageCaption>This is a wide image</ImageCaption>
-          </PostContainerWide>
-
-          <PostContainer>
-            <PostImage left>
-              {/* <img
-                src="https://source.unsplash.com/random/900x800"
-                alt="random"
-              /> */}
-            </PostImage>
-
-            <PostParagraph>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Perspiciatis est incidunt animi optio expedita praesentium
-              laudantium quidem esse reiciendis, debitis, repudiandae laboriosam
-              error quo recusandae dolorem rem placeat quas. Quibusdam! Lorem
-              ipsum dolor sit amet consectetur adipisicing elit. recusandae
-              dolorem rem placeat quas. Quibusdam! Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Perspiciatis est incidunt animi
-              optio expedita praesentium laudantium quidem esse reiciendis,
-              debitis, repudiandae laboriosam error quo recusandae dolorem rem
-              placeat quas. Quibusdam! Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. recusandae dolorem rem placeat quas. Quibusdam!
-            </PostParagraph>
-          </PostContainer>
-          <PostContainer>
-            <Highlight>
-              This is a highlighted section <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse
-              harum blanditiis id molestiae est voluptas facilis magnam
-              voluptatum maiores unde eveniet, numquam a optio eum saepe! Ut
-              modi autem reiciendis?
-            </Highlight>
-          </PostContainer>
-          <PostContainer>
+          {/* <PostContainer>
             <Gallery>
               <GalleryImg
                 src="https://source.unsplash.com/cssvEZacHvQ"
@@ -174,8 +175,8 @@ const EventPageTemplate = ({ data }) => {
                 wide
               />
             </Gallery>
-          </PostContainer>
-          <PostContainerWide>
+          </PostContainer> */}
+          {/* <PostContainer>
             <Gallery>
               <GalleryImg
                 src="https://source.unsplash.com/cssvEZacHvQ"
@@ -215,8 +216,8 @@ const EventPageTemplate = ({ data }) => {
                 wide
               />
             </Gallery>
-          </PostContainerWide>
-          <PostContainer>
+          </PostContainer> */}
+          {/* <PostContainer>
             <Bullets>
               <li>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -243,8 +244,8 @@ const EventPageTemplate = ({ data }) => {
                 blanditiis deserunt omnis molestias!
               </li>
             </Bullets>
-          </PostContainer>
-          <PostContainer>
+          </PostContainer> */}
+          {/* <PostContainer>
             <PostParagraph column>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
               perspiciatis pariatur odio debitis earum assumenda. Non possimus
@@ -259,7 +260,7 @@ const EventPageTemplate = ({ data }) => {
               voluptate eligendi sed cum? Nisi iste deleniti labore corporis.
               Debitis!
             </PostParagraph>
-          </PostContainer>
+          </PostContainer> */}
         </ContentWrapper>
       </Wrapper>
     </Layout>
@@ -293,12 +294,7 @@ const SectionBackground = styled.div`
 `;
 
 const PostContainer = styled.div`
-  max-width: 700px;
-  margin: 1.5em auto;
-`;
-
-const PostContainerWide = styled.div`
-  max-width: 1200px;
+  max-width: ${props => (props.wide ? "1200px" : "700px")};
   margin: 1.5em auto;
 `;
 
@@ -316,6 +312,7 @@ const PostTitle = styled.h1`
 
 const PostSectionTitle = styled.h3`
   font-weight: 700;
+  margin-bottom: -1em;
   color: var(--color-primary-1);
 `;
 
@@ -345,14 +342,22 @@ const PostImage = styled.div`
   }
 
   @media (min-width: 600px) {
-    width: ${props => (props.right || props.left ? "200px" : "100%")};
+    width: ${props =>
+      props.position === "right" || props.position === "left"
+        ? "200px"
+        : "100%"};
     overflow: hidden;
-    float: ${props => (props.left ? "left" : props.right ? "right" : null)};
-    margin-left: ${props => props.right && "1em"};
-    margin-right: ${props => props.left && "1em"};
-    margin-bottom: ${props => (props.left || props.right) && "0.8em"};
-    /* padding: 0.5em; */
-    /* box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.25); */
+    float: ${props =>
+      props.position === "left"
+        ? "left"
+        : props.position === "right"
+        ? "right"
+        : null};
+    margin-left: ${props => props.position === "right" && "1em"};
+    margin-right: ${props => props.position === "left" && "1em"};
+    margin-bottom: ${props =>
+      (props.position === "left" || props.position === "right") && "0.5em"};
+    margin-top: 0.4em;
   }
 `;
 
