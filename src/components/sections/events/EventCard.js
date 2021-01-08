@@ -4,6 +4,7 @@ import Image from "gatsby-image";
 import styled from "styled-components";
 
 const EventCard = ({ event }) => {
+  console.log("event card: ", event);
   return (
     <Link to={`/events/${event.slug}`}>
       <Card>
@@ -12,10 +13,12 @@ const EventCard = ({ event }) => {
           <EventDescription>{event.summary}</EventDescription>
           <Author>
             <AuthorPhoto>
-              <Image
-                fluid={event.author.authorPhoto.childImageSharp.fluid}
-                alt={event.title}
-              />
+              {event.author.authorPhoto !== null && (
+                <Image
+                  fluid={event.author.authorPhoto.childImageSharp.fluid}
+                  alt={event.title}
+                />
+              )}
             </AuthorPhoto>
             <AuthorInfoContainer>
               <AuthorName>{event.author.name}</AuthorName>
@@ -24,10 +27,12 @@ const EventCard = ({ event }) => {
           </Author>
         </EventInfoContainer>
         <ImgContainer>
-          <Image
-            fluid={event.smallPhoto.childImageSharp.fluid}
-            alt={event.title}
-          />
+          {event.smallPhoto !== null && (
+            <Image
+              fluid={event.smallPhoto.childImageSharp.fluid}
+              alt={event.title}
+            />
+          )}
         </ImgContainer>
       </Card>
     </Link>
@@ -87,17 +92,20 @@ const Author = styled.div`
 `;
 
 const AuthorPhoto = styled.div`
-  width: 25px;
+  width: 30px;
+  height: 30px;
   overflow: hidden;
   margin-right: 0.5em;
+  border: 1px solid var(--color-primary-1);
+  /* padding: 2px; */
+  border-radius: 100%;
 
   img {
     display: block;
-    max-width: 30px;
-    max-height: auto;
+    width: 30px;
+    height: 30px;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 50px;
   }
 `;
 const AuthorInfoContainer = styled.div`

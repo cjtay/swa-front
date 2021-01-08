@@ -14,6 +14,13 @@ export const query = graphql`
     strapiEvent(slug: { eq: $slug }) {
       author {
         name
+        authorPhoto {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
       id
       programme
@@ -68,18 +75,34 @@ const EventPageTemplate = ({ data }) => {
 
           <PostContainer>
             <PostInfo>
-              <div>
-                <span>Programme: </span>
-                {event.programme}
-              </div>
-              <div>
-                <span>Date: </span>
-                {event.published_at}
-              </div>
-              <div>
+              <Author>
+                <AuthorPhoto>
+                  {event.author.authorPhoto !== null && (
+                    <Image
+                      fluid={event.author.authorPhoto.childImageSharp.fluid}
+                      alt={event.title}
+                    />
+                  )}
+                </AuthorPhoto>
+                <AuthorInfoContainer>
+                  <AuthorName>{event.author.name}</AuthorName>
+                  <PublishDate>{event.published_at}</PublishDate>
+                </AuthorInfoContainer>
+              </Author>
+              <ProgrammeInfo>
+                <div>
+                  <span>Programme: </span>
+                  {event.programme}
+                </div>
+                <div>
+                  <span>Date: </span>
+                  {event.published_at}
+                </div>
+              </ProgrammeInfo>
+              {/* <div>
                 <span>Author: </span>
                 {event.author.name}
-              </div>
+              </div> */}
             </PostInfo>
           </PostContainer>
 
@@ -239,34 +262,6 @@ const EventPageTemplate = ({ data }) => {
               />
             </Gallery>
           </PostContainer> */}
-          {/* <PostContainer>
-            <Bullets>
-              <li>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti illo asperiores officia tempore neque delectus maiores
-                vitae repellendus velit repellat vel cum error possimus
-                quibusdam sed, molestias molestiae mollitia ratione.
-              </li>
-              <li>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
-                nulla sunt rerum eveniet culpa ut ex nobis, ducimus tempore
-                excepturi nesciunt nihil, quia doloribus non alias vero
-                sapiente. Laudantium, dolores.
-              </li>
-              <li>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro
-                enim dolores quas architecto corrupti unde sunt dicta
-                repudiandae, quae velit, similique, est voluptate quidem?
-                Voluptas quod suscipit ut ratione amet.
-              </li>
-              <li>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Maiores nemo iusto libero harum nihil obcaecati dignissimos,
-                velit est, suscipit deleniti minus hic ex, ipsum dolore adipisci
-                blanditiis deserunt omnis molestias!
-              </li>
-            </Bullets>
-          </PostContainer> */}
         </ContentWrapper>
       </Wrapper>
     </Layout>
@@ -309,10 +304,19 @@ const PostContainer = styled.div`
 `;
 
 const PostInfo = styled.div`
-  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 0.9rem;
   span {
     font-weight: 400;
   }
+`;
+
+const ProgrammeInfo = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 const PostTitle = styled.h1`
@@ -379,11 +383,11 @@ const ImageCaption = styled.div`
   /* text-align: center; */
 `;
 
-const FeatureImage = styled.img`
-  object-fit: cover;
-  width: 100%;
-  height: 20vh;
-`;
+// const FeatureImage = styled.img`
+//   object-fit: cover;
+//   width: 100%;
+//   height: 20vh;
+// `;
 
 const Highlight = styled.div`
   background-color: var(--color-primary-light);
@@ -463,6 +467,47 @@ const MarkdownStyle = styled.div`
       top: 10px;
     } */
   }
+`;
+
+const Author = styled.div`
+  display: flex;
+  margin: 0.5em 0;
+`;
+
+const AuthorInfoContainer = styled.div`
+  margin-bottom: 0.5em;
+`;
+
+const AuthorName = styled.div`
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-black);
+`;
+
+const AuthorPhoto = styled.div`
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
+  margin-right: 0.5em;
+  border: 1px solid var(--color-primary-1);
+  border-radius: 100%;
+
+  /* img {
+    display: block;
+    max-width: 30px;
+    max-height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+  } */
+`;
+
+const PublishDate = styled.div`
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: var(--color-darkgrey);
 `;
 
 // const Gallery = styled.div`
