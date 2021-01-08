@@ -60,7 +60,7 @@ const EventPageTemplate = ({ data }) => {
       <SectionBackground />
 
       <Wrapper>
-        <FeatureImage src="https://source.unsplash.com/random/" alt="" />
+        {/* <FeatureImage src="https://source.unsplash.com/random/" alt="" /> */}
         <ContentWrapper>
           <PostContainer>
             <PostTitle>{event.title}</PostTitle>
@@ -322,6 +322,7 @@ const PostTitle = styled.h1`
 
 const PostSectionTitle = styled.h3`
   font-weight: 700;
+  padding-bottom: 0.2em;
   color: var(--color-primary-1);
 `;
 
