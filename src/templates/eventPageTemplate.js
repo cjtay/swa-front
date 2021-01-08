@@ -19,8 +19,8 @@ export const query = graphql`
       summary
       title
       eventContent {
-        sectionTitle
         singleParagraph
+        paragraph_title
         singlePhoto {
           childImageSharp {
             fluid {
@@ -40,17 +40,7 @@ export const query = graphql`
         }
         boxed
         wide
-        photo_gallery {
-          formats {
-            thumbnail {
-              childImageSharp {
-                original {
-                  src
-                }
-              }
-            }
-          }
-        }
+        two_columns
       }
     }
   }
@@ -91,19 +81,26 @@ const EventPageTemplate = ({ data }) => {
 
           {content.map((item, index) => (
             <div key={index}>
-              {item.sectionTitle !== null && (
-                <PostContainer wide={item.wide && "wide"}>
-                  <PostSectionTitle>{item.sectionTitle}</PostSectionTitle>
-                </PostContainer>
-              )}
               {item.singleParagraph !== null && (
-                <PostContainer wide={item.wide && "wide"}>
+                <PostContainer wide={item.wide && true}>
                   {item.boxed ? (
                     <Highlight>
-                      <PostParagraph>{item.singleParagraph}</PostParagraph>
+                      <PostSectionTitle>
+                        {item.paragraph_title}
+                      </PostSectionTitle>
+                      <PostParagraph column={item.two_columns && true}>
+                        {item.singleParagraph}
+                      </PostParagraph>
                     </Highlight>
                   ) : (
-                    <PostParagraph>{item.singleParagraph}</PostParagraph>
+                    <>
+                      <PostSectionTitle>
+                        {item.paragraph_title}
+                      </PostSectionTitle>
+                      <PostParagraph column={item.two_columns && true}>
+                        {item.singleParagraph}
+                      </PostParagraph>
+                    </>
                   )}
                 </PostContainer>
               )}
@@ -256,22 +253,6 @@ const EventPageTemplate = ({ data }) => {
               </li>
             </Bullets>
           </PostContainer> */}
-          {/* <PostContainer>
-            <PostParagraph column>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-              perspiciatis pariatur odio debitis earum assumenda. Non possimus
-              repellendus tenetur dolor qui dolorem! Distinctio quisquam tempore
-              blanditiis praesentium porro mollitia eveniet. Praesentium
-              laboriosam fuga earum accusantium iure perspiciatis quasi aperiam
-              natus vel ipsa error animi dolor nesciunt, sed voluptate
-              doloremque deleniti? Pariatur repellat maiores consequuntur
-              adipisci saepe, qui nobis libero quaerat. Iure temporibus delectus
-              eius rem maxime tempora quidem fuga est fugiat mollitia adipisci
-              exercitationem ipsa, quam eos perferendis obcaecati beatae
-              voluptate eligendi sed cum? Nisi iste deleniti labore corporis.
-              Debitis!
-            </PostParagraph>
-          </PostContainer> */}
         </ContentWrapper>
       </Wrapper>
     </Layout>
@@ -306,7 +287,11 @@ const SectionBackground = styled.div`
 
 const PostContainer = styled.div`
   max-width: ${props => (props.wide ? "1200px" : "700px")};
-  margin: 1.5em auto;
+  margin: 3em auto;
+
+  @media (min-width: 600px) {
+    margin: 2em auto;
+  }
 `;
 
 const PostInfo = styled.div`
@@ -323,7 +308,6 @@ const PostTitle = styled.h1`
 
 const PostSectionTitle = styled.h3`
   font-weight: 700;
-  margin-bottom: -1em;
   color: var(--color-primary-1);
 `;
 
@@ -350,6 +334,7 @@ const PostImage = styled.div`
     max-height: auto;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 0.5em;
   }
 
   @media (min-width: 600px) {
