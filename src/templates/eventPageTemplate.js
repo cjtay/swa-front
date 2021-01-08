@@ -1,10 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
-// import ReactMarkdown from "react-markdown";
 import Layout from "../components/layout/layout";
 import Image from "gatsby-image";
 import styled from "styled-components";
 import { Wrapper, ContentWrapper } from "../styles/wrappers/Wrapper";
+
+import ReactMarkdown from "react-markdown";
+import gfm from "remark-gfm";
+
 // ...GatsbyImageSharpFluid
 export const query = graphql`
   query getSingleEvent($slug: String) {
@@ -41,6 +44,7 @@ export const query = graphql`
         boxed
         wide
         two_columns
+        rich_text
       }
     }
   }
@@ -127,6 +131,16 @@ const EventPageTemplate = ({ data }) => {
                   </PostImage>
 
                   <PostParagraph>{item.paragraph_text}</PostParagraph>
+                </PostContainer>
+              )}
+              {item.rich_text !== null && (
+                <PostContainer wide={item.wide && "wide"}>
+                  <MarkdownStyle>
+                    <ReactMarkdown
+                      source={item.rich_text}
+                      plugins={[[gfm, { singleTilde: false }]]}
+                    />
+                  </MarkdownStyle>
                 </PostContainer>
               )}
               {/* {item.photo_gallery !== null && (
@@ -340,7 +354,7 @@ const PostImage = styled.div`
   @media (min-width: 600px) {
     width: ${props =>
       props.position === "right" || props.position === "left"
-        ? "200px"
+        ? "250px"
         : "100%"};
     overflow: hidden;
     float: ${props =>
@@ -376,6 +390,78 @@ const Highlight = styled.div`
   border-radius: 10px;
   padding: 1em;
   font-weight: 400;
+`;
+
+const MarkdownStyle = styled.div`
+  h1 {
+    font-weight: 900;
+    color: var(--color-primary-1);
+  }
+  h2 {
+    font-weight: 900;
+    color: var(--color-primary-1);
+  }
+  h3 {
+    font-weight: 700;
+    color: var(--color-primary-1);
+  }
+
+  p {
+    color: var(--color-black);
+    /* font-size: 1.4rem; */
+    line-height: 1.5;
+
+    @media (min-width: 600px) {
+      column-count: ${props => props.column && "2"};
+      column-gap: ${props => props.column && "2em"};
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    list-style-image: none;
+    margin: 1em auto;
+    color: var(--color-black);
+  }
+
+  em,
+  strong {
+    font-weight: 700;
+    color: var(--color-primary-2);
+  }
+
+  u {
+    text-decoration: underline;
+  }
+
+  blockquote > p {
+    display: inline-block;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: var(--color-primary-1);
+    margin: 1em auto;
+    background-color: var(--color-primary-4);
+    border-radius: 15px;
+    padding: 0 0.8em 0 0;
+
+    ::before {
+      content: "Q";
+      font-size: 5rem;
+      font-weight: 400;
+      margin-right: 0.1em;
+      position: relative;
+      top: -7px;
+      right: -7px;
+    }
+
+    /* ::after {
+      content: "_____";
+      position: relative;
+      left: -250px;
+      top: 10px;
+    } */
+  }
 `;
 
 // const Gallery = styled.div`

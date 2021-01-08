@@ -55,7 +55,7 @@ const EventInfoContainer = styled.div`
 `;
 
 const EventTitle = styled.h4`
-  color: var(--color-primary-4);
+  color: var(--color-primary-3);
 `;
 
 const EventDescription = styled.p`
