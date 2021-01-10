@@ -5,6 +5,7 @@ import styled from "styled-components";
 import HeroBackground from "../../backgrounds/HeroBackground";
 import { ButtonLight } from "../../../styles/buttons/ButtonStyles";
 import { Wrapper, ContentWrapper } from "../../../styles/wrappers/Wrapper";
+import { Description } from "../../../styles/SectionHeaders";
 
 const HeroSection = () => {
   const data = useStaticQuery(getHeroImage);
@@ -94,10 +95,6 @@ const Img = styled.div`
     width: 50%;
     margin-right: 1em;
   }
-`;
-
-const Description = styled.p`
-  margin: 0.5em 0;
 `;
 
 // ----------- graphql -------------------

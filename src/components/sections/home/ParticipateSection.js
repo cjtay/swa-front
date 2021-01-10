@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Wrapper, ContentWrapper } from "../../../styles/wrappers/Wrapper";
 import { ButtonDark } from "../../../styles/buttons/ButtonStyles";
+import { Header, Title, Description } from "../../../styles/SectionHeaders";
 
 const ParticipateSection = () => {
   return (
@@ -63,15 +64,6 @@ const ParticipateSection = () => {
 
 export default ParticipateSection;
 
-const Title = styled.h2`
-  margin-bottom: 0.2em 0;
-  color: var(--color-primary-3);
-`;
-
-const Description = styled.p`
-  margin: 0.5em 0;
-`;
-
 const ButtonPosition = styled.div`
   align-self: center;
   margin-bottom: 1.5em;
@@ -81,20 +73,9 @@ const ButtonPosition = styled.div`
   }
 `;
 
-const Header = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  @media (min-width: 600px) {
-    max-width: 50%;
-    justify-content: flex-start;
-  }
-`;
-
 const List = styled.ul`
   @media (min-width: 600px) {
-    margin: 0 auto;
+    margin: 1em 0 0 auto;
     max-width: 600px;
   }
 `;
@@ -103,7 +84,7 @@ const Card = styled.li`
   background: var(--color-lightgrey);
   padding: 1em;
   border-radius: 10px;
-  margin-top: 0.5em;
+  margin-top: 1em;
 
   @media (min-width: 600px) {
     display: flex;
@@ -128,6 +109,7 @@ const ParticipateText = styled.div`
 const ParticipateDescription = styled.p`
   color: var(--color-black);
   margin-bottom: 0.5em;
+  line-height: 1.6;
 `;
 
 const ImageContainer = styled.div`

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { ButtonDark } from "../../../styles/buttons/ButtonStyles";
 import { Wrapper, ContentWrapper } from "../../../styles/wrappers/Wrapper";
+import { Header, Title, Description } from "../../../styles/SectionHeaders";
 
 const ProgrammeSection = () => {
   return (
@@ -63,26 +64,6 @@ const ProgrammeSection = () => {
 };
 
 export default ProgrammeSection;
-
-const Title = styled.h2`
-  margin-bottom: 0.2em 0;
-  color: var(--color-primary-3);
-`;
-
-const Description = styled.p`
-  margin: 0.5em 0;
-`;
-
-const Header = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  @media (min-width: 600px) {
-    max-width: 50%;
-    justify-content: flex-start;
-  }
-`;
 
 const ButtonPosition = styled.div`
   align-self: center;

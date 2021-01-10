@@ -7,6 +7,7 @@ export const Title = styled.h2`
 
 export const Description = styled.p`
   margin: 0.5em 0;
+  line-height: 1.6;
 `;
 
 export const Header = styled.div`

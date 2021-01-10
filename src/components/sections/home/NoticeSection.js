@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Wrapper, ContentWrapper } from "../../../styles/wrappers/Wrapper";
+import { Title, Description } from "../../../styles/SectionHeaders";
 
 const AnnouncementSection = () => {
   return (
@@ -20,15 +21,6 @@ const AnnouncementSection = () => {
 };
 
 export default AnnouncementSection;
-
-const Title = styled.h2`
-  margin-bottom: 0.2em 0;
-  color: var(--color-primary-3);
-`;
-
-const Description = styled.p`
-  margin: 0.5em 0;
-`;
 
 const Notice = styled.div`
   border-radius: 10px;

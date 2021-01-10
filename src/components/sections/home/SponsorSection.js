@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Wrapper, ContentWrapper } from "../../../styles/wrappers/Wrapper";
+import { Title, Description } from "../../../styles/SectionHeaders";
 
 import crystaltime from "../../../images/crystaltime.png";
 import florray from "../../../images/florray.png";
@@ -52,15 +53,6 @@ const SponsorSection = () => {
 };
 
 export default SponsorSection;
-
-const Title = styled.h2`
-  margin-bottom: 0.2em 0;
-  color: var(--color-primary-3);
-`;
-
-const Description = styled.p`
-  margin: 0.5em 0;
-`;
 
 const List = styled.ul`
   display: flex;
