@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import { graphql } from "gatsby";
 // import Image from "gatsby-image";
 import Layout from "../components/layout/layout";
@@ -8,41 +8,21 @@ import { SectionHead, Title, Description } from "../styles/SectionHeaders";
 import SectionBackground from "../components/backgrounds/SectionBackground";
 import AboutCard from "../components/sections/about/AboutCard";
 
-// const teamData = [
-//   {
-//     id: 1,
-//     name: "Lee Li Hua",
-//     title: "President",
-//     profession: "",
-//     description: "",
-//     experience: "",
-//     contributions: "",
-//     aspirations: "",
-//     url: "/",
-//     social: [<FaFacebook />, <FaInstagram />, <FaLinkedin />, <FaTwitter />],
-//     photo: "../../../images/leelihua.jpg",
-//   },
-//   {
-//     id: 2,
-//     name: "Angela Wong",
-//     title: "Honorary Treasurer",
-//     profession: "",
-//     description: "",
-//     experience: "",
-//     contributions: "",
-//     aspirations: "",
-//     url: "/",
-//     social: [<FaFacebook />, <FaInstagram />],
-//     photo: "../../../images/wls.jpg",
-//   },
-// ];
-
 const About = ({ data }) => {
-  // const eventList = data.allStrapiEvent.nodes;
+  const [isOpen, setIsOpen] = useState(false);
   const members = data.allStrapiTeam.nodes;
+
+  const handleClick = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
 
   return (
     <Layout>
+      {/* <ModalOverlay isOpen={isOpen} /> */}
       <SectionBackground />
       <Wrapper>
         <ContentWrapper>
@@ -58,7 +38,13 @@ const About = ({ data }) => {
           </SectionHead>
           <List>
             {members.map((member, i) => (
-              <AboutCard key={i} member={member} />
+              <AboutCard
+                key={i}
+                member={member}
+                // isOpen={isOpen}
+                // handleClick={handleClick}
+                // handleClose={handleClose}
+              />
             ))}
           </List>
         </ContentWrapper>
@@ -74,6 +60,18 @@ const List = styled.ul`
   margin-top: 2em;
 `;
 
+// const ModalOverlay = styled.div`
+//   position: absolute;
+//   visibility: ${props => (props.isOpen ? "visible" : "hidden")};
+//   display: ${props => (props.isOpen ? "block" : "none")};
+//   background-color: var(--color-black-transparent);
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 5000px;
+//   z-index: 1;
+// `;
+
 // -----------------------------------------
 // ...GatsbyImageSharpFluid
 // -----------------------------------------
@@ -85,9 +83,20 @@ export const getEvents = graphql`
         name
         profession
         title
+        description
+        experience
+        aspiration
+        contribution
         social {
           socialicon
           socialurl
+        }
+        photo {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }
