@@ -4,9 +4,10 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout/layout";
 import styled from "styled-components";
 import { Wrapper, ContentWrapper } from "../styles/wrappers/Wrapper";
-import { Header, Title, Description } from "../styles/SectionHeaders";
+import { SectionHead, Title, Description } from "../styles/SectionHeaders";
 import DropDownContent from "../components/sections/events/DropDownContent";
 import EventCard from "../components/sections/events/EventCard";
+import SectionBackground from "../components/backgrounds/SectionBackground";
 
 const Events = ({ data }) => {
   const eventList = data.allStrapiEvent.nodes;
@@ -15,14 +16,14 @@ const Events = ({ data }) => {
       <SectionBackground />
       <Wrapper>
         <ContentWrapper>
-          <Header>
+          <SectionHead>
             <Title>Events</Title>
 
             <Description>
               View events or acitivities by selecting the appropriate date
               ranges or programmes
             </Description>
-          </Header>
+          </SectionHead>
           <SearchSection>
             <FilterSection>
               <FilterItem>
@@ -66,30 +67,6 @@ const Events = ({ data }) => {
 };
 
 export default Events;
-
-const SectionBackground = styled.div`
-  background: rgba(112, 49, 140, 1);
-  background: -webkit-linear-gradient(
-    bottom right,
-    rgba(112, 49, 140, 1),
-    rgba(132, 137, 199, 1)
-  );
-  background: -moz-linear-gradient(
-    bottom right,
-    rgba(112, 49, 140, 1),
-    rgba(132, 137, 199, 1)
-  );
-  background: linear-gradient(
-    to top left,
-    rgba(112, 49, 140, 1),
-    rgba(132, 137, 199, 1)
-  );
-  position: absolute;
-  top: 0;
-  height: 110px;
-  width: 100%;
-  z-index: -1;
-`;
 
 const SearchSection = styled.div`
   width: 100%;

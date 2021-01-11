@@ -18,7 +18,7 @@ const navData = [
   {
     id: 2,
     text: "About",
-    url: "/what/",
+    url: "/about/",
     icon: <BsFillPeopleFill />,
   },
   {

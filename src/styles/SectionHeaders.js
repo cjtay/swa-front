@@ -20,3 +20,14 @@ export const Header = styled.div`
     justify-content: flex-start;
   }
 `;
+
+export const SectionHead = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* @media (min-width: 600px) {
+    max-width: 50%;
+    justify-content: flex-start;
+  } */
+`;

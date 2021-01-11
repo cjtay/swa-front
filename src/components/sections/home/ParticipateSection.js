@@ -75,7 +75,7 @@ const ButtonPosition = styled.div`
 
 const List = styled.ul`
   @media (min-width: 600px) {
-    margin: 1em 0 0 auto;
+    margin: 1em auto;
     max-width: 600px;
   }
 `;
