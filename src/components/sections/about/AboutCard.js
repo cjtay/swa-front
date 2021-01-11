@@ -93,15 +93,15 @@ const AboutCard = ({ member }) => {
 export default AboutCard;
 
 const Card = styled.li`
-  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(20px);
-  max-width: 600px;
+  max-width: 550px;
   border-radius: 15px;
   margin: 1em auto;
   padding: 0.8em;
   @media (min-width: 600px) {
     display: flex;
-    flex-direction: row-reverse;
+    max-width: 80%;
   }
 `;
 
