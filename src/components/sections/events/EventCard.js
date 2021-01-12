@@ -4,7 +4,6 @@ import Image from "gatsby-image";
 import styled from "styled-components";
 
 const EventCard = ({ event }) => {
-  console.log("event card: ", event);
   return (
     <Link to={`/events/${event.slug}`}>
       <Card>

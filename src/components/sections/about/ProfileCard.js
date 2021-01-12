@@ -11,7 +11,7 @@ const ProfileCard = ({ member, isOpen, handleClick }) => {
   const socialUrls = member.social.map((soc, i) => soc.socialurl);
 
   return (
-    <Card onClick={handleClick}>
+    <Card>
       <ProfilePhoto data={member} />
       <ProfileName>
         {member.name}
@@ -128,20 +128,20 @@ const Social = styled.div`
   color: var(--color-primary-1);
 `;
 
-const ProfileModal = styled.div`
-  position: fixed;
-  visibility: ${props => (props.isOpen ? "visible" : "hidden")};
-  opacity: ${props => (props.isOpen ? 1 : 0)};
-  transition: 0.3s ease-in;
-  /* display: ${props => (props.isOpen ? "block" : "none")}; */
-  background-color: var(--color-primary-4);
-  z-index: 2;
-  top: 100px;
-  left: 0;
-  width: 90%;
-  padding: 1em;
-  border-radius: 10px;
-`;
+// const ProfileModal = styled.div`
+//   position: fixed;
+//   visibility: ${props => (props.isOpen ? "visible" : "hidden")};
+//   opacity: ${props => (props.isOpen ? 1 : 0)};
+//   transition: 0.3s ease-in;
+//   /* display: ${props => (props.isOpen ? "block" : "none")}; */
+//   background-color: var(--color-primary-4);
+//   z-index: 2;
+//   top: 100px;
+//   left: 0;
+//   width: 90%;
+//   padding: 1em;
+//   border-radius: 10px;
+// `;
 
 const ProfileStyle = styled.div`
   /* position: fixed;

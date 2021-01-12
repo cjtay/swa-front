@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
 // import Image from "gatsby-image";
 import Layout from "../components/layout/layout";
@@ -10,7 +10,14 @@ import EventCard from "../components/sections/events/EventCard";
 import SectionBackground from "../components/backgrounds/SectionBackground";
 
 const Events = ({ data }) => {
-  const eventList = data.allStrapiEvent.nodes;
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    setEvents(data.allStrapiEvent.nodes);
+  }, [data.allStrapiEvent.nodes]);
+
+  console.log("state: ", events);
+
   return (
     <Layout>
       <SectionBackground />
@@ -55,7 +62,7 @@ const Events = ({ data }) => {
             </FilterSection>
 
             <List>
-              {eventList.map(event => (
+              {events.map(event => (
                 <EventCard event={event} key={event.id} />
               ))}
             </List>
