@@ -1,22 +1,22 @@
 import React from "react";
 // import { Link } from "gatsby";
-import Image from "gatsby-image";
+
 import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
+import ProfilePhoto from "./ProfilePhoto";
 
-const AboutCard = ({ member }) => {
+const ProfileCard = ({ member, isOpen, handleClick }) => {
   const socialIcons = member.social.map((soc, i) => soc.socialicon);
   const socialUrls = member.social.map((soc, i) => soc.socialurl);
 
   return (
-    <Card>
-      <ProfilePhoto>
-        {member.photo !== null && (
-          <Image fluid={member.photo.childImageSharp.fluid} />
-        )}
-      </ProfilePhoto>
-      <ProfileName>{member.name}</ProfileName>
+    <Card onClick={handleClick}>
+      <ProfilePhoto data={member} />
+      <ProfileName>
+        {member.name}
+        {isOpen ? "true" : "false"}
+      </ProfileName>
 
       {socialIcons !== [] && (
         <SocialList>
@@ -90,7 +90,7 @@ const AboutCard = ({ member }) => {
   );
 };
 
-export default AboutCard;
+export default ProfileCard;
 
 const Card = styled.li`
   box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.15);
@@ -101,6 +101,8 @@ const Card = styled.li`
   padding: 0.8em;
   @media (min-width: 600px) {
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
     max-width: 80%;
   }
 `;
@@ -108,24 +110,6 @@ const Card = styled.li`
 const ProfileName = styled.h2`
   color: var(--color-primary-1);
   text-align: center;
-`;
-
-const ProfilePhoto = styled.div`
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  /* border: 1px solid var(--color-primary-1); */
-  /* padding: 2px; */
-  border-radius: 100%;
-  margin: 1em auto;
-
-  img {
-    /* display: block; */
-    /* width: 100px;
-    height: 100px;
-    margin-left: auto;
-    margin-right: auto; */
-  }
 `;
 
 const ProfileTitle = styled.h4`
@@ -144,20 +128,33 @@ const Social = styled.div`
   color: var(--color-primary-1);
 `;
 
-// const ProfileModal = styled.div`
-//   position: relative;
-//   visibility: ${props => (props.isOpen ? "visible" : "hidden")};
-//   display: ${props => (props.isOpen ? "block" : "none")};
-//   background-color: var(--color-primary-4);
-//   z-index: 2;
-//   top: -300px;
-//   left: 0;
-//   width: 90%;
-//   padding: 1em;
-//   border-radius: 10px;
-// `;
+const ProfileModal = styled.div`
+  position: fixed;
+  visibility: ${props => (props.isOpen ? "visible" : "hidden")};
+  opacity: ${props => (props.isOpen ? 1 : 0)};
+  transition: 0.3s ease-in;
+  /* display: ${props => (props.isOpen ? "block" : "none")}; */
+  background-color: var(--color-primary-4);
+  z-index: 2;
+  top: 100px;
+  left: 0;
+  width: 90%;
+  padding: 1em;
+  border-radius: 10px;
+`;
 
 const ProfileStyle = styled.div`
+  /* position: fixed;
+  visibility: ${props => (props.isOpen ? "visible" : "hidden")};
+  opacity: ${props => (props.isOpen ? 1 : 0)};
+  transition: 0.3s ease-in;
+  background-color: var(--color-primary-4);
+  z-index: 2;
+  top: 100px;
+  left: 0;
+  width: 90%;
+  padding: 1em;
+  border-radius: 10px; */
   h1 {
     font-weight: 700;
     color: var(--color-primary-1);

@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-// import { graphql } from "gatsby";
+import { graphql } from "gatsby";
 // import Image from "gatsby-image";
 import Layout from "../components/layout/layout";
 import styled from "styled-components";
 import { Wrapper, ContentWrapper } from "../styles/wrappers/Wrapper";
 import { SectionHead, Title, Description } from "../styles/SectionHeaders";
 import SectionBackground from "../components/backgrounds/SectionBackground";
-import AboutCard from "../components/sections/about/AboutCard";
+import ProfileCard from "../components/sections/about/ProfileCard";
 
 const About = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
   const members = data.allStrapiTeam.nodes;
 
-  const handleClick = () => {
+  const handleOpen = () => {
     setIsOpen(true);
   };
 
@@ -20,9 +20,12 @@ const About = ({ data }) => {
     setIsOpen(false);
   };
 
+  const handleClick = event => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <Layout>
-      {/* <ModalOverlay isOpen={isOpen} /> */}
       <SectionBackground />
       <Wrapper>
         <ContentWrapper>
@@ -38,12 +41,11 @@ const About = ({ data }) => {
           </SectionHead>
           <List>
             {members.map((member, i) => (
-              <AboutCard
+              <ProfileCard
                 key={i}
                 member={member}
-                // isOpen={isOpen}
-                // handleClick={handleClick}
-                // handleClose={handleClose}
+                isOpen={isOpen}
+                handleClick={handleClick}
               />
             ))}
           </List>
