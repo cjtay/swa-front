@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
 
 export default Layout;
 
-const LayoutWrapper = styled.body`
+const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;

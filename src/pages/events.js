@@ -11,12 +11,35 @@ import SectionBackground from "../components/backgrounds/SectionBackground";
 
 const Events = ({ data }) => {
   const [events, setEvents] = useState([]);
+  const [filter, setFilter] = useState("Elderly");
 
   useEffect(() => {
     setEvents(data.allStrapiEvent.nodes);
-  }, [data.allStrapiEvent.nodes]);
+  }, [data.allStrapiEvent.nodes, setFilter]);
 
-  console.log("state: ", events);
+  const handleChangeTime = e => {
+    setFilter(e.target.value);
+    const filteredEvents = events.filter(evt => {
+      return evt.date > 100000;
+    });
+    setEvents(filteredEvents);
+  };
+
+  const handleChangeProgramme = e => {
+    console.log("selectedfilter: ", filter);
+    setFilter(e.target.value);
+    handleFilter();
+  };
+
+  const handleFilter = () => {
+    console.log("handle filter: ", filter);
+    const filteredEvents = events.filter(evt => {
+      return evt.programme === filter;
+    });
+    setEvents(filteredEvents);
+  };
+
+  console.log("original events: ", events);
 
   return (
     <Layout>
@@ -45,6 +68,18 @@ const Events = ({ data }) => {
                     </>
                   }
                 />
+                <label htmlFor="time">Choose a time</label>
+                <select
+                  name="time"
+                  id="time"
+                  value={filter}
+                  onChange={handleChangeTime}
+                  onBlur={handleChangeTime}
+                >
+                  <option value="time-1">time-1</option>
+                  <option value="time-2">time-2</option>
+                  <option value="time-3">time-3</option>
+                </select>
               </FilterItem>
               <FilterItem>
                 <Label htmlFor="programme">Select programme</Label>
@@ -58,6 +93,18 @@ const Events = ({ data }) => {
                     </>
                   }
                 />
+                <label htmlFor="programme">Choose a programme</label>
+                <select
+                  name="programme"
+                  id="programme"
+                  value={filter}
+                  onChange={handleChangeProgramme}
+                  onBlur={handleChangeProgramme}
+                >
+                  <option value="Elderly">Elderly</option>
+                  <option value="Community">Community</option>
+                  <option value="Diversity">Diversity</option>
+                </select>
               </FilterItem>
             </FilterSection>
 
@@ -162,6 +209,8 @@ export const getEvents = graphql`
             }
           }
         }
+        date
+        programme
         title
         summary
         published_at(formatString: "Do MMM YYYY")

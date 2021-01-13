@@ -11,7 +11,11 @@ const DropDownContent = ({ content }) => {
         <div>Select</div>
         <IoIosArrowDown />
       </Button>
-      {open && <DropdownContent>{content}</DropdownContent>}
+      {open && (
+        <DropdownContent onClick={() => setOpen(!open)}>
+          {content}
+        </DropdownContent>
+      )}
     </>
   );
 };

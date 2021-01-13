@@ -22,6 +22,7 @@ const EventCard = ({ event }) => {
             <AuthorInfoContainer>
               <AuthorName>{event.author.name}</AuthorName>
               <PublishDate>{event.published_at}</PublishDate>
+              <div>{event.programme}</div>
             </AuthorInfoContainer>
           </Author>
         </EventInfoContainer>
