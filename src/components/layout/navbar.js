@@ -230,7 +230,6 @@ const Logo = styled.div`
   gap: 1em;
   align-items: center;
   justify-content: center;
-  /* border: 1px red solid; */
 
   img {
     background-color: var(--color-white);
@@ -238,6 +237,11 @@ const Logo = styled.div`
     padding: 0.2em;
     border-radius: 100%;
     margin-right: 10px;
+  }
+
+  @media (min-width: 960px) {
+    grid-template-columns: 50px;
+    justify-content: start;
   }
 `;
 

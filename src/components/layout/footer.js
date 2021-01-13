@@ -28,4 +28,8 @@ const FooterSection = styled.footer`
   color: var(--color-white);
   text-align: center;
   margin-top: auto;
+
+  @media (min-width: 600px) {
+    border: 10px solid green;
+  }
 `;

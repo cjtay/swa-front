@@ -9,7 +9,6 @@ const Layout = ({ children }) => {
     <LayoutWrapper>
       <Navbar />
       {children}
-
       <Footer>footer</Footer>
     </LayoutWrapper>
   );
@@ -17,13 +16,8 @@ const Layout = ({ children }) => {
 
 export default Layout;
 
-const LayoutWrapper = styled.div`
+const LayoutWrapper = styled.body`
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
-  height: 100vh;
+  min-height: 100vh;
 `;
-// const Footer = styled.footer`
-//   background-color: yellow;
-//   margin-top: auto;
-// `;

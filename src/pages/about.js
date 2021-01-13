@@ -44,18 +44,6 @@ const List = styled.ul`
   margin-top: 2em;
 `;
 
-// const ModalOverlay = styled.div`
-//   position: absolute;
-//   visibility: ${props => (props.isOpen ? "visible" : "hidden")};
-//   display: ${props => (props.isOpen ? "block" : "none")};
-//   background-color: var(--color-black-transparent);
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 5000px;
-//   z-index: 1;
-// `;
-
 // -----------------------------------------
 // ...GatsbyImageSharpFluid
 // -----------------------------------------
@@ -64,6 +52,7 @@ export const getEvents = graphql`
   {
     allStrapiTeam {
       nodes {
+        id
         name
         profession
         title

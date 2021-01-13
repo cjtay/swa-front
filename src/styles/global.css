@@ -7,8 +7,8 @@
   --color-black: black;
   --color-blacklight: rgba(0, 0, 0, 0.7);
   --color-black-transparent: rgba(0, 0, 0, 0.4);
-  --color-darkgrey: grey;
-  --color-grey: grey;
+  --color-darkgrey: rgb(61, 61, 61);
+  --color-grey: rgb(131, 129, 129);
   --color-lightgrey: rgba(226, 226, 226, 1);
   --color-font-dark: rgba(0, 0, 0, 0.6);
   --color-font-light: white;
@@ -28,7 +28,7 @@
 ::after {
   box-sizing: border-box;
   margin: 0px;
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
   /* font-family: "Merriweather", serif; */
 }
 

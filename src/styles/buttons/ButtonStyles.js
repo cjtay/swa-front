@@ -1,7 +1,20 @@
 import styled from "styled-components";
 
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: ${props =>
+    props.left
+      ? "flex-start"
+      : props.center
+      ? "center"
+      : props.right
+      ? "flex-end"
+      : "center"};
+`;
+
 export const Button = styled.div`
   display: inline-block;
+  text-align: center;
   padding: 0.4em 1.2em;
   border-radius: 0.3em;
   transition: all 0.3s ease 0s;
@@ -23,7 +36,7 @@ export const ButtonLight = styled(Button)`
   background-color: var(--color-white);
   color: var(--color-primary-1);
   :hover {
-    background-color: var(--color-primary-4);
-    color: var(--color-white);
+    background-color: var(--color-lightgrey);
+    /* color: var(--color-white); */
   }
 `;

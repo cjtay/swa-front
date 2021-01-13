@@ -1,23 +1,39 @@
-import React from "react";
-// import { Link } from "gatsby";
+import React, { useState } from "react";
 
 import styled from "styled-components";
-import ReactMarkdown from "react-markdown";
+
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 import ProfilePhoto from "./ProfilePhoto";
+import ProfileInfo from "./ProfileInfo";
 
-const ProfileCard = ({ member, isOpen, handleClick }) => {
+const ProfileCard = ({ member }) => {
+  const [showMod, setShowMod] = useState(false);
+  const [itemId, setItemId] = useState({});
+
+  const handleShow = id => {
+    console.log("ID received", id);
+    console.log("showMod: ", showMod);
+    console.log("member selected - member", member);
+    console.log("itemId set ", itemId);
+
+    setShowMod(true);
+    setItemId(member);
+  };
+
+  const handleClose = () => {
+    console.log("handleClose triggered");
+    setShowMod(false);
+  };
+
   const socialIcons = member.social.map((soc, i) => soc.socialicon);
   const socialUrls = member.social.map((soc, i) => soc.socialurl);
 
   return (
     <Card>
       <ProfilePhoto data={member} />
-      <ProfileName>
-        {member.name}
-        {isOpen ? "true" : "false"}
-      </ProfileName>
+      <ProfileName>{member.name}</ProfileName>
 
+      <ProfilePosition>{member.title}</ProfilePosition>
       {socialIcons !== [] && (
         <SocialList>
           {socialIcons.map((icon, i) => (
@@ -59,33 +75,14 @@ const ProfileCard = ({ member, isOpen, handleClick }) => {
           ))}
         </SocialList>
       )}
+      <Info onClick={() => handleShow(member.id)}>Read more</Info>
 
-      <ProfileStyle>
-        {member.description && (
-          <>
-            <ProfileTitle>Description</ProfileTitle>
-            <ReactMarkdown source={member.description} />
-          </>
-        )}
-        {member.experience && (
-          <>
-            <ProfileTitle>Experience</ProfileTitle>
-            <ReactMarkdown source={member.experience} />
-          </>
-        )}
-        {member.contribution && (
-          <>
-            <ProfileTitle>Contribution</ProfileTitle>
-            <ReactMarkdown source={member.contribution} />
-          </>
-        )}
-        {member.aspiration && (
-          <>
-            <ProfileTitle>Aspiration</ProfileTitle>
-            <ReactMarkdown source={member.aspiration} />
-          </>
-        )}
-      </ProfileStyle>
+      <ProfileInfo
+        showMod={showMod}
+        member={member}
+        itemId={itemId}
+        handleClose={handleClose}
+      />
     </Card>
   );
 };
@@ -99,6 +96,7 @@ const Card = styled.li`
   border-radius: 15px;
   margin: 1em auto;
   padding: 0.8em;
+
   @media (min-width: 600px) {
     display: flex;
     justify-content: center;
@@ -112,8 +110,11 @@ const ProfileName = styled.h2`
   text-align: center;
 `;
 
-const ProfileTitle = styled.h4`
-  color: var(--color-primary-1);
+const ProfilePosition = styled.p`
+  color: var(--color-grey);
+  font-weight: 300;
+  font-size: 0.9rem;
+  text-align: center;
 `;
 
 const SocialList = styled.div`
@@ -126,6 +127,22 @@ const Social = styled.div`
   font-size: 1.5rem;
   margin: 0.2em 0.3em;
   color: var(--color-primary-1);
+`;
+
+const Info = styled.p`
+  display: block;
+  padding: 0.3em 0.5em;
+  text-align: center;
+  margin: 1em auto;
+  border-radius: 10px;
+  border: 1px solid var(--color-primary-4);
+  background-color: var(--color-white);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  :hover {
+    background-color: var(--color-primary-4);
+  }
 `;
 
 // const ProfileModal = styled.div`
@@ -142,77 +159,3 @@ const Social = styled.div`
 //   padding: 1em;
 //   border-radius: 10px;
 // `;
-
-const ProfileStyle = styled.div`
-  /* position: fixed;
-  visibility: ${props => (props.isOpen ? "visible" : "hidden")};
-  opacity: ${props => (props.isOpen ? 1 : 0)};
-  transition: 0.3s ease-in;
-  background-color: var(--color-primary-4);
-  z-index: 2;
-  top: 100px;
-  left: 0;
-  width: 90%;
-  padding: 1em;
-  border-radius: 10px; */
-  h1 {
-    font-weight: 700;
-    color: var(--color-primary-1);
-  }
-
-  h2 {
-    font-weight: 700;
-    color: var(--color-primary-1);
-  }
-
-  h3 {
-    font-weight: 400;
-    color: var(--color-primary-1);
-  }
-
-  p {
-    color: var(--color-blacklight);
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 0.2em auto;
-  }
-
-  ul {
-    list-style-type: disc;
-    list-style-position: inside;
-    list-style-image: none;
-    font-size: 1rem;
-    margin: 1em auto;
-  }
-
-  em,
-  strong {
-    font-weight: 700;
-    color: var(--color-primary-2);
-  }
-
-  u {
-    text-decoration: underline;
-  }
-
-  blockquote > p {
-    display: inline-block;
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    color: var(--color-primary-1);
-    margin: 1em auto;
-    background-color: var(--color-primary-4);
-    border-radius: 15px;
-    padding: 0 0.8em 0 0;
-
-    ::before {
-      content: "Q";
-      font-size: 5rem;
-      font-weight: 400;
-      margin-right: 0.1em;
-      position: relative;
-      top: -7px;
-      right: -7px;
-    }
-  }
-`;
