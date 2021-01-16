@@ -146,12 +146,14 @@ const EventPageTemplate = ({ data }) => {
               )}
               {item.paragraph_text !== null && (
                 <PostContainer wide={item.wide && "wide"}>
-                  <PostImage position={item.photo_position}>
-                    <Image
-                      fluid={item.paragraph_photo.childImageSharp.fluid}
-                      alt={event.title}
-                    />
-                  </PostImage>
+                  {item.paragraph_photo !== null && (
+                    <PostImage position={item.photo_position}>
+                      <Image
+                        fluid={item.paragraph_photo.childImageSharp.fluid}
+                        alt={event.title}
+                      />
+                    </PostImage>
+                  )}
 
                   <PostParagraph>{item.paragraph_text}</PostParagraph>
                 </PostContainer>
