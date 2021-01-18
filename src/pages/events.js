@@ -1,6 +1,7 @@
 // Outstanding tasks
 // Display All filter - default on initial load
 // pagination
+// apply active class to selected filter
 // final styling
 
 import React, { useEffect, useState } from "react";
@@ -14,19 +15,24 @@ import { SectionHead, Title, Description } from "../styles/SectionHeaders";
 import EventCard from "../components/sections/events/EventCard";
 import SectionBackground from "../components/backgrounds/SectionBackground";
 
-const programmes = [
-  { id: 1, name: "Elderly" },
-  { id: 2, name: "Community" },
-  { id: 3, name: "Diversity" },
-];
-
 const Events = ({ data }) => {
-  const [events, setEvents] = useState([]);
-  const [filteredEvents, setFilteredEvents] = useState([]);
-  // const [filter, setFilter] = useState("Elderly");
+  const [events] = useState(data.allStrapiEvent.nodes);
+  const [filteredEvents, setFilteredEvents] = useState(
+    data.allStrapiEvent.nodes
+  );
+
+  const filterNames = [
+    "All",
+    ...new Set(
+      events.map(e => {
+        return e.programme;
+      })
+    ),
+  ];
 
   useEffect(() => {
-    setEvents(data.allStrapiEvent.nodes);
+    console.log("events: ", events);
+    console.log("programmes", filterNames);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -41,10 +47,15 @@ const Events = ({ data }) => {
   // }
 
   const handleSearch = name => {
-    const filteredList = events.filter(e => e.programme === name);
-    console.log("selected filter: ", name);
-    console.log("Filtered List: ", filteredList);
-    setFilteredEvents(filteredList);
+    if (name === "All") {
+      console.log("selected filter: ", name);
+      setFilteredEvents(events);
+    } else {
+      const filteredList = events.filter(e => e.programme === name);
+      console.log("selected filter: ", name);
+      console.log("Filtered List: ", filteredList);
+      setFilteredEvents(filteredList);
+    }
   };
 
   return (
@@ -65,12 +76,9 @@ const Events = ({ data }) => {
             <FilterSection>
               <Label>Filter by programmes</Label>
               <FilterItem>
-                {programmes.map(programme => (
-                  <Search
-                    key={programme.id}
-                    onClick={() => handleSearch(programme.name)}
-                  >
-                    {programme.name}
+                {filterNames.map((filtername, i) => (
+                  <Search key={i} onClick={() => handleSearch(filtername)}>
+                    {filtername}
                   </Search>
                 ))}
               </FilterItem>
@@ -142,6 +150,9 @@ const FilterSection = styled.div`
 `;
 
 const FilterItem = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 1em;
   :first-child {
     margin-top: 0em;
