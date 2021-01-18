@@ -8,55 +8,6 @@ import { Wrapper, ContentWrapper } from "../styles/wrappers/Wrapper";
 import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
 
-// ...GatsbyImageSharpFluid
-export const query = graphql`
-  query getSingleEvent($slug: String) {
-    strapiEvent(slug: { eq: $slug }) {
-      author {
-        name
-        authorPhoto {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-      id
-      programme
-      published_at(formatString: "Do MMM YYYY")
-      slug
-      summary
-      title
-      eventContent {
-        singleParagraph
-        paragraph_title
-        singlePhoto {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        photo_position
-        photoCaption
-        paragraph_text
-        paragraph_photo {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        boxed
-        wide
-        two_columns
-        rich_text
-      }
-    }
-  }
-`;
-
 const EventPageTemplate = ({ data }) => {
   const event = data.strapiEvent;
   const content = data.strapiEvent.eventContent;
@@ -168,102 +119,8 @@ const EventPageTemplate = ({ data }) => {
                   </MarkdownStyle>
                 </PostContainer>
               )}
-              {/* {item.photo_gallery !== null && (
-                <PostContainer wide={item.wide && "wide"}>
-                  {item.photo_gallery.map((photo, index) => (
-                    <Gallery key={index}>
-                      <Image
-                        fluid={photo.formats.small.childImageSharp.fluid}
-                      />
-                    </Gallery>
-                  ))} 
-                </PostContainer>
-              )} */}
             </div>
           ))}
-
-          {/* <PostContainer>
-            <Gallery>
-              <GalleryImg
-                src="https://source.unsplash.com/cssvEZacHvQ"
-                alt="random"
-                tall
-              />
-
-              <GalleryImg
-                src="https://source.unsplash.com/O-8Fmpx7HqQ"
-                alt="random"
-              />
-
-              <GalleryImg
-                src="https://source.unsplash.com/FpATXvTxEI4"
-                alt="random"
-                wide
-              />
-
-              <GalleryImg
-                src="https://source.unsplash.com/EwKXn5CapA4"
-                alt="random"
-              />
-
-              <GalleryImg
-                src="https://source.unsplash.com/FpATXvTxEI4"
-                alt="random"
-              />
-
-              <GalleryImg
-                src="https://source.unsplash.com/EwKXn5CapA4"
-                alt="random"
-              />
-
-              <GalleryImg
-                src="https://source.unsplash.com/vltMzn0jqsA"
-                alt="random"
-                wide
-              />
-            </Gallery>
-          </PostContainer> */}
-          {/* <PostContainer>
-            <Gallery>
-              <GalleryImg
-                src="https://source.unsplash.com/cssvEZacHvQ"
-                alt="random"
-                tall
-              />
-
-              <GalleryImg
-                src="https://source.unsplash.com/O-8Fmpx7HqQ"
-                alt="random"
-              />
-
-              <GalleryImg
-                src="https://source.unsplash.com/FpATXvTxEI4"
-                alt="random"
-                wide
-              />
-
-              <GalleryImg
-                src="https://source.unsplash.com/EwKXn5CapA4"
-                alt="random"
-              />
-
-              <GalleryImg
-                src="https://source.unsplash.com/FpATXvTxEI4"
-                alt="random"
-              />
-
-              <GalleryImg
-                src="https://source.unsplash.com/EwKXn5CapA4"
-                alt="random"
-              />
-
-              <GalleryImg
-                src="https://source.unsplash.com/vltMzn0jqsA"
-                alt="random"
-                wide
-              />
-            </Gallery>
-          </PostContainer> */}
         </ContentWrapper>
       </Wrapper>
     </Layout>
@@ -512,39 +369,51 @@ const PublishDate = styled.div`
   color: var(--color-darkgrey);
 `;
 
-// const Gallery = styled.div`
-//   display: grid;
-//   max-width: 100%;
-//   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-//   gap: 1em;
-//   align-items: stretch;
-//   grid-auto-rows: 300px;
-//   grid-auto-flow: dense;
-//   background-color: #333;
-//   padding: 1em;
-// `;
-
-// const GalleryImg = styled.img`
-//   border: 1px solid white;
-//   max-width: 100%;
-//   object-fit: cover;
-
-//   @media (min-width: 900px) {
-//     grid-column: ${props => props.wide && "span 2"};
-//     grid-row: ${props => props.tall && "span 2"};
-//   }
-// `;
-
-// const Bullets = styled.ul`
-//   list-style-type: disc;
-//   background-color: var(--color-lightgrey);
-//   border: 1px solid var(--color-primary-2);
-//   border-radius: 10px;
-//   padding: 1em 1em 1em 2em;
-//   font-weight: 400;
-//   font-size: inherit;
-
-//   li {
-//     margin: 1em auto;
-//   }
-// `;
+// ...GatsbyImageSharpFluid
+export const query = graphql`
+  query getSingleEvent($slug: String) {
+    strapiEvent(slug: { eq: $slug }) {
+      author {
+        name
+        authorPhoto {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      id
+      programme
+      published_at(formatString: "Do MMM YYYY")
+      slug
+      summary
+      title
+      eventContent {
+        singleParagraph
+        paragraph_title
+        singlePhoto {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        photo_position
+        photoCaption
+        paragraph_text
+        paragraph_photo {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        boxed
+        wide
+        two_columns
+        rich_text
+      }
+    }
+  }
+`;

@@ -5,41 +5,40 @@ import Layout from "../components/layout/layout";
 import styled from "styled-components";
 import { Wrapper, ContentWrapper } from "../styles/wrappers/Wrapper";
 import { SectionHead, Title, Description } from "../styles/SectionHeaders";
-import DropDownContent from "../components/sections/events/DropDownContent";
+// import DropDownContent from "../components/sections/events/DropDownContent";
 import EventCard from "../components/sections/events/EventCard";
 import SectionBackground from "../components/backgrounds/SectionBackground";
 
+const programmes = [
+  { id: 1, name: "Elderly" },
+  { id: 2, name: "Community" },
+  { id: 3, name: "Diversity" },
+];
+
 const Events = ({ data }) => {
   const [events, setEvents] = useState([]);
-  const [filter, setFilter] = useState("Elderly");
+  const [filteredEvents, setFilteredEvents] = useState([]);
+  // const [filter, setFilter] = useState("Elderly");
 
   useEffect(() => {
     setEvents(data.allStrapiEvent.nodes);
-  }, [data.allStrapiEvent.nodes, setFilter]);
+  }, [data.allStrapiEvent.nodes, setFilteredEvents]);
 
-  const handleChangeTime = e => {
-    setFilter(e.target.value);
-    const filteredEvents = events.filter(evt => {
-      return evt.date > 100000;
-    });
-    setEvents(filteredEvents);
+  useEffect(() => {
+    setFilteredEvents(data.allStrapiEvent.nodes);
+    console.log("initial filterdEvents: ", filteredEvents);
+  }, []);
+
+  // if (events !== []) {
+  //   console.log("from event page: ", events);
+  // }
+
+  const handleSearch = name => {
+    const filteredList = events.filter(e => e.programme === name);
+    console.log("selected filter: ", name);
+    console.log("Filtered List: ", filteredList);
+    setFilteredEvents(filteredList);
   };
-
-  const handleChangeProgramme = e => {
-    console.log("selectedfilter: ", filter);
-    setFilter(e.target.value);
-    handleFilter();
-  };
-
-  const handleFilter = () => {
-    console.log("handle filter: ", filter);
-    const filteredEvents = events.filter(evt => {
-      return evt.programme === filter;
-    });
-    setEvents(filteredEvents);
-  };
-
-  console.log("original events: ", events);
 
   return (
     <Layout>
@@ -54,62 +53,23 @@ const Events = ({ data }) => {
               ranges or programmes
             </Description>
           </SectionHead>
+
           <SearchSection>
             <FilterSection>
+              <Label>Filter by programmes</Label>
               <FilterItem>
-                <Label htmlFor="time">Select time</Label>
-                <DropDownContent
-                  content={
-                    <>
-                      <div value="all">All</div>
-                      <div value="lastmonth">Last month</div>
-                      <div value="thisyear">This year</div>
-                      <div value="lastyear">Last year</div>
-                    </>
-                  }
-                />
-                <label htmlFor="time">Choose a time</label>
-                <select
-                  name="time"
-                  id="time"
-                  value={filter}
-                  onChange={handleChangeTime}
-                  onBlur={handleChangeTime}
-                >
-                  <option value="time-1">time-1</option>
-                  <option value="time-2">time-2</option>
-                  <option value="time-3">time-3</option>
-                </select>
-              </FilterItem>
-              <FilterItem>
-                <Label htmlFor="programme">Select programme</Label>
-                <DropDownContent
-                  content={
-                    <>
-                      <div value="all">All</div>
-                      <div value="lastmonth">Last month</div>
-                      <div value="thisyear">This year</div>
-                      <div value="lastyear">Last year</div>
-                    </>
-                  }
-                />
-                <label htmlFor="programme">Choose a programme</label>
-                <select
-                  name="programme"
-                  id="programme"
-                  value={filter}
-                  onChange={handleChangeProgramme}
-                  onBlur={handleChangeProgramme}
-                >
-                  <option value="Elderly">Elderly</option>
-                  <option value="Community">Community</option>
-                  <option value="Diversity">Diversity</option>
-                </select>
+                {programmes.map(programme => (
+                  <Search
+                    key={programme.id}
+                    onClick={() => handleSearch(programme.name)}
+                  >
+                    {programme.name}
+                  </Search>
+                ))}
               </FilterItem>
             </FilterSection>
-
             <List>
-              {events.map(event => (
+              {filteredEvents.map(event => (
                 <EventCard event={event} key={event.id} />
               ))}
             </List>
@@ -121,6 +81,18 @@ const Events = ({ data }) => {
 };
 
 export default Events;
+
+const Search = styled.div`
+  display: inline-block;
+  background-color: var(--color-white);
+  color: var(--color-primary-2);
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 0.1em 0.9em;
+  margin: 1em 1em;
+  border-radius: 10px;
+  cursor: pointer;
+`;
 
 const SearchSection = styled.div`
   width: 100%;
@@ -154,7 +126,9 @@ const FilterSection = styled.div`
   );
   @media (min-width: 600px) {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     max-width: 600px;
     margin: 0 auto;
   }
