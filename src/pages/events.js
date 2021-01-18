@@ -1,3 +1,8 @@
+// Outstanding tasks
+// Display All filter - default on initial load
+// pagination
+// final styling
+
 import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
 // import Image from "gatsby-image";
@@ -22,11 +27,13 @@ const Events = ({ data }) => {
 
   useEffect(() => {
     setEvents(data.allStrapiEvent.nodes);
-  }, [data.allStrapiEvent.nodes, setFilteredEvents]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     setFilteredEvents(data.allStrapiEvent.nodes);
     console.log("initial filterdEvents: ", filteredEvents);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // if (events !== []) {
