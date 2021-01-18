@@ -1,7 +1,6 @@
 // Outstanding tasks
 // Display All filter - default on initial load
 // pagination
-// apply active class to selected filter
 // final styling
 
 import React, { useEffect, useState } from "react";
@@ -20,6 +19,7 @@ const Events = ({ data }) => {
   const [filteredEvents, setFilteredEvents] = useState(
     data.allStrapiEvent.nodes
   );
+  const [selectedFilter, setSelectedFilter] = useState("All");
 
   const filterNames = [
     "All",
@@ -37,7 +37,6 @@ const Events = ({ data }) => {
   }, []);
 
   useEffect(() => {
-    setFilteredEvents(data.allStrapiEvent.nodes);
     console.log("initial filterdEvents: ", filteredEvents);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -50,11 +49,14 @@ const Events = ({ data }) => {
     if (name === "All") {
       console.log("selected filter: ", name);
       setFilteredEvents(events);
+      setSelectedFilter(name);
     } else {
       const filteredList = events.filter(e => e.programme === name);
       console.log("selected filter: ", name);
       console.log("Filtered List: ", filteredList);
       setFilteredEvents(filteredList);
+      setSelectedFilter(name);
+      console.log("selected filter: ", name);
     }
   };
 
@@ -77,7 +79,12 @@ const Events = ({ data }) => {
               <Label>Filter by programmes</Label>
               <FilterItem>
                 {filterNames.map((filtername, i) => (
-                  <Search key={i} onClick={() => handleSearch(filtername)}>
+                  <Search
+                    key={i}
+                    onClick={() => handleSearch(filtername)}
+                    name={filtername}
+                    selectedFilter={selectedFilter}
+                  >
                     {filtername}
                   </Search>
                 ))}
@@ -99,8 +106,14 @@ export default Events;
 
 const Search = styled.div`
   display: inline-block;
-  background-color: var(--color-white);
-  color: var(--color-primary-2);
+  background-color: ${props =>
+    props.name === props.selectedFilter
+      ? "var(--color-primary-2)"
+      : "var(--color-white)"};
+  color: ${props =>
+    props.name === props.selectedFilter
+      ? "var(--color-white)"
+      : "var(--color-primary-2)"};
   font-weight: 400;
   font-size: 1rem;
   padding: 0.1em 0.9em;
