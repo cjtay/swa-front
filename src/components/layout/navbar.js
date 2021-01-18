@@ -5,10 +5,11 @@ import { ButtonLight } from "../../styles/buttons/ButtonStyles";
 
 import { FaHome, FaHandsHelping, FaBook } from "react-icons/fa";
 import { BsFillPeopleFill, BsCalendar } from "react-icons/bs";
+import { FiHeadphones } from "react-icons/fi";
 
 import styled from "styled-components";
 
-const navData = [
+const mainNav = [
   {
     id: 1,
     text: "Home",
@@ -47,12 +48,39 @@ const navData = [
   },
 ];
 
+const subNav = [
+  {
+    id: 1,
+    text: "Contact",
+    url: "/forms/contact",
+    icon: <FiHeadphones />,
+  },
+  {
+    id: 2,
+    text: "Volunteer Form",
+    url: "/forms/volunteer",
+    icon: <FiHeadphones />,
+  },
+  {
+    id: 3,
+    text: "Sponsor Form",
+    url: "/forms/sponsor",
+    icon: <FiHeadphones />,
+  },
+  {
+    id: 4,
+    text: "MSPI Application Form",
+    url: "/forms/mspiapplication",
+    icon: <FiHeadphones />,
+  },
+];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const data = useStaticQuery(getLogo);
 
-  const tempLinks = navData.map(link => {
+  const tempLinks = mainNav.map(link => {
     return (
       <li key={link.id}>
         <Link to={link.url}>
@@ -62,6 +90,16 @@ const Navbar = () => {
           </MenuItem>
         </Link>
       </li>
+    );
+  });
+
+  const tempSubLinks = subNav.map(link => {
+    return (
+      <div key={link.id}>
+        <Link to={link.url}>
+          <div>{link.text}</div>
+        </Link>
+      </div>
     );
   });
 
@@ -84,6 +122,7 @@ const Navbar = () => {
             <div />
             <div />
           </MenuIcon>
+          <SubMenu>{tempSubLinks}</SubMenu>
         </Logo>
 
         <MenuContainer>
@@ -286,5 +325,19 @@ const CTA = styled(ButtonLight)`
 
   @media (min-width: 960px) {
     display: inline-block;
+  }
+`;
+
+const SubMenu = styled.div`
+  display: none;
+  width: 200px;
+  font-size: 1rem;
+
+  div {
+    margin: 1em 0;
+  }
+
+  ${Logo}:hover & {
+    display: block;
   }
 `;
