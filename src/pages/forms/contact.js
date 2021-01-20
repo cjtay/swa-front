@@ -3,12 +3,6 @@ import { useFormik } from "formik";
 
 import styled from "styled-components";
 
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
-
 const ContactForm = () => {
   const formik = useFormik({
     initialValues: {
@@ -18,15 +12,16 @@ const ContactForm = () => {
       message: "",
     },
 
-    onSubmit: values => {
+    onSubmit: async values => {
       console.log("submitted data: ", values);
-      fetch("/", {
+      const response = await fetch("http://localhost:1337/contact-forms", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", values }),
-      })
-        .then(() => alert("Success!"))
-        .catch(error => alert(error));
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      }).catch(error => console.log("error received: ", error));
+      const data = await response.json();
+      console.log("Successfully sent to Strapi!");
+      console.log("response received: ", data);
     },
   });
 
