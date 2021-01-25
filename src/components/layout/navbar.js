@@ -22,12 +22,12 @@ const mainNav = [
     url: "/about/",
     icon: <BsFillPeopleFill />,
   },
-  {
-    id: 21,
-    text: "Milestones",
-    url: "/about/milestones",
-    icon: <BsFillPeopleFill />,
-  },
+  // {
+  //   id: 21,
+  //   text: "Milestones",
+  //   url: "/about/milestones",
+  //   icon: <BsFillPeopleFill />,
+  // },
   {
     id: 3,
     text: "Programmes",

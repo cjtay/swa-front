@@ -30,6 +30,5 @@ const FooterSection = styled.footer`
   margin-top: auto;
 
   @media (min-width: 600px) {
-    border: 10px solid green;
   }
 `;

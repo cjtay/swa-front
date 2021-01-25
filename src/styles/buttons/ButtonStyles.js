@@ -14,6 +14,10 @@ export const ButtonContainer = styled.div`
 
 export const Button = styled.div`
   display: inline-block;
+  width: 200px;
+  margin-left: ${props => (props.right ? "auto" : null)};
+  margin-right: ${props => (props.left ? "auto" : null)};
+  margin: ${props => (props.center ? "0 auto" : null)};
   text-align: center;
   padding: 0.4em 1.2em;
   border-radius: 0.3em;
@@ -26,6 +30,7 @@ export const Button = styled.div`
 export const ButtonDark = styled(Button)`
   background-color: var(--color-primary-1);
   color: var(--color-white);
+
   :hover {
     background-color: var(--color-primary-4);
     color: var(--color-white);
