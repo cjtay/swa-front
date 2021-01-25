@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ErrorMsg = styled.p`
   color: var(--color-error);
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-top: 0.2em;
 `;
 

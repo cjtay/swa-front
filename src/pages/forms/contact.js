@@ -74,12 +74,12 @@ const ContactForm = () => {
                   {/* <input type="hidden" name="form-name" value="contact" /> */}
                   <label htmlFor="name">Name</label>
                   <Field type="text" id="name" name="name" />
-                  <ErrorMessage name="name" />
+                  <ErrorMessage name="name" component={ErrorMsg} />
                 </FormGroup>
                 <FormGroup>
                   <label htmlFor="email">Email</label>
                   <Field type="email" id="email" name="email" />
-                  <ErrorMessage name="email" />
+                  <ErrorMessage name="email" component={ErrorMsg} />
                 </FormGroup>
                 <FormGroup>
                   <label htmlFor="phone">Phone</label>
@@ -89,12 +89,12 @@ const ContactForm = () => {
                     name="phone"
                     placeholder="optional"
                   />
-                  <ErrorMessage name="phone" />
+                  <ErrorMessage name="phone" component={ErrorMsg} />
                 </FormGroup>
                 <FormGroup>
                   <label htmlFor="message">Message</label>
                   <Field as="textarea" name="message" />
-                  <ErrorMessage name="message" />
+                  <ErrorMessage name="message" component={ErrorMsg} />
                 </FormGroup>
                 <FormGroup>
                   {/* <ButtonDark right onClick={onSubmit}>
