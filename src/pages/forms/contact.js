@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../../components/layout/layout";
 import { Wrapper, ContentWrapper } from "../../styles/wrappers/Wrapper";
 import { SectionHead, Title, Description } from "../../styles/SectionHeaders";
-import { ButtonDark } from "../../styles/buttons/ButtonStyles";
 import SectionBackground from "../../components/backgrounds/SectionBackground";
 import { useFormik } from "formik";
 
 import styled from "styled-components";
 
 const ContactForm = () => {
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -19,14 +21,24 @@ const ContactForm = () => {
 
     onSubmit: async values => {
       console.log("submitted data: ", values);
-      const response = await fetch("http://localhost:1337/contact-forms", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      }).catch(error => console.log("error received: ", error));
-      const data = await response.json();
-      console.log("Successfully sent to Strapi!");
-      console.log("response received: ", data);
+      try {
+        const response = await fetch("http://localhost:1337/contact-forms", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        });
+        const data = await response.json();
+        console.log("Successfully sent to Strapi!");
+        console.log("response received: ", data);
+        if (data.statusCode) {
+          setError(data.message);
+        } else if (data.created_at) {
+          setSuccess(true);
+        }
+      } catch (error) {
+        console.log("error received: ", error.message);
+      }
+      // .catch(error => console.log("error received: ", error));
     },
   });
 
@@ -90,9 +102,9 @@ const ContactForm = () => {
                 value={formik.values.message}
               />
             </FormGroup>
-            <ButtonDark type="submit" center>
-              Submit
-            </ButtonDark>
+            <button type="submit">Submit</button>
+            {error !== "" && <p>Error encountered: {error}</p>}
+            {success && <p>Submitted successfully</p>}
           </FormContainer>
         </ContentWrapper>
       </Wrapper>
