@@ -8,6 +8,7 @@ export const ErrorMsg = styled.p`
 
 export const SuccessMsg = styled.p`
   color: var(--color-success);
+  text-align: center;
   /* font-weight: 700; */
   /* font-size: 1rem; */
 `;
