@@ -30,6 +30,7 @@ const ContactForm = () => {
     },
   });
 
+  console.log("formik: ", formik);
   console.log("form values: ", formik.values);
 
   return (
@@ -78,6 +79,7 @@ const ContactForm = () => {
                 name="phone"
                 onChange={formik.handleChange}
                 value={formik.values.phone}
+                placeholder="optional"
               />
             </FormGroup>
             <FormGroup>
@@ -131,5 +133,9 @@ const FormGroup = styled.div`
     padding: 0.5em;
     font-size: 1rem;
     color: grey;
+  }
+
+  input::placeholder {
+    color: lightgrey;
   }
 `;
