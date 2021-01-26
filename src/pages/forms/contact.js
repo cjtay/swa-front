@@ -23,6 +23,7 @@ const ContactForm = () => {
 
   const onSubmit = async values => {
     console.log("submitted data: ", values);
+    console.log("onSubmit : ", Form);
     try {
       const response = await fetch("http://localhost:1337/contact-forms", {
         method: "POST",
