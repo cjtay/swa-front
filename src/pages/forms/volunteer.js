@@ -13,7 +13,6 @@ const VolunteerForm = setFieldValue => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [loader, setLoader] = useState(false);
-  const [photo, setPhoto] = useState(null);
 
   const initialValues = {
     honey: "",
@@ -26,11 +25,9 @@ const VolunteerForm = setFieldValue => {
 
   const onSubmit = async (values, onSubmitProps) => {
     console.log("submitted data: ", values);
-    console.log("photo uploaded: ", photo);
 
     const formData = new FormData();
     formData.append("data", JSON.stringify(values));
-    formData.append("files.photo", photo);
 
     setLoader(true);
     if (values.honey !== "") {
@@ -127,18 +124,6 @@ const VolunteerForm = setFieldValue => {
                 <FormGroup>
                   <label htmlFor="message">Message</label>
                   <Field as="textarea" name="message" rows="5" col="35" />
-                  <ErrorMessage name="message" component={ErrorMsg} />
-                </FormGroup>
-                <FormGroup>
-                  <label htmlFor="photo">Upload Photo</label>
-                  <input
-                    type="file"
-                    name="photo"
-                    onChange={event => {
-                      setPhoto(event.target.files[0]);
-                    }}
-                  />
-
                   <ErrorMessage name="message" component={ErrorMsg} />
                 </FormGroup>
 
