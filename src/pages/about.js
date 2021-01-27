@@ -26,6 +26,7 @@ const About = ({ data }) => {
               Consectetur molestiae fuga distinctio ea officiis!
             </Description>
           </SectionHead>
+
           <List>
             {members.map((member, i) => (
               <ProfileCard key={i} member={member} />

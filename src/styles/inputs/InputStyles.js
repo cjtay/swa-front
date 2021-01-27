@@ -29,7 +29,8 @@ export const FormGroup = styled.div`
   }
 
   input,
-  textarea {
+  textarea,
+  select {
     padding: 0.5em;
     font-size: 1rem;
     color: grey;
