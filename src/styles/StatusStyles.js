@@ -9,6 +9,7 @@ export const ErrorMsg = styled.p`
 export const SuccessMsg = styled.p`
   color: var(--color-success);
   text-align: center;
+  margin: 0.2em auto;
   /* font-weight: 700; */
   /* font-size: 1rem; */
 `;

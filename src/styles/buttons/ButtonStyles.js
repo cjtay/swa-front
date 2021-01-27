@@ -14,7 +14,6 @@ export const ButtonContainer = styled.div`
 
 export const Button = styled.div`
   display: inline-block;
-  width: 200px;
   margin-left: ${props => (props.right ? "auto" : null)};
   margin-right: ${props => (props.left ? "auto" : null)};
   margin: ${props => (props.center ? "0 auto" : null)};

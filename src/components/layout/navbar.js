@@ -176,7 +176,6 @@ const Wrapper = styled.div`
 
 const MenuContainer = styled.div`
   display: none;
-
   @media (min-width: 960px) {
     display: grid;
     grid-template-rows: 40px;
