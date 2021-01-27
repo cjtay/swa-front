@@ -16,7 +16,6 @@ const MspiApplicationForm = setFieldValue => {
   const [success, setSuccess] = useState(false);
   const [loader, setLoader] = useState(false);
   const [photo, setPhoto] = useState(null);
-  const [startDate, setStartDate] = useState(new Date());
 
   const initialValues = {
     honey: "",
@@ -38,39 +37,42 @@ const MspiApplicationForm = setFieldValue => {
   };
 
   const onSubmit = async (values, onSubmitProps) => {
-    console.log("submitted data: ", values);
-    console.log("date: ", values.dob);
+    let newDate = new Date(values.dob).toISOString();
+    console.log("submitted data: ", values.dob);
+    console.log("date to ISO: ", newDate);
+
     console.log("photo uploaded: ", photo);
 
     const formData = new FormData();
     formData.append("data", JSON.stringify(values));
     formData.append("files.photo", photo);
+    formData.append("dob", newDate);
 
-    // setLoader(true);
-    // if (values.honey !== "") {
-    //   setError("Spam suspected");
-    //   console.log("spam suspected");
-    // } else {
-    //   try {
-    //     const response = await fetch("http://localhost:1337/forms-mspis", {
-    //       method: "POST",
-    //       body: formData,
-    //     });
-    //     const data = await response.json();
-    //     setLoader(false);
-    //     onSubmitProps.resetForm();
-    //     console.log("Successfully sent to Strapi!");
-    //     console.log("response received: ", data);
-    //     if (data.statusCode) {
-    //       setError(data.message);
-    //     } else if (data.created_at) {
-    //       setSuccess(true);
-    //     }
-    //   } catch (error) {
-    //     console.log("error received: ", error.message);
-    //     setLoader(false);
-    //   }
-    // }
+    setLoader(true);
+    if (values.honey !== "") {
+      setError("Spam suspected");
+      console.log("spam suspected");
+    } else {
+      try {
+        const response = await fetch("http://localhost:1337/forms-mspis", {
+          method: "POST",
+          body: formData,
+        });
+        const data = await response.json();
+        setLoader(false);
+        onSubmitProps.resetForm();
+        console.log("Successfully sent to Strapi!");
+        console.log("response received: ", data);
+        if (data.statusCode) {
+          setError(data.message);
+        } else if (data.created_at) {
+          setSuccess(true);
+        }
+      } catch (error) {
+        console.log("error received: ", error.message);
+        setLoader(false);
+      }
+    }
   };
 
   const validationSchema = Yup.object({
