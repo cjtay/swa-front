@@ -171,7 +171,7 @@ const List = styled.ul`
 
 export const getEvents = graphql`
   {
-    allStrapiEvent {
+    allStrapiEvent(sort: { fields: published_at, order: DESC }) {
       totalCount
       nodes {
         author {

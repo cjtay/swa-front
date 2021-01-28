@@ -11,7 +11,11 @@ import FeaturedCard from "./FeaturedCard";
 const FeaturedSection = () => {
   const data = useStaticQuery(graphql`
     {
-      allStrapiEvent(filter: { highlight: { eq: true } }) {
+      allStrapiEvent(
+        filter: { highlight: { eq: true } }
+        sort: { fields: published_at, order: DESC }
+        limit: 3
+      ) {
         nodes {
           title
           summary
@@ -28,6 +32,7 @@ const FeaturedSection = () => {
       }
     }
   `);
+  // ...GatsbyImageSharpFluid
   const highlightedEvents = data.allStrapiEvent.nodes;
 
   return (
