@@ -10,21 +10,21 @@ const EventCard = ({ event }) => {
         <EventInfoContainer>
           <EventTitle>{event.title}</EventTitle>
           <EventDescription>{event.summary}</EventDescription>
-          <Author>
-            <AuthorPhoto>
-              {event.author.authorPhoto !== null && (
+          {event.author !== null && (
+            <Author>
+              <AuthorPhoto>
                 <Image
                   fluid={event.author.authorPhoto.childImageSharp.fluid}
                   alt={event.title}
                 />
-              )}
-            </AuthorPhoto>
-            <AuthorInfoContainer>
-              <AuthorName>{event.author.name}</AuthorName>
-              <PublishDate>{event.published_at}</PublishDate>
-              <div>{event.programme}</div>
-            </AuthorInfoContainer>
-          </Author>
+              </AuthorPhoto>
+              <AuthorInfoContainer>
+                <AuthorName>{event.author.name}</AuthorName>
+                <PublishDate>{event.published_at}</PublishDate>
+                <div>{event.programme}</div>
+              </AuthorInfoContainer>
+            </Author>
+          )}
         </EventInfoContainer>
         <ImgContainer>
           {event.smallPhoto !== null && (

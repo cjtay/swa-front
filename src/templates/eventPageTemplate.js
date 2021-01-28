@@ -26,20 +26,21 @@ const EventPageTemplate = ({ data }) => {
 
           <PostContainer>
             <PostInfo>
-              <Author>
-                <AuthorPhoto>
-                  {event.author.authorPhoto !== null && (
+              {event.author !== null && (
+                <Author>
+                  <AuthorPhoto>
                     <Image
                       fluid={event.author.authorPhoto.childImageSharp.fluid}
                       alt={event.title}
                     />
-                  )}
-                </AuthorPhoto>
-                <AuthorInfoContainer>
-                  <AuthorName>{event.author.name}</AuthorName>
-                  <PublishDate>{event.published_at}</PublishDate>
-                </AuthorInfoContainer>
-              </Author>
+                  </AuthorPhoto>
+                  <AuthorInfoContainer>
+                    <AuthorName>{event.author.name}</AuthorName>
+                    <PublishDate>{event.published_at}</PublishDate>
+                  </AuthorInfoContainer>
+                </Author>
+              )}
+
               <ProgrammeInfo>
                 <div>
                   <span>Programme: </span>

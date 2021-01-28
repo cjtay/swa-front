@@ -56,12 +56,11 @@ module.exports = {
           `user`,
           `team`,
           `forms-mspi`,
-          `mspiapplications`,
+          `formcontact`,
           `volunteer-forms`,
-
         ],
         //If using single types place them in this array.
-        // singleTypes: [`home-page`, `contact`],
+        singleTypes: [`herosection`],
         // Possibility to login with a strapi user, when content types are not publically available (optional).
         // loginData: {
         //   identifier: "",

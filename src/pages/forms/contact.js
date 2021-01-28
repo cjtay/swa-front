@@ -33,7 +33,7 @@ const ContactForm = () => {
       console.log("spam suspected");
     } else {
       try {
-        const response = await fetch("http://localhost:1337/contact-forms", {
+        const response = await fetch("http://localhost:1337/formcontacts", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(values),

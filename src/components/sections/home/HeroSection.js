@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import React from "react";
+import { graphql, useStaticQuery, Link } from "gatsby";
 import Image from "gatsby-image";
 import styled from "styled-components";
 import HeroBackground from "../../backgrounds/HeroBackground";
@@ -8,12 +8,9 @@ import { Wrapper, ContentWrapper } from "../../../styles/wrappers/Wrapper";
 import { Description } from "../../../styles/SectionHeaders";
 
 const HeroSection = () => {
-  const data = useStaticQuery(getHeroImage);
-  const [flag, setFlag] = useState(false);
+  const data = useStaticQuery(getHero);
 
-  const handleClick = () => {
-    setFlag(!flag);
-  };
+  console.log("Hero data", data);
 
   return (
     <Wrapper>
@@ -21,19 +18,17 @@ const HeroSection = () => {
       <ContentWrapper>
         <Hero>
           <Text>
-            <Title>Singapore Women's Association</Title>
-            <Description>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-              repellat accusantium nobis quod aspernatur, eius fuga officiis
-              fugit laborum vero iste unde enim aliquid in nemo ea, optio ex
-              architecto!
-            </Description>
-            <ButtonLight onClick={handleClick}>
-              More : {flag ? "true" : "false"}
-            </ButtonLight>
+            <Title>{data.strapiHerosection.title}</Title>
+            <Description>{data.strapiHerosection.description}</Description>
+            <Link to={data.strapiHerosection.link}>
+              <ButtonLight>More</ButtonLight>
+            </Link>
           </Text>
           <Img>
-            <Image fluid={data.file.childImageSharp.fluid} alt="swa logo" />
+            <Image
+              fluid={data.strapiHerosection.media.childImageSharp.fluid}
+              alt="hero"
+            />
           </Img>
         </Hero>
       </ContentWrapper>
@@ -99,16 +94,17 @@ const Img = styled.div`
 
 // ----------- graphql -------------------
 
-export const getHeroImage = graphql`
+export const getHero = graphql`
   {
-    file(
-      sourceInstanceName: { eq: "images" }
-      relativePath: { eq: "hero-img.jpg" }
-    ) {
-      relativePath
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
+    strapiHerosection {
+      title
+      description
+      link
+      media {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
         }
       }
     }
