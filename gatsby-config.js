@@ -60,7 +60,7 @@ module.exports = {
           `volunteer-forms`,
         ],
         //If using single types place them in this array.
-        singleTypes: [`herosection`],
+        singleTypes: [`herosection`, `announcesection`],
         // Possibility to login with a strapi user, when content types are not publically available (optional).
         // loginData: {
         //   identifier: "",

@@ -5,7 +5,7 @@ export const Title = styled.h2`
   color: var(--color-primary-3);
 `;
 
-export const Description = styled.p`
+export const Description = styled.div`
   margin: 0.5em 0;
   line-height: 1.6;
 `;

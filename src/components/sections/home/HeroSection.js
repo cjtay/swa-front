@@ -10,8 +10,6 @@ import { Description } from "../../../styles/SectionHeaders";
 const HeroSection = () => {
   const data = useStaticQuery(getHero);
 
-  console.log("Hero data", data);
-
   return (
     <Wrapper>
       <HeroBackground />

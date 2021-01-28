@@ -72,8 +72,8 @@ const SponsorForm = () => {
 
             <Description>
               To find out more, kindly contact us by the following ways:
-              <div>Telephone: +65 6286 8702</div>
-              <div>Fax: +65 6288 9172</div>
+              <p>Telephone: +65 6286 8702</p>
+              <p>Fax: +65 6288 9172</p>
             </Description>
           </SectionHead>
           <Formik

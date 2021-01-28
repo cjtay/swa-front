@@ -1,19 +1,18 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import { Wrapper, ContentWrapper } from "../../../styles/wrappers/Wrapper";
 import { Title, Description } from "../../../styles/SectionHeaders";
 
 const AnnouncementSection = () => {
+  const data = useStaticQuery(getNotice);
+  console.log("notice section", data);
   return (
     <Wrapper>
       <ContentWrapper>
         <Notice>
-          <Title>Important Annoucement</Title>
-          <Description>
-            In view of the evolving situation of the COVID 19 outbreak, we would
-            like to announce that SWA Charity Gala Diner 2020 will be
-            Descriptionostponed to July 2021.
-          </Description>
+          <Title>{data.strapiAnnouncesection.title}</Title>
+          <Description>{data.strapiAnnouncesection.description}</Description>
         </Notice>
       </ContentWrapper>
     </Wrapper>
@@ -33,5 +32,16 @@ const Notice = styled.div`
     max-width: 500px;
     margin: 0 auto;
     margin-top: 2em;
+  }
+`;
+
+// ----------- graphql -------------------
+
+export const getNotice = graphql`
+  {
+    strapiAnnouncesection {
+      title
+      description
+    }
   }
 `;
