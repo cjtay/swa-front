@@ -13,7 +13,6 @@ const ProfileInfo = ({ showMod, member, itemId, handleClose }) => {
   console.log("modal showMod ", showMod);
   return (
     <ProfileStyle showMod={showMod} onClick={handleClose}>
-      <ProfileName>{member.name}</ProfileName>
       {member.description && (
         <>
           <ProfileTitle>Description</ProfileTitle>
@@ -47,12 +46,6 @@ const ProfileInfo = ({ showMod, member, itemId, handleClose }) => {
 
 export default ProfileInfo;
 
-const ProfileName = styled.h2`
-  color: var(--color-primary-1);
-  text-align: center;
-  margin-bottom: 1em;
-`;
-
 const ProfileTitle = styled.h4`
   color: var(--color-primary-1);
 `;
@@ -60,18 +53,20 @@ const ProfileTitle = styled.h4`
 const ProfileStyle = styled.div`
   position: relative;
   visibility: ${props => (props.showMod ? "visible" : "hidden")};
+  display: ${props => (props.showMod ? "block" : "none")};
   opacity: ${props => (props.showMod ? 1 : 0)};
   transition: 0.3s ease-in;
   background-color: var(--color-primary-4);
   z-index: 1;
-  top: 0;
+  top: -20px;
   left: 0;
-  height: ${props => (props.showMod ? "100%" : "0")};
+  /* height: ${props => (props.showMod ? "90%" : "0")}; */
   padding: 1em;
   border-radius: 10px;
 
   @media (min-width: 600px) {
-    width: ${props => (props.showMod ? "100%" : "0")};
+    width: ${props => (props.showMod ? "80%" : "0")};
+    margin: 0 auto;
   }
 
   h1 {

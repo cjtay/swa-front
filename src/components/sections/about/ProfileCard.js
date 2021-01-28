@@ -16,7 +16,7 @@ const ProfileCard = ({ member }) => {
     console.log("member selected - member", member);
     console.log("itemId set ", itemId);
 
-    setShowMod(true);
+    setShowMod(!showMod);
     setItemId(member);
   };
 
@@ -29,61 +29,65 @@ const ProfileCard = ({ member }) => {
   const socialUrls = member.social.map((soc, i) => soc.socialurl);
 
   return (
-    <Card>
-      <ProfilePhoto data={member} />
-      <ProfileName>{member.name}</ProfileName>
-
-      <ProfilePosition>{member.title}</ProfilePosition>
-      {socialIcons !== [] && (
-        <SocialList>
-          {socialIcons.map((icon, i) => (
-            <Social key={i}>
-              {icon === "Facebook" ? (
-                <a
-                  href={socialUrls[i]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaFacebook />
-                </a>
-              ) : icon === "Instagram" ? (
-                <a
-                  href={socialUrls[i]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaInstagram />
-                </a>
-              ) : icon === "Twitter" ? (
-                <a
-                  href={socialUrls[i]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaTwitter />
-                </a>
-              ) : icon === "LinkedIn" ? (
-                <a
-                  href={socialUrls[i]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaLinkedin />
-                </a>
-              ) : null}
-            </Social>
-          ))}
-        </SocialList>
-      )}
-      <Info onClick={() => handleShow(member.id)}>Read more</Info>
-
+    <>
+      <Card>
+        <ProfilePhotoContainer>
+          <ProfilePhoto data={member} />
+        </ProfilePhotoContainer>
+        <ProfileInfoContainer>
+          <ProfileName>{member.name}</ProfileName>
+          <ProfilePosition>{member.title}</ProfilePosition>
+          {socialIcons !== [] && (
+            <SocialList>
+              {socialIcons.map((icon, i) => (
+                <Social key={i}>
+                  {icon === "Facebook" ? (
+                    <a
+                      href={socialUrls[i]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaFacebook />
+                    </a>
+                  ) : icon === "Instagram" ? (
+                    <a
+                      href={socialUrls[i]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaInstagram />
+                    </a>
+                  ) : icon === "Twitter" ? (
+                    <a
+                      href={socialUrls[i]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaTwitter />
+                    </a>
+                  ) : icon === "LinkedIn" ? (
+                    <a
+                      href={socialUrls[i]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaLinkedin />
+                    </a>
+                  ) : null}
+                </Social>
+              ))}
+            </SocialList>
+          )}
+          <Info onClick={() => handleShow(member.id)}>Read more</Info>
+        </ProfileInfoContainer>
+      </Card>
       <ProfileInfo
         showMod={showMod}
         member={member}
         itemId={itemId}
         handleClose={handleClose}
       />
-    </Card>
+    </>
   );
 };
 
@@ -99,15 +103,30 @@ const Card = styled.li`
 
   @media (min-width: 600px) {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-start;
+    /* justify-content: flex-start; */
+    /* align-items: flex-start; */
     max-width: 80%;
   }
 `;
 
+const ProfilePhotoContainer = styled.div`
+  @media (min-width: 600px) {
+    margin: 0 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+`;
+const ProfileInfoContainer = styled.div``;
+
 const ProfileName = styled.h2`
   color: var(--color-primary-1);
   text-align: center;
+  @media (min-width: 600px) {
+    text-align: left;
+  }
 `;
 
 const ProfilePosition = styled.p`
@@ -115,12 +134,18 @@ const ProfilePosition = styled.p`
   font-weight: 300;
   font-size: 0.9rem;
   text-align: center;
+  @media (min-width: 600px) {
+    text-align: left;
+  }
 `;
 
 const SocialList = styled.div`
   display: flex;
   justify-content: center;
   margin: 1em auto;
+  @media (min-width: 600px) {
+    justify-content: flex-start;
+  }
 `;
 
 const Social = styled.div`
@@ -129,11 +154,10 @@ const Social = styled.div`
   color: var(--color-primary-1);
 `;
 
-const Info = styled.p`
-  display: block;
-  padding: 0.3em 0.5em;
+const Info = styled.div`
+  display: inline-block;
+  padding: 0.3em 0.8em;
   text-align: center;
-  margin: 1em auto;
   border-radius: 10px;
   border: 1px solid var(--color-primary-4);
   background-color: var(--color-white);
@@ -142,6 +166,9 @@ const Info = styled.p`
 
   :hover {
     background-color: var(--color-primary-4);
+  }
+
+  @media (min-width: 600px) {
   }
 `;
 

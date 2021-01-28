@@ -116,8 +116,8 @@ const Search = styled.div`
       : "var(--color-primary-2)"};
   font-weight: 400;
   font-size: 1rem;
-  padding: 0.1em 0.9em;
-  margin: 1em 1em;
+  padding: 0.1em 1.1em;
+  margin: 0 0.5em;
   border-radius: 10px;
   cursor: pointer;
 `;
@@ -136,29 +136,14 @@ const FilterSection = styled.div`
   border: 1px solid var(--color-lightgrey);
   border-radius: 10px;
   padding: 1em;
-  background-color: var(--color-primary-4);
-  background: -webkit-linear-gradient(
-    bottom right,
-    rgba(112, 49, 140, 1),
-    rgba(132, 137, 199, 1)
-  );
-  background: -moz-linear-gradient(
-    bottom right,
-    rgba(112, 49, 140, 1),
-    rgba(132, 137, 199, 1)
-  );
-  background: linear-gradient(
-    to top left,
-    rgba(112, 49, 140, 1),
-    rgba(132, 137, 199, 1)
-  );
+
   @media (min-width: 600px) {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto; */
   }
 `;
 
@@ -166,29 +151,14 @@ const FilterItem = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 1em;
-  :first-child {
-    margin-top: 0em;
-  }
-  select {
-    width: 100%;
-  }
-  @media (min-width: 600px) {
-    margin-top: 0em;
-    select {
-      width: 250px;
-    }
-  }
 `;
 
 const Label = styled.div`
   font-weight: 300;
   font-size: 0.8rem;
-  color: var(--color-white);
-  margin-bottom: 0.3 em;
+  color: var(--color-primary-2);
+  margin-bottom: 1em;
 `;
-
-// https://stackoverflow.com/questions/58963030/drop-down-menu-using-styled-components-how-to-properly-use-class-selectors
 
 const List = styled.ul`
   width: 100%;

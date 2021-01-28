@@ -22,6 +22,10 @@ const PhotoStyle = styled.div`
   padding: 5px;
   margin: 1em auto;
 
+  @media (min-width: 600px) {
+    margin: 0 auto;
+  }
+
   img {
     width: 100% !important;
     height: auto;

@@ -21,8 +21,8 @@ const EventCard = ({ event }) => {
               <AuthorInfoContainer>
                 <AuthorName>{event.author.name}</AuthorName>
                 <PublishDate>{event.published_at}</PublishDate>
-                <div>{event.programme}</div>
               </AuthorInfoContainer>
+              <Programme>{event.programme}</Programme>
             </Author>
           )}
         </EventInfoContainer>
@@ -42,7 +42,7 @@ const EventCard = ({ event }) => {
 export default EventCard;
 
 const Card = styled.li`
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20px);
   max-width: 600px;
   border-radius: 15px;
@@ -64,6 +64,7 @@ const EventTitle = styled.h4`
 `;
 
 const EventDescription = styled.p`
+  font-size: 1rem;
   color: var(--color-font-dark);
 `;
 
@@ -122,4 +123,14 @@ const PublishDate = styled.div`
   font-size: 0.7rem;
   font-weight: 300;
   color: var(--color-darkgrey);
+`;
+
+const Programme = styled.div`
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2em 0.9em;
+  background-color: var(--color-primary-4);
+  border-radius: 5px;
+  margin-left: auto;
+  align-self: center;
 `;
