@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import { Wrapper, ContentWrapper } from "../../../styles/wrappers/Wrapper";
 import { Title, Description } from "../../../styles/SectionHeaders";
-import { AiTwotoneNotification } from "react-icons/ai";
 
 const AnnouncementSection = () => {
   const data = useStaticQuery(getNotice);

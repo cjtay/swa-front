@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import Image from "gatsby-image";
 import { ButtonLight } from "../../styles/buttons/ButtonStyles";
-
 import { FaHome, FaHandsHelping, FaBook } from "react-icons/fa";
 import { BsFillPeopleFill, BsCalendar } from "react-icons/bs";
-
 import styled from "styled-components";
 
 const mainNav = [
@@ -49,7 +47,6 @@ const mainNav = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const data = useStaticQuery(getLogo);
 
   const tempLinks = mainNav.map(link => {
@@ -80,11 +77,11 @@ const Navbar = () => {
           <Logo>
             <Image fluid={data.file.childImageSharp.fluid} alt="logo" />
             <LogoTitle>Singapore Women's Association</LogoTitle>
-            <MenuIcon onClick={handleClick}>
+            <MenuBurger onClick={handleClick}>
               <div />
               <div />
               <div />
-            </MenuIcon>
+            </MenuBurger>
           </Logo>
         </Link>
 
@@ -92,6 +89,7 @@ const Navbar = () => {
           <MenuWrapper>{tempLinks}</MenuWrapper>
           <CTA>Donate</CTA>
         </MenuContainer>
+
         <MenuMobileContainer isOpen={isOpen} onClick={handleClose}>
           <MenuMobileWrapper isOpen={isOpen}>
             <Backdrop isOpen={isOpen} onClick={handleClose}>
@@ -259,7 +257,7 @@ const LogoTitle = styled.h3`
   }
 `;
 
-const MenuIcon = styled.div`
+const MenuBurger = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
