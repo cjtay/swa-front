@@ -1,8 +1,46 @@
 import React from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 
+const subNav = [
+  {
+    id: 1,
+    text: "Contact",
+    url: "/forms/contact",
+  },
+  {
+    id: 2,
+    text: "Volunteer Form",
+    url: "/forms/volunteer",
+  },
+  {
+    id: 3,
+    text: "Sponsor Form",
+    url: "/forms/sponsor",
+  },
+  {
+    id: 4,
+    text: "MSPI Application Form",
+    url: "/forms/mspiapplication",
+  },
+];
+
 const Footer = () => {
-  return <FooterSection>My Footer</FooterSection>;
+  const tempSubLinks = subNav.map(link => {
+    return (
+      <div key={link.id}>
+        <Link to={link.url}>
+          <div>{link.text}</div>
+        </Link>
+      </div>
+    );
+  });
+
+  return (
+    <FooterSection>
+      <SubMenu>{tempSubLinks}</SubMenu>
+    </FooterSection>
+  );
 };
 
 export default Footer;
@@ -30,5 +68,17 @@ const FooterSection = styled.footer`
   margin-top: auto;
 
   @media (min-width: 600px) {
+  }
+`;
+
+const SubMenu = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 700px;
+  font-size: 1rem;
+  margin: 0 auto;
+
+  div {
+    margin: 1em 0;
   }
 `;
