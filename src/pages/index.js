@@ -9,16 +9,18 @@ import ParticipateSection from "../components/sections/home/ParticipateSection";
 import SponsorSection from "../components/sections/home/SponsorSection";
 // import GlobalStyle from "../styles/GlobalStyles";
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="SWA Home" />
-    {/* <GlobalStyle /> */}
-    <HeroSection />
-    <NoticeSection />
-    <FeaturedSection />
-    <ProgrammeSection />
-    <ParticipateSection />
-    <SponsorSection />
-  </Layout>
-);
+const IndexPage = () => {
+  return (
+    <Layout>
+      <SEO title="SWA Home" />
+
+      <HeroSection />
+      <NoticeSection />
+      <FeaturedSection />
+      <ProgrammeSection />
+      <ParticipateSection />
+      <SponsorSection />
+    </Layout>
+  );
+};
 export default IndexPage;

@@ -45,7 +45,7 @@ module.exports = {
         display: "swap",
       },
     },
-    `gatsby-plugin-styled-components`,
+
     {
       resolve: `gatsby-source-strapi`,
       options: {
@@ -68,6 +68,21 @@ module.exports = {
         // },
       },
     },
+    "gatsby-plugin-top-layout",
+    {
+      resolve: "gatsby-plugin-material-ui",
+      // If you want to use styled components you should change the injection order.
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
+    // If you want to use styled components you should add the plugin here.
+    // 'gatsby-plugin-styled-components',
+    "gatsby-plugin-react-helmet",
+    `gatsby-plugin-styled-components`,
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
