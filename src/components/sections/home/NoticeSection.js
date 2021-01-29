@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import { Wrapper, ContentWrapper } from "../../../styles/wrappers/Wrapper";
 import { Title, Description } from "../../../styles/SectionHeaders";
+import { AiTwotoneNotification } from "react-icons/ai";
 
 const AnnouncementSection = () => {
   const data = useStaticQuery(getNotice);
@@ -10,10 +11,12 @@ const AnnouncementSection = () => {
   return (
     <Wrapper>
       <ContentWrapper>
-        <Notice>
-          <Title>{data.strapiAnnouncesection.title}</Title>
-          <Description>{data.strapiAnnouncesection.description}</Description>
-        </Notice>
+        {data.strapiAnnouncesection.title !== "" && (
+          <Notice>
+            <Title>{data.strapiAnnouncesection.title}</Title>
+            <Description>{data.strapiAnnouncesection.description}</Description>
+          </Notice>
+        )}
       </ContentWrapper>
     </Wrapper>
   );
@@ -27,6 +30,7 @@ const Notice = styled.div`
   margin-top: 0.5em;
   background-color: var(--color-white-transparent);
   border: 1px solid var(--color-grey);
+  text-align: center;
 
   @media (min-width: 600px) {
     max-width: 500px;

@@ -52,6 +52,7 @@ const ProfileTitle = styled.h4`
 
 const ProfileStyle = styled.div`
   position: relative;
+
   visibility: ${props => (props.showMod ? "visible" : "hidden")};
   display: ${props => (props.showMod ? "block" : "none")};
   opacity: ${props => (props.showMod ? 1 : 0)};
