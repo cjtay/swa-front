@@ -12,7 +12,7 @@ const Wave = styled.img`
   position: absolute;
   z-index: -1;
   width: 100%;
-  top: 0em;
+  top: 9em;
   transform: scale(1.9);
 
   @media (min-width: 600px) {
@@ -25,7 +25,7 @@ const Wave = styled.img`
     transform: scale(1.5);
   }
   @media (min-width: 1200px) {
-    top: -45em;
-    transform: scale(2);
+    top: -25em;
+    transform: scale(1.5);
   }
 `;

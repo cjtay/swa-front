@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, useStaticQuery, Link } from "gatsby";
 import Image from "gatsby-image";
 import styled from "styled-components";
-import HeroBackground from "../../backgrounds/HeroBackground";
+// import HeroBackground from "../../backgrounds/HeroBackground";
 import { ButtonLight } from "../../../styles/buttons/ButtonStyles";
 import { Wrapper, ContentWrapper } from "../../../styles/wrappers/Wrapper";
 import { Description } from "../../../styles/SectionHeaders";
@@ -12,23 +12,25 @@ const HeroSection = () => {
 
   return (
     <Wrapper>
-      <HeroBackground />
+      {/* <HeroBackground /> */}
       <ContentWrapper>
-        <Hero>
-          <Text>
-            <Title>{data.strapiHerosection.title}</Title>
-            <Description>{data.strapiHerosection.description}</Description>
-            <Link to={data.strapiHerosection.link}>
-              <ButtonLight>More</ButtonLight>
-            </Link>
-          </Text>
-          <Img>
-            <Image
-              fluid={data.strapiHerosection.media.childImageSharp.fluid}
-              alt="hero"
-            />
-          </Img>
-        </Hero>
+        {data.strapiHerosection.title !== "" && (
+          <Hero>
+            <Text>
+              <Title>{data.strapiHerosection.title}</Title>
+              <Description>{data.strapiHerosection.description}</Description>
+              <Link to={data.strapiHerosection.link}>
+                <ButtonLight>More</ButtonLight>
+              </Link>
+            </Text>
+            <Img>
+              <Image
+                fluid={data.strapiHerosection.media.childImageSharp.fluid}
+                alt="hero"
+              />
+            </Img>
+          </Hero>
+        )}
       </ContentWrapper>
     </Wrapper>
   );
@@ -49,7 +51,7 @@ const Hero = styled.div`
     flex-direction: row-reverse;
     justify-content: space-between;
     padding: 1em;
-    align-items: center;
+    align-items: flex-start;
     max-height: 70%;
     overflow: hidden;
     /* background-color: transparent; */
@@ -68,12 +70,16 @@ const Text = styled.div`
 const Title = styled.h1`
   color: var(--color-white);
   font-weight: 700;
+  @media (min-width: 600px) {
+    margin: 0;
+  }
 `;
 
 const Img = styled.div`
   max-height: 250px;
   overflow: hidden;
   border: 5px solid white;
+  margin-bottom: 1em;
 
   img {
     display: block;
