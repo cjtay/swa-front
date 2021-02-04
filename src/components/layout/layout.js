@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const Layout = ({ children }) => {
   return (
-    <LayoutWrapper className="font-body">
+    <LayoutWrapper className="font-body ">
       <Navbar />
       {children}
       <Footer />
