@@ -73,17 +73,17 @@ const Navbar = () => {
   return (
     <>
       <Wrapper>
-        <Link to="/">
-          <Logo>
+        <Logo>
+          <Link to="/">
             <Image fluid={data.file.childImageSharp.fluid} alt="logo" />
-            <LogoTitle>Singapore Women's Association</LogoTitle>
-            <MenuBurger onClick={handleClick}>
-              <div />
-              <div />
-              <div />
-            </MenuBurger>
-          </Logo>
-        </Link>
+          </Link>
+          <LogoTitle>Singapore Women's Association</LogoTitle>
+          <MenuBurger onClick={handleClick}>
+            <div />
+            <div />
+            <div />
+          </MenuBurger>
+        </Logo>
 
         <MenuContainer>
           <MenuWrapper>{tempLinks}</MenuWrapper>
@@ -104,21 +104,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-export const getLogo = graphql`
-  {
-    file(
-      sourceInstanceName: { eq: "assets" }
-      relativePath: { eq: "logo.png" }
-    ) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
 
 const Wrapper = styled.div`
   display: grid;
@@ -285,5 +270,20 @@ const CTA = styled(ButtonLight)`
 
   @media (min-width: 960px) {
     display: inline-block;
+  }
+`;
+
+export const getLogo = graphql`
+  {
+    file(
+      sourceInstanceName: { eq: "assets" }
+      relativePath: { eq: "logo.png" }
+    ) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
 `;
