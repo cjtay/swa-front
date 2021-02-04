@@ -1,3 +1,9 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ---------------------------------------------------------- */
 /* CUSTOM PROPERTIES */
 /* ---------------------------------------------------------- */
@@ -42,7 +48,9 @@
   font-size: 16px;
 }
 body {
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
+  /* font-family: "Merriweather", serif; */
+
   font-size: 1.125rem; /* 18px */
   line-height: 1.4;
   font-weight: 300;
@@ -87,3 +95,7 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+/* @import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities"; */

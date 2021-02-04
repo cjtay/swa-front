@@ -41,7 +41,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Roboto\:300,400,700,900`],
+        fonts: [`Merriweather\:400,700,900`],
         display: "swap",
       },
     },
@@ -82,7 +82,7 @@ module.exports = {
     // 'gatsby-plugin-styled-components',
     "gatsby-plugin-react-helmet",
     `gatsby-plugin-styled-components`,
-
+    "gatsby-plugin-postcss",
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

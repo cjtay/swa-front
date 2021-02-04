@@ -22,6 +22,12 @@ const HeroSection = () => {
               <Link to={data.strapiHerosection.link}>
                 <ButtonLight>More</ButtonLight>
               </Link>
+              <button className="ml-1 bg-white hover:bg-green-700 text-purple-500 py-2 px-6 rounded-md ">
+                More
+              </button>
+              <div className="text-white">
+                This is a standalone text styled by tailwind
+              </div>
             </Text>
             <Img>
               <Image
