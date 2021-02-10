@@ -1,54 +1,54 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { Ring } from "react-awesome-spinners";
+// import { Ring } from "react-awesome-spinners";
 
 const ContactForm = () => {
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
-  const [loader, setLoader] = useState(false);
+  // const [error, setError] = useState("");
+  // const [success, setSuccess] = useState(false);
+  // const [loader, setLoader] = useState(false);
 
-  const initialValues = {
-    honey: "",
-    name: "",
-    company: "",
-    email: "",
-    phone: "",
-    address: "",
-    message: "",
-  };
+  // const initialValues = {
+  //   honey: "",
+  //   name: "",
+  //   company: "",
+  //   email: "",
+  //   phone: "",
+  //   address: "",
+  //   message: "",
+  // };
 
-  const onSubmit = async values => {
-    console.log("submitted data: ", values);
+  // const onSubmit = async values => {
+  //   console.log("submitted data: ", values);
 
-    setLoader(true);
-    if (values.honey !== "") {
-      setError("Spam suspected");
-      console.log("spam suspected");
-    } else {
-      try {
-        const response = await fetch("http://localhost:1337/formcontacts", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(values),
-        });
-        const data = await response.json();
-        setLoader(false);
-        console.log("Successfully sent to Strapi!");
-        console.log("response received: ", data);
-        if (data.statusCode) {
-          setError(data.message);
-        } else if (data.created_at) {
-          setSuccess(true);
-        }
-      } catch (error) {
-        console.log("error received: ", error.message);
-        setLoader(false);
-      }
-    }
-  };
+  //   setLoader(true);
+  //   if (values.honey !== "") {
+  //     setError("Spam suspected");
+  //     console.log("spam suspected");
+  //   } else {
+  //     try {
+  //       const response = await fetch("http://localhost:1337/formcontacts", {
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify(values),
+  //       });
+  //       const data = await response.json();
+  //       setLoader(false);
+  //       console.log("Successfully sent to Strapi!");
+  //       console.log("response received: ", data);
+  //       if (data.statusCode) {
+  //         setError(data.message);
+  //       } else if (data.created_at) {
+  //         setSuccess(true);
+  //       }
+  //     } catch (error) {
+  //       console.log("error received: ", error.message);
+  //       setLoader(false);
+  //     }
+  //   }
+  // };
 
   return (
-    <div className="px-4 my-12 max-w-3xl mx-auto antialiased text-gray-800">
+    <div className="px-4 my-12 max-w-3xl mx-auto antialiased text-gray-800 font-sans">
       <h1 className="text-4xl font-black">Enquiry Form</h1>
       <p className="text-gray-500">We love to hear from you.</p>
 

@@ -24,6 +24,13 @@ module.exports = {
         path: `${__dirname}/src/assets`,
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-google-fonts`,
+    //   options: {
+    //     fonts: [`Roboto\:400,700,900`],
+    //     display: "swap",
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -36,13 +43,6 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/favicon-32x32.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`Roboto\:400,700,900`],
-        display: "swap",
       },
     },
 
@@ -71,9 +71,10 @@ module.exports = {
 
     // If you want to use styled components you should add the plugin here.
     // 'gatsby-plugin-styled-components',
-    "gatsby-plugin-react-helmet",
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
-    "gatsby-plugin-postcss",
+    `gatsby-plugin-postcss`,
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
