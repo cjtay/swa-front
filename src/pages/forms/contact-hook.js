@@ -48,7 +48,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="px-4 my-12 max-w-3xl mx-auto">
+    <div className="px-4 my-12 max-w-3xl mx-auto antialiased text-gray-800">
       <h1 className="text-4xl font-black">Enquiry Form</h1>
       <p className="text-gray-500">We love to hear from you.</p>
 
