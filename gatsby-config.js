@@ -9,6 +9,7 @@ module.exports = {
     author: `Tay C J`,
   },
   plugins: [
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -71,9 +72,7 @@ module.exports = {
 
     // If you want to use styled components you should add the plugin here.
     // 'gatsby-plugin-styled-components',
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-postcss`,
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
