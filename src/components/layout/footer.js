@@ -1,4 +1,6 @@
 import React from "react";
+import OnlineForm from "../../components/forms/contact-page";
+
 import { Link } from "gatsby";
 import styled from "styled-components";
 
