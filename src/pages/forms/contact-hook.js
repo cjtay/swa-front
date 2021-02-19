@@ -45,6 +45,7 @@ const ContactForm = () => {
         }
       } catch (error) {
         console.log("error received: ", error.message);
+        setError(error.message);
         setLoader(false);
       }
     }
@@ -150,9 +151,19 @@ const ContactForm = () => {
           {loader ? (
             <Ring color="#A855F7" size="40" sizeUnit="px" />
           ) : success ? (
-            <p className="text-green-500 ">Your enquiry has been submitted</p>
+            <p className="text-green-500 text-center font-bold">
+              Your enquiry has been submitted
+            </p>
           ) : error ? (
-            <p className="text-red-600">We have encountered an error</p>
+            <>
+              <p className="text-red-600 text-center font-bold">
+                We have encountered an error - {error} <br />
+              </p>
+              <p className="text-red-600  text-center">
+                Please try again. If problem persist, please email us directly
+                at contactus@singaporewomenassociation.org
+              </p>
+            </>
           ) : (
             <button
               className="bg-purple-500 px-5 py-3 rounded-md shadow hover:bg-purple-900 text-white w-full transition duration-300 ease-in-out"
@@ -163,7 +174,7 @@ const ContactForm = () => {
           )}
         </div>
         <div>
-          <button
+          {/* <button
             className={
               test
                 ? "bg-green-500 px-5 py-3 rounded-md text-white"
@@ -172,17 +183,17 @@ const ContactForm = () => {
             type="submit"
           >
             Change whole class set
-          </button>
+          </button> */}
         </div>
       </form>
-      <button
+      {/* <button
         onClick={handleClick}
         className={`${
           test ? "bg-red-500" : "bg-green-500"
         } px-5 py-3 rounded-md text-white cursor-pointer mt-6 mx-auto block focus:outline-none`}
       >
         Test State: {test ? "True" : "False"}
-      </button>
+      </button> */}
     </div>
   );
 };

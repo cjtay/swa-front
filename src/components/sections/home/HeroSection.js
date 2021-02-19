@@ -3,42 +3,32 @@ import { graphql, useStaticQuery, Link } from "gatsby";
 import Image from "gatsby-image";
 import styled from "styled-components";
 // import HeroBackground from "../../backgrounds/HeroBackground";
-import { ButtonLight } from "../../../styles/buttons/ButtonStyles";
 import { Wrapper, ContentWrapper } from "../../../styles/wrappers/Wrapper";
-import { Description } from "../../../styles/SectionHeaders";
 
 const HeroSection = () => {
   const data = useStaticQuery(getHero);
 
   return (
-    <Wrapper>
-      {/* <HeroBackground /> */}
-      <ContentWrapper>
-        {data.strapiHerosection.title !== "" && (
-          <Hero>
-            <Text>
-              <Title>{data.strapiHerosection.title}</Title>
-              <Description>{data.strapiHerosection.description}</Description>
-              <Link to={data.strapiHerosection.link}>
-                <ButtonLight>More</ButtonLight>
-              </Link>
-              <button className="ml-1 bg-white hover:bg-green-700 text-purple-500 py-2 px-6 rounded-md ">
-                More
-              </button>
-              <div className="text-white">
-                This is a standalone text styled by tailwind
-              </div>
-            </Text>
-            <Img>
-              <Image
-                fluid={data.strapiHerosection.media.childImageSharp.fluid}
-                alt="hero"
-              />
-            </Img>
-          </Hero>
-        )}
-      </ContentWrapper>
-    </Wrapper>
+    <section>
+      {data.strapiHerosection.title !== "" && (
+        <Hero>
+          <Text>
+            <h1 className="mb-2">{data.strapiHerosection.title}</h1>
+            <p>{data.strapiHerosection.description}</p>
+            <Link to={data.strapiHerosection.link}>
+              <button className="btn-dark mt-2">Read more</button>
+              <button className="btn-light mt-2">Read more</button>
+            </Link>
+          </Text>
+          <Img>
+            <Image
+              fluid={data.strapiHerosection.media.childImageSharp.fluid}
+              alt="hero"
+            />
+          </Img>
+        </Hero>
+      )}
+    </section>
   );
 };
 

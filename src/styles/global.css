@@ -1,5 +1,29 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply font-black text-4xl;
+  }
+  h2 {
+    @apply font-bold text-3xl;
+  }
+  p {
+    @apply font-light text-lg;
+  }
+  section {
+    @apply my-8;
+  }
+}
+
+@layer components {
+  .btn-dark {
+    @apply bg-purple-900 px-5 py-3 rounded-md shadow hover:bg-purple-300 text-white transition duration-300 ease-in-out;
+  }
+  .btn-light {
+    @apply bg-white px-5 py-3 rounded-md shadow hover:bg-gray-200 text-purple-900 transition duration-300 ease-in-out;
+  }
+}
