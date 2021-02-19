@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   return (
     <LayoutWrapper className="font-body ">
       <Navbar />
-      {children}
+      <div className="p-2">{children}</div>
       <Footer />
     </LayoutWrapper>
   );
