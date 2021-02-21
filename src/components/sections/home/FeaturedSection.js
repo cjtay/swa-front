@@ -1,9 +1,5 @@
 import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import styled from "styled-components";
-import { ButtonDark } from "../../../styles/buttons/ButtonStyles";
-import { Wrapper, ContentWrapper } from "../../../styles/wrappers/Wrapper";
-import { Header, Title, Description } from "../../../styles/SectionHeaders";
 
 import FeaturedBackground from "../../backgrounds/FeaturedBackground";
 import FeaturedCard from "./FeaturedCard";
@@ -36,47 +32,30 @@ const FeaturedSection = () => {
   const highlightedEvents = data.allStrapiEvent.nodes;
 
   return (
-    <Wrapper>
+    <section className="sm:w-4/5 max-w-4xl px-2 mx-auto">
       <FeaturedBackground />
-      <ContentWrapper>
-        <Header>
-          <Title>Featured events</Title>
-          <Description>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil
-            non consequuntur odio obcaecati, consectetur in saepe officiis
-            maxime vero ipsam ipsa exercitationem.
-          </Description>
-          <ButtonPosition>
-            <Link to="/events/">
-              <ButtonDark>View all event</ButtonDark>
-            </Link>
-          </ButtonPosition>
-        </Header>
 
-        <FeaturedList>
-          {highlightedEvents.map(event => (
-            <FeaturedCard event={event} key={event.id} />
-          ))}
-        </FeaturedList>
-      </ContentWrapper>
-    </Wrapper>
+      <div className="sm:w-3/5">
+        <h2 className="text-purple-900">Featured events</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil
+          non consequuntur odio obcaecati, consectetur in saepe officiis maxime
+          vero ipsam ipsa exercitationem.
+        </p>
+        <div className="flex flex-row justify-center sm:justify-start">
+          <Link to="/events/">
+            <div className="btn-dark my-2">View all event</div>
+          </Link>
+        </div>
+      </div>
+
+      <div className="sm:max-w-xl ml-auto">
+        {highlightedEvents.map(event => (
+          <FeaturedCard event={event} key={event.id} />
+        ))}
+      </div>
+    </section>
   );
 };
 
 export default FeaturedSection;
-
-const ButtonPosition = styled.div`
-  align-self: center;
-  margin-bottom: 1.5em;
-
-  @media (min-width: 600px) {
-    align-self: flex-start;
-  }
-`;
-
-const FeaturedList = styled.ul`
-  @media (min-width: 600px) {
-    max-width: 650px;
-    margin-left: auto;
-  }
-`;

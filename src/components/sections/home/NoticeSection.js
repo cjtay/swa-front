@@ -6,7 +6,7 @@ const AnnouncementSection = () => {
   return (
     <section>
       {data.strapiAnnouncesection.title !== "" && (
-        <div className="bg-white-transparent px-5 py-4 max-w-lg mx-auto rounded-xl">
+        <div className="bg-black-transparent sm:bg-white-transparent px-5 py-4 max-w-lg mx-auto rounded-xl">
           <h2 className="text-purple-900 mb-2 text-center">
             {data.strapiAnnouncesection.title}
           </h2>
