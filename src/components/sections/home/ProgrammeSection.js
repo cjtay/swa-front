@@ -16,7 +16,7 @@ const ProgrammeSection = () => {
         </div>
       </div>
       <div className="sm:max-w-xl mr-auto">
-        <div className="sm:flex sm:flex-row-reverse p-4 bg-gradient-to-br from-swa-5 via-swa-5 to-swa-1 rounded-xl my-5">
+        <div className="sm:flex sm:flex-row-reverse p-6 bg-gradient-to-br from-swa-5 via-swa-5 to-swa-1 rounded-xl my-5">
           <div className="text-white">
             <h4>Elderly</h4>
             <p className="text-base">
@@ -27,12 +27,12 @@ const ProgrammeSection = () => {
             </p>
           </div>
           <img
-            src="https://source.unsplash.com/random"
+            src="https://source.unsplash.com/random/800x600"
             alt=""
-            className="max-h-full border-4 border-white sm:mb-2 mt-2 sm:mt-0 sm:mr-4 sm:w-40 sm:h-40 object-cover"
+            className="max-h-full border-4 border-white sm:mb-2 mt-2 sm:mt-0 sm:mr-4 sm:w-40 object-cover"
           />
         </div>
-        <div className="sm:flex sm:flex-row-reverse p-4 bg-gradient-to-br from-swa-5 via-swa-5 to-swa-1 rounded-xl my-5">
+        <div className="sm:flex sm:flex-row-reverse p-6 bg-gradient-to-br from-swa-5 via-swa-5 to-swa-1 rounded-xl my-5">
           <div className="text-white">
             <h4>Community</h4>
             <p className="text-base">
@@ -43,12 +43,12 @@ const ProgrammeSection = () => {
             </p>
           </div>
           <img
-            src="https://source.unsplash.com/random"
+            src="https://source.unsplash.com/random/600x1200"
             alt=""
-            className="max-h-full border-4 border-white sm:mb-2 mt-2 sm:mt-0 sm:mr-4 sm:w-40 sm:h-40 object-cover"
+            className="max-h-full border-4 border-white sm:mb-2 mt-2 sm:mt-0 sm:mr-4 sm:w-40 object-cover"
           />
         </div>
-        <div className="sm:flex sm:flex-row-reverse p-4 bg-gradient-to-br from-swa-5 via-swa-5 to-swa-1 rounded-xl my-5">
+        <div className="sm:flex sm:flex-row-reverse p-6 bg-gradient-to-br from-swa-5 via-swa-5 to-swa-1 rounded-xl my-5">
           <div className="text-white">
             <h4>Diversity</h4>
             <p className="text-base">
@@ -59,12 +59,12 @@ const ProgrammeSection = () => {
             </p>
           </div>
           <img
-            src="https://source.unsplash.com/random"
+            src="https://source.unsplash.com/random/1200x700"
             alt=""
-            className="max-h-full border-4 border-white sm:mb-2 mt-2 sm:mt-0 sm:mr-4 sm:w-40 sm:h-40 object-cover"
+            className="max-h-full border-4 border-white sm:mb-2 mt-2 sm:mt-0 sm:mr-4 sm:w-40 object-cover"
           />
         </div>
-        <div className="sm:flex sm:flex-row-reverse p-4 bg-gradient-to-br from-swa-5 via-swa-5 to-swa-1 rounded-xl my-5">
+        <div className="sm:flex sm:flex-row-reverse p-6 bg-gradient-to-br from-swa-5 via-swa-5 to-swa-1 rounded-xl my-5">
           <div className="text-white">
             <h4>Community</h4>
             <p className="text-base">
@@ -75,9 +75,9 @@ const ProgrammeSection = () => {
             </p>
           </div>
           <img
-            src="https://source.unsplash.com/random"
+            src="https://source.unsplash.com/random/800x1000"
             alt=""
-            className="max-h-full border-4 border-white sm:mb-2 mt-2 sm:mt-0 sm:mr-4 sm:w-40 sm:h-40 object-cover"
+            className="max-h-full border-4 border-white sm:mb-2 mt-2 sm:mt-0 sm:mr-4 sm:w-40 object-cover"
           />
         </div>
       </div>
