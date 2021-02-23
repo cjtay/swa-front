@@ -12,16 +12,18 @@ import HeroBackground from "../components/backgrounds/HeroBackground";
 
 const IndexPage = () => {
   return (
-    <Layout>
+    <>
       <SEO title="SWA Home" />
       <HeroBackground />
-      <HeroSection />
-      <NoticeSection />
-      <FeaturedSection />
-      <ProgrammeSection />
-      <ParticipateSection />
-      <SponsorSection />
-    </Layout>
+      <Layout>
+        <HeroSection />
+        <NoticeSection />
+        <FeaturedSection />
+        <ProgrammeSection />
+        <ParticipateSection />
+        <SponsorSection />
+      </Layout>
+    </>
   );
 };
 export default IndexPage;
