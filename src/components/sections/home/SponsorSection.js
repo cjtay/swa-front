@@ -17,41 +17,41 @@ const SponsorSection = () => {
         similique! Molestiae sequi ex minima labore culpa pariatur dicta omnis
         blanditiis enim.
       </p>
-
-      <div className="p-4 flex flex-col sm:flex-row sm:flex-wrap justify-center items-center sm:max-w-3xl mx-auto ">
+      {/* grid-cols-1 sm:grid-cols-2 md:grid-cols-3 */}
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center justify-items-center   p-5 sm:max-w-3xl mx-auto ">
         <div>
           <img
             src={crystaltime}
             alt="crystal time logo"
-            className="w-4/5 sm:w-48 m-3 p-2 border border-gray-200"
+            className="w-4/5 sm:w-48 p-2 border border-gray-200 mx-auto"
           />
         </div>
         <div>
           <img
             src={florray}
             alt="crystal time logo"
-            className="w-4/5 sm:w-48 m-3 border border-gray-200"
+            className="w-4/5 sm:w-48 border border-gray-200  mx-auto"
           />
         </div>
         <div>
           <img
             src={moephosis}
             alt="crystal time logo"
-            className="w-4/5 sm:w-48 m-3 border border-gray-200"
+            className="w-4/5 sm:w-48 border border-gray-200  mx-auto"
           />
         </div>
         <div>
           <img
             src={teamsalon}
             alt="crystal time logo"
-            className="w-4/5 sm:w-48 m-3 border border-gray-200"
+            className="w-4/5 sm:w-48 border border-gray-200  mx-auto"
           />
         </div>
         <div>
           <img
             src={yvonne}
             alt="crystal time logo"
-            className="w-4/5 sm:w-48 m-3 border border-gray-200"
+            className="w-4/5 sm:w-48 border border-gray-200  mx-auto"
           />
         </div>
       </div>
