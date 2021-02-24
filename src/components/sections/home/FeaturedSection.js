@@ -43,8 +43,8 @@ const FeaturedSection = () => {
           vero ipsam ipsa exercitationem.
         </p>
         <div className="flex flex-row justify-center sm:justify-start">
-          <Link to="/events/">
-            <div className="btn-dark my-2">View all event</div>
+          <Link to="/events/" className=" btn-dark mt-2 ">
+            View all event
           </Link>
         </div>
       </div>

@@ -10,7 +10,9 @@ const AnnouncementSection = () => {
           <h2 className="text-purple-900 mb-2 text-center">
             {data.strapiAnnouncesection.title}
           </h2>
-          <p>{data.strapiAnnouncesection.description}</p>
+          <p className="line-clamp-3 hover:line-clamp-none ">
+            {data.strapiAnnouncesection.description}
+          </p>
         </div>
       )}
     </section>

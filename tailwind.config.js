@@ -5,6 +5,15 @@ module.exports = {
     fontFamily: {
       sans: ["Roboto", "sans-serif"],
     },
+    truncate: {
+      lines: {
+        1: "1",
+        2: "2",
+        3: "3",
+        5: "5",
+        8: "8",
+      },
+    },
     extend: {
       colors: {
         "white-transparent": "rgba(255, 255, 255, 0.75)",
@@ -19,6 +28,12 @@ module.exports = {
     variants: {
       extend: {},
     },
-    plugins: [],
+  },
+  plugins: [
+    require("@tailwindcss/line-clamp"),
+    // ...
+  ],
+  variants: {
+    lineClamp: ["responsive", "hover"],
   },
 };

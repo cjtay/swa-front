@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "gatsby";
 const ProgrammeSection = () => {
   return (
     <section className="sm:w-4/5 max-w-4xl px-2 mx-auto">
@@ -12,7 +12,9 @@ const ProgrammeSection = () => {
           cum facilis?
         </p>
         <div className="flex flex-row justify-center sm:justify-start ">
-          <div className="btn-dark my-4">View programmes</div>
+          <Link to="/events/">
+            <div className="btn-dark my-4">View programmes</div>
+          </Link>
         </div>
       </div>
       <div className="sm:max-w-xl mr-auto">

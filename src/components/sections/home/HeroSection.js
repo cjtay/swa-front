@@ -14,8 +14,8 @@ const HeroSection = () => {
           <div className="sm:w-1/2">
             <h1 className="mb-2">{data.strapiHerosection.title}</h1>
             <p>{data.strapiHerosection.description}</p>
-            <Link to={data.strapiHerosection.link}>
-              <div className="btn-light mt-2">Read more</div>
+            <Link to={data.strapiHerosection.link} className=" btn-light mt-2">
+              Read more
             </Link>
           </div>
           <div className="sm:w-1/2 mt-4 sm:mr-4 sm:mt-0 overflow-hidden .max-h-64 ">
