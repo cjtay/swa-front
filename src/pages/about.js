@@ -2,9 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 // import Image from "gatsby-image";
 import Layout from "../components/layout/layout";
-import styled from "styled-components";
-import { Wrapper, ContentWrapper } from "../styles/wrappers/Wrapper";
-import { SectionHead, Title, Description } from "../styles/SectionHeaders";
+
 import SectionBackground from "../components/backgrounds/SectionBackground";
 import ProfileCard from "../components/sections/about/ProfileCard";
 
@@ -14,36 +12,28 @@ const About = ({ data }) => {
   return (
     <Layout>
       <SectionBackground />
-      <Wrapper>
-        <ContentWrapper>
-          <SectionHead>
-            <Title>Executive Committee Members</Title>
 
-            <Description>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad,
-              adipisci deleniti debitis cum corporis maxime quaerat mollitia
-              quas, voluptatum fugit temporibus. Voluptatem, vero magni!
-              Consectetur molestiae fuga distinctio ea officiis!
-            </Description>
-          </SectionHead>
+      <section className="sm:w-4/5 max-w-4xl px-2 mx-auto">
+        <h1 className="text-swa-3">Executive Committee Members</h1>
 
-          <List>
-            {members.map((member, i) => (
-              <ProfileCard key={i} member={member} />
-            ))}
-          </List>
-        </ContentWrapper>
-      </Wrapper>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci
+          deleniti debitis cum corporis maxime quaerat mollitia quas, voluptatum
+          fugit temporibus. Voluptatem, vero magni! Consectetur molestiae fuga
+          distinctio ea officiis!
+        </p>
+
+        <div className="mt-10 mx-2">
+          {members.map((member, i) => (
+            <ProfileCard key={i} member={member} />
+          ))}
+        </div>
+      </section>
     </Layout>
   );
 };
 
 export default About;
-
-const List = styled.ul`
-  width: 100%;
-  margin-top: 2em;
-`;
 
 // -----------------------------------------
 // ...GatsbyImageSharpFluid

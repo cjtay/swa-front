@@ -6,6 +6,8 @@ import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 import ProfilePhoto from "./ProfilePhoto";
 import ProfileInfo from "./ProfileInfo";
 
+import photo from "../../../images/leelihua.jpg";
+
 const ProfileCard = ({ member }) => {
   const [showMod, setShowMod] = useState(false);
   const [itemId, setItemId] = useState({});
@@ -30,6 +32,34 @@ const ProfileCard = ({ member }) => {
 
   return (
     <>
+      <div className=" shadow-lg md:w-3/4 mx-auto rounded-lg flex flex-col sm:flex-row overflow-hidden ">
+        <img src={photo} alt="Lee Li Hua" className="w-1/5 object-cover" />
+        <div className="sm:flex sm:flex-col justify-between w-full p-2">
+          <div className="sm:flex">
+            <div className="flex flex-col">
+              <h4>Lee Li Hua</h4>
+              <p className="text-sm text-gray-500 mb-2">President</p>
+              <p className="text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                sagittis lacus neque, vitae porttitor augue viverra a. Integer
+                bibendum malesuada orci ut convallis.
+              </p>
+              <div className="text-swa-3">Read more..</div>
+            </div>
+            <div className="flex space-x-2 ml-auto">
+              <div className="text-2xl text-swa-3">
+                <FaFacebook />
+              </div>
+              <div className="text-2xl text-swa-3">
+                <FaInstagram />
+              </div>
+              <div className="text-2xl text-swa-3">
+                <FaLinkedin />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <Card>
         <ProfilePhotoContainer>
           <ProfilePhoto data={member} />
