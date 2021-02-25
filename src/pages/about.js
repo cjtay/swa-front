@@ -13,7 +13,7 @@ const About = ({ data }) => {
     <Layout>
       <SectionBackground />
 
-      <section className="sm:w-4/5 max-w-4xl px-2 mx-auto">
+      <section className="max-w-4xl px-2 mx-auto sm:w-4/5">
         <h1 className="text-swa-3">Executive Committee Members</h1>
 
         <p>
@@ -23,7 +23,7 @@ const About = ({ data }) => {
           distinctio ea officiis!
         </p>
 
-        <div className="mt-10 mx-2">
+        <div className="mx-2 mt-10">
           {members.map((member, i) => (
             <ProfileCard key={i} member={member} />
           ))}

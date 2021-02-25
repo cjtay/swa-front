@@ -6,13 +6,13 @@
 
 @layer base {
   h1 {
-    @apply font-black text-3xl;
+    @apply text-3xl font-black;
   }
   h2 {
-    @apply font-bold text-2xl;
+    @apply text-2xl font-bold;
   }
   p {
-    @apply font-light text-lg;
+    @apply text-lg font-light;
   }
   section {
     @apply my-20;
@@ -21,9 +21,9 @@
 
 @layer components {
   .btn-dark {
-    @apply inline-block bg-swa-1 px-5 py-3 rounded-md shadow hover:bg-swa-2 text-white text-center transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-swa-4;
+    @apply inline-block px-5 py-3 text-center text-white transition duration-300 ease-in-out rounded-md shadow cursor-pointer bg-swa-1 hover:bg-swa-2 focus:outline-none focus:ring-4 focus:ring-swa-4;
   }
   .btn-light {
-    @apply inline-block bg-white px-5 py-3 rounded-md shadow hover:bg-gray-200 text-purple-900 transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-swa-3;
+    @apply inline-block px-5 py-3 text-center text-purple-900 transition duration-300 ease-in-out bg-white rounded-md shadow hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-swa-3;
   }
 }

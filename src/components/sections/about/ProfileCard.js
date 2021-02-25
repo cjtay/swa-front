@@ -32,13 +32,13 @@ const ProfileCard = ({ member }) => {
 
   return (
     <>
-      <div className=" shadow-lg md:w-3/4 mx-auto rounded-lg flex flex-col sm:flex-row overflow-hidden ">
-        <img src={photo} alt="Lee Li Hua" className="w-1/5 object-cover" />
-        <div className="sm:flex sm:flex-col justify-between w-full p-2">
+      <div className="flex flex-col mx-auto overflow-hidden rounded-lg shadow-lg  md:w-3/4 sm:flex-row">
+        <img src={photo} alt="Lee Li Hua" className="object-cover w-1/5" />
+        <div className="justify-between w-full p-2 sm:flex sm:flex-col">
           <div className="sm:flex">
             <div className="flex flex-col">
               <h4>Lee Li Hua</h4>
-              <p className="text-sm text-gray-500 mb-2">President</p>
+              <p className="mb-2 text-sm text-gray-500">President</p>
               <p className="text-sm">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
                 sagittis lacus neque, vitae porttitor augue viverra a. Integer
@@ -46,7 +46,7 @@ const ProfileCard = ({ member }) => {
               </p>
               <div className="text-swa-3">Read more..</div>
             </div>
-            <div className="flex space-x-2 ml-auto">
+            <div className="flex ml-auto space-x-2">
               <div className="text-2xl text-swa-3">
                 <FaFacebook />
               </div>

@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import Image from "gatsby-image";
-import { ButtonLight } from "../../styles/buttons/ButtonStyles";
 import { FaHome, FaHandsHelping, FaBook } from "react-icons/fa";
 import { BsFillPeopleFill, BsCalendar } from "react-icons/bs";
-import styled from "styled-components";
 
 const mainNav = [
   {
@@ -15,7 +13,7 @@ const mainNav = [
   },
   {
     id: 2,
-    text: "About",
+    text: "What",
     url: "/about/",
     icon: <BsFillPeopleFill />,
   },
@@ -27,7 +25,7 @@ const mainNav = [
   // },
   {
     id: 3,
-    text: "Programmes",
+    text: "How",
     url: "/how/",
     icon: <FaBook />,
   },
@@ -53,10 +51,13 @@ const Navbar = () => {
     return (
       <li key={link.id}>
         <Link to={link.url}>
-          <MenuItem isOpen={isOpen}>
+          <div
+            isOpen={isOpen}
+            className="flex items-center w-full px-3 py-1 space-x-2 rounded hover:bg-swa-4 md:hover:bg-swa-3"
+          >
             <span>{link.icon}</span>
             <div>{link.text}</div>
-          </MenuItem>
+          </div>
         </Link>
       </li>
     );
@@ -71,207 +72,47 @@ const Navbar = () => {
   };
 
   return (
-    <>
-      <Wrapper>
-        <Logo>
-          <Link to="/">
-            <Image fluid={data.file.childImageSharp.fluid} alt="logo" />
-          </Link>
-          <LogoTitle>Singapore Women's Association</LogoTitle>
-          <MenuBurger onClick={handleClick}>
-            <div />
-            <div />
-            <div />
-          </MenuBurger>
-        </Logo>
+    <nav className="flex items-center justify-center w-full max-w-6xl p-4 mx-auto j ustify-center">
+      <Link to="/">
+        <div className="flex items-center space-x-2 text-white">
+          <Image
+            fluid={data.file.childImageSharp.fluid}
+            alt="logo"
+            className="w-12"
+          />
+          <h4 className="md:hidden">Singapore Women's Association</h4>
+        </div>
+      </Link>
 
-        <MenuContainer>
-          <MenuWrapper>{tempLinks}</MenuWrapper>
-          <CTA>Donate</CTA>
-        </MenuContainer>
+      <ul className="hidden text-white md:flex md:items-center md:ml-auto md:space-x-7">
+        {tempLinks}
+        <div className="btn-light">Donate</div>
+      </ul>
+      <div
+        className="flex flex-col items-center justify-center w-12 h-12 p-2 ml-3 space-y-1 border-2 border-white rounded-full cursor-pointer md:hidden"
+        onClick={handleClick}
+      >
+        <div className="w-6 mx-auto border border-white "></div>
+        <div className="w-6 mx-auto border border-white "></div>
+        <div className="w-6 mx-auto border border-white "></div>
+      </div>
 
-        <MenuMobileContainer isOpen={isOpen} onClick={handleClose}>
-          <MenuMobileWrapper isOpen={isOpen}>
-            <Backdrop isOpen={isOpen} onClick={handleClose}>
-              Close
-            </Backdrop>
+      <div className={isOpen ? "visible " : "invisible"}>
+        <div
+          className="absolute inset-0 z-10 flex items-center justify-center bg-black bg-opacity-70"
+          onClick={handleClose}
+        >
+          <ul className="w-1/2 p-5 space-y-5 bg-white rounded-lg text-swa-1">
             {tempLinks}
-          </MenuMobileWrapper>
-        </MenuMobileContainer>
-      </Wrapper>
-    </>
+            <button className="w-full btn-dark">close</button>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 };
 
 export default Navbar;
-
-const Wrapper = styled.div`
-  display: grid;
-  grid-template-rows: auto auto;
-  justify-content: space-between;
-  color: var(--color-white);
-  padding: 1em;
-  margin: 0.5em auto;
-
-  @media (min-width: 960px) {
-    grid-template-columns: 100px auto;
-    width: 100%;
-    max-width: 1200px;
-  }
-`;
-
-const MenuContainer = styled.div`
-  display: none;
-  @media (min-width: 960px) {
-    display: grid;
-    grid-template-rows: 40px;
-    justify-content: center;
-    align-items: center;
-    grid-template-columns: auto 100px;
-  }
-`;
-
-const MenuWrapper = styled.ul`
-  display: grid;
-  gap: 0.1em;
-  grid-template-columns: repeat(5, auto);
-  /* justify-content: center;
-  align-items: center; */
-  @media (min-width: 600px) {
-    margin-left: auto;
-    margin-right: 1em;
-  }
-`;
-
-const Backdrop = styled.div`
-  position: absolute;
-  visibility: ${props => (props.isOpen ? "visible" : "hidden")};
-  top: -10px;
-  right: -10px;
-  padding: 0.7em 1em;
-  cursor: pointer;
-
-  background-color: var(--color-grey);
-  color: var(--color-white);
-  font-size: 0.8rem;
-  border-radius: 50px;
-`;
-
-const MenuMobileContainer = styled.div`
-  position: absolute;
-  visibility: ${props => (props.isOpen ? "visible" : "hidden")};
-  z-index: 1;
-  /* display: ; */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  margin-top: 5em;
-  color: var(--color-primary-1);
-  /* border: 2px solid red; */
-  @media (min-width: 960px) {
-    display: none;
-  }
-`;
-
-const MenuMobileWrapper = styled.ul`
-  display: grid;
-  gap: 0.5em;
-  grid-template-rows: repeat(5, auto);
-  opacity: ${props => (props.isOpen ? 0.95 : 0)};
-  visibility: ${props => (props.isOpen ? "visible" : "hidden")};
-  width: 60%;
-  height: 300px;
-  border-radius: 10px;
-  justify-content: start;
-  align-items: center;
-  margin: 0 auto;
-  padding: 1em 0 1em 2em;
-  background-color: var(--color-white);
-  transform: ${props => (props.isOpen ? "translateX(0)" : "translateX(450px)")};
-  transition: 0.5s ease-in-out;
-
-  @media (min-width: 960px) {
-    display: none;
-  }
-`;
-
-const MenuItem = styled.div`
-  display: flex;
-  /* flex-direction: column; */
-  /* justify-content: ${props => props.isOpen && "flex-start"}; */
-  /* align-items: stretch; */
-  padding: 0.3em 0.6em;
-  width: 100%;
-  border-radius: 10px;
-  transition: 0.3s ease-out;
-  span {
-    margin-right: 1em;
-  }
-
-  :hover {
-    background-color: var(--color-black-transparent);
-  }
-`;
-
-const Logo = styled.div`
-  display: grid;
-  grid-template-columns: 50px auto 50px;
-  gap: 1em;
-  align-items: center;
-  justify-content: center;
-
-  img {
-    background-color: var(--color-white);
-    width: 50px;
-    padding: 0.2em;
-    border-radius: 100%;
-    margin-right: 10px;
-  }
-
-  @media (min-width: 960px) {
-    grid-template-columns: 50px;
-    justify-content: start;
-  }
-`;
-
-const LogoTitle = styled.h3`
-  font-size: 1.2em;
-  @media (min-width: 960px) {
-    display: none;
-  }
-`;
-
-const MenuBurger = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  align-items: center;
-  width: 3em;
-  height: 3em;
-  border-radius: 50px;
-  border: 2px solid var(--color-white);
-  cursor: pointer;
-
-  @media (min-width: 960px) {
-    display: none;
-  }
-
-  div {
-    height: 0.1em;
-    width: 1.3em;
-    background-color: var(--color-white);
-  }
-`;
-
-const CTA = styled(ButtonLight)`
-  display: none;
-
-  @media (min-width: 960px) {
-    display: inline-block;
-  }
-`;
 
 export const getLogo = graphql`
   {
