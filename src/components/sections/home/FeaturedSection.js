@@ -1,7 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
+import bg3 from "../../../images/bg-3.svg";
 
-import FeaturedBackground from "../../backgrounds/FeaturedBackground";
 import FeaturedCard from "./FeaturedCard";
 
 const FeaturedSection = () => {
@@ -32,9 +32,7 @@ const FeaturedSection = () => {
   const highlightedEvents = data.allStrapiEvent.nodes;
 
   return (
-    <section className="w-11/12 max-w-4xl px-2 mx-auto sm:w-4/5">
-      <FeaturedBackground />
-
+    <section className="relative w-11/12 max-w-4xl px-2 mx-auto sm:w-4/5">
       <div className="sm:w-3/5">
         <h2 className="text-purple-900">Featured events</h2>
         <p>
@@ -43,7 +41,7 @@ const FeaturedSection = () => {
           vero ipsam ipsa exercitationem.
         </p>
         <div className="flex flex-row justify-center sm:justify-start">
-          <Link to="/events/" className="mt-2  btn-dark">
+          <Link to="/events/" className="mt-2 btn-dark">
             View all event
           </Link>
         </div>
@@ -54,6 +52,11 @@ const FeaturedSection = () => {
           <FeaturedCard event={event} key={event.id} />
         ))}
       </div>
+      <img
+        src={bg3}
+        alt="background"
+        className="absolute right-0 transform scale-y-150 md:scale-y-75 md:top-0 top-20 z-n10"
+      />
     </section>
   );
 };

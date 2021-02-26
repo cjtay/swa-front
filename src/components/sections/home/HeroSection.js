@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery, Link } from "gatsby";
 import Image from "gatsby-image";
-
+import bg1 from "../../../images/bg-1.svg";
 // import HeroBackground from "../../backgrounds/HeroBackground";
 
 const HeroSection = () => {
@@ -10,7 +10,13 @@ const HeroSection = () => {
   return (
     <>
       {data.strapiHerosection.title !== "" && (
-        <section className="w-11/12 p-8 mx-auto mt-24 text-white bg-black-transparent rounded-xl sm:flex sm:flex-row-reverse">
+        <section className="w-11/12 p-8 mx-auto mt-24 text-white bg-swa-1 sm:bg-black-transparent rounded-xl sm:flex sm:flex-row-reverse">
+          <img
+            src={bg1}
+            alt="background"
+            className="absolute top-0 left-0 z-n10"
+          />
+
           <div className="sm:w-1/2">
             <h1 className="mb-2">{data.strapiHerosection.title}</h1>
             <p>{data.strapiHerosection.description}</p>

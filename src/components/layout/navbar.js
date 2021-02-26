@@ -51,7 +51,7 @@ const Navbar = () => {
     return (
       <li key={link.id}>
         <Link to={link.url}>
-          <div className="flex items-center w-full px-3 py-3 space-x-1 transition rounded divide-solid hover:text-swa-4">
+          <div className="flex items-center w-full px-2 py-3 space-x-2 transition rounded divide-solid hover:text-swa-4">
             <span>{link.icon}</span>
             <div>{link.text}</div>
           </div>
@@ -85,7 +85,7 @@ const Navbar = () => {
     <nav className="flex items-center justify-center w-full max-w-6xl p-4 mx-auto j ustify-center">
       {/* ------ LOGO ------- */}
       <Link to="/">
-        <div className="flex items-center space-x-2 text-white">
+        <div className="flex items-center mt-5 space-x-2 text-white">
           <Image
             fluid={data.file.childImageSharp.fluid}
             alt="logo"
@@ -96,7 +96,7 @@ const Navbar = () => {
       </Link>
 
       {/* ------ MENU LIST & BUTTON------- */}
-      <ul className="hidden text-white md:flex md:items-center md:ml-auto md:space-x-7">
+      <ul className="hidden text-white md:flex md:items-center md:ml-auto md:space-x-7 md:mt-5">
         {links}
         <div className="btn-light">Donate</div>
       </ul>
@@ -117,7 +117,7 @@ const Navbar = () => {
         className={
           isOpen
             ? "visible opacity-100 absolute inset-0 z-10 flex items-start justify-center transition-all duration-700 ease-out bg-black bg-opacity-70 "
-            : " invisible opacity-0 absolute inset-0 z-10 flex items-start justify-center transition-all duration-700 ease-in bg-black bg-opacity-70 "
+            : "invisible opacity-0 absolute inset-0 z-10 flex items-start justify-center transition-all duration-700 ease-in bg-black bg-opacity-70 "
         }
         onClick={handleClose}
       >

@@ -3,7 +3,8 @@ import styled from "styled-components";
 import bg2 from "../../images/bg-2.svg";
 
 const HeroBackground = () => {
-  return <Wave img src={bg2} alt="background" />;
+  // return <Wave img src={bg2} alt="background" />;
+  return <img src={bg2} alt="background" className="relative z-n10" />;
 };
 
 export default HeroBackground;

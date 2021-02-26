@@ -24,6 +24,10 @@ module.exports = {
         "swa-4": "rgb(243, 210, 255)",
         "swa-5": "rgba(132, 137, 199, 1)",
       },
+      zIndex: {
+        n10: "-10",
+        n100: "-100",
+      },
     },
     variants: {
       extend: {},

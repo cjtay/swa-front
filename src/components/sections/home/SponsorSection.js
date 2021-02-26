@@ -5,11 +5,12 @@ import florray from "../../../images/florray.png";
 import moephosis from "../../../images/moephosis.png";
 import teamsalon from "../../../images/teamsalon.png";
 import yvonne from "../../../images/yvonne.png";
+import bg2 from "../../../images/bg-2.svg";
 // import SponsorBackground from "../../backgrounds/SponsorBackground";
 
 const SponsorSection = () => {
   return (
-    <section className="w-11/12 max-w-4xl px-2 mx-auto sm:w-4/5">
+    <section className="relative w-11/12 max-w-4xl px-2 mx-auto sm:w-4/5">
       <h2 className="text-purple-900">Sponsors</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum accusamus
@@ -55,8 +56,13 @@ const SponsorSection = () => {
           />
         </div>
       </div>
-
       {/* <SponsorBackground /> */}
+      <img
+        src={bg2}
+        alt="background"
+        className="absolute left-0 transform scale-110 -bottom-20 sm:scale-125 z-n10"
+      />
+      ;
     </section>
   );
 };
