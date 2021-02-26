@@ -32,7 +32,7 @@ const FeaturedSection = () => {
   const highlightedEvents = data.allStrapiEvent.nodes;
 
   return (
-    <section className="sm:w-4/5 max-w-4xl px-2 mx-auto">
+    <section className="w-11/12 max-w-4xl px-2 mx-auto sm:w-4/5">
       <FeaturedBackground />
 
       <div className="sm:w-3/5">
@@ -43,13 +43,13 @@ const FeaturedSection = () => {
           vero ipsam ipsa exercitationem.
         </p>
         <div className="flex flex-row justify-center sm:justify-start">
-          <Link to="/events/" className=" btn-dark mt-2 ">
+          <Link to="/events/" className="mt-2  btn-dark">
             View all event
           </Link>
         </div>
       </div>
 
-      <div className="sm:max-w-xl ml-auto">
+      <div className="ml-auto sm:max-w-xl">
         {highlightedEvents.map(event => (
           <FeaturedCard event={event} key={event.id} />
         ))}

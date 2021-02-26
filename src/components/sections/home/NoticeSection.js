@@ -6,8 +6,8 @@ const AnnouncementSection = () => {
   return (
     <section>
       {data.strapiAnnouncesection.title !== "" && (
-        <div className="bg-black-transparent sm:bg-white-transparent px-5 py-4 max-w-lg mx-auto rounded-xl">
-          <h2 className="text-purple-900 mb-2 text-center">
+        <div className="w-11/12 px-5 py-4 mx-auto border md:w-9/12 lg:w-6/12 sm:bg-white-transparent rounded-xl border-swa-1">
+          <h2 className="mb-2 text-center text-purple-900">
             {data.strapiAnnouncesection.title}
           </h2>
           <p className="line-clamp-3 hover:line-clamp-none ">

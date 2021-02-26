@@ -10,11 +10,11 @@ const HeroSection = () => {
   return (
     <>
       {data.strapiHerosection.title !== "" && (
-        <section className="bg-black-transparent rounded-xl sm:flex sm:flex-row-reverse max-w-2xl mx-auto text-white p-8">
+        <section className="w-11/12 p-8 mx-auto text-white bg-black-transparent rounded-xl sm:flex sm:flex-row-reverse">
           <div className="sm:w-1/2">
             <h1 className="mb-2">{data.strapiHerosection.title}</h1>
             <p>{data.strapiHerosection.description}</p>
-            <Link to={data.strapiHerosection.link} className=" btn-light mt-2">
+            <Link to={data.strapiHerosection.link} className="mt-2 btn-light">
               Read more
             </Link>
           </div>
