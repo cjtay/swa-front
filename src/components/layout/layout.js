@@ -6,11 +6,11 @@ import styled from "styled-components";
 
 const Layout = ({ children }) => {
   return (
-    <LayoutWrapper className="font-body ">
+    <div className="flex flex-col justify-between">
       <Navbar />
-      <div className="">{children}</div>
+      <div className="space-y-28">{children}</div>
       <Footer />
-    </LayoutWrapper>
+    </div>
   );
 };
 
