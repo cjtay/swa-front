@@ -47,14 +47,24 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const data = useStaticQuery(getLogo);
 
-  const tempLinks = mainNav.map(link => {
+  const links = mainNav.map(link => {
     return (
       <li key={link.id}>
         <Link to={link.url}>
-          <div
-            isOpen={isOpen}
-            className="flex items-center w-full px-3 py-1 space-x-2 rounded hover:bg-swa-4 md:hover:bg-swa-3"
-          >
+          <div className="flex items-center w-full px-3 py-3 space-x-1 transition rounded divide-solid hover:text-swa-4">
+            <span>{link.icon}</span>
+            <div>{link.text}</div>
+          </div>
+        </Link>
+      </li>
+    );
+  });
+
+  const mobileLinks = mainNav.map(link => {
+    return (
+      <li key={link.id}>
+        <Link to={link.url}>
+          <div className="flex items-center w-full px-3 py-5 space-x-3 font-bold transition rounded divide-solid hover:bg-swa-4 md:hover:bg-swa-3">
             <span>{link.icon}</span>
             <div>{link.text}</div>
           </div>
@@ -73,6 +83,7 @@ const Navbar = () => {
 
   return (
     <nav className="flex items-center justify-center w-full max-w-6xl p-4 mx-auto j ustify-center">
+      {/* ------ LOGO ------- */}
       <Link to="/">
         <div className="flex items-center space-x-2 text-white">
           <Image
@@ -84,10 +95,13 @@ const Navbar = () => {
         </div>
       </Link>
 
+      {/* ------ MENU LIST & BUTTON------- */}
       <ul className="hidden text-white md:flex md:items-center md:ml-auto md:space-x-7">
-        {tempLinks}
+        {links}
         <div className="btn-light">Donate</div>
       </ul>
+
+      {/* ------ BURGER ICON ------- */}
       <div
         className="flex flex-col items-center justify-center w-12 h-12 p-2 ml-3 space-y-1 border-2 border-white rounded-full cursor-pointer md:hidden"
         onClick={handleClick}
@@ -97,16 +111,26 @@ const Navbar = () => {
         <div className="w-6 mx-auto border border-white "></div>
       </div>
 
-      <div className={isOpen ? "visible " : "invisible"}>
-        <div
-          className="absolute inset-0 z-10 flex items-center justify-center bg-black bg-opacity-70"
-          onClick={handleClose}
+      {/* ------ MODAL ------- */}
+
+      <div
+        className={
+          isOpen
+            ? "visible opacity-100 absolute inset-0 z-10 flex items-start justify-center transition-all duration-700 ease-out bg-black bg-opacity-70 "
+            : " invisible opacity-0 absolute inset-0 z-10 flex items-start justify-center transition-all duration-700 ease-in bg-black bg-opacity-70 "
+        }
+        onClick={handleClose}
+      >
+        <ul
+          className={
+            isOpen
+              ? "mt-20 w-9/12 p-5  transform translate-x-0 transition-all duration-700 ease-out bg-white rounded-lg text-swa-1 divide-y divide-gray-200"
+              : "mt-20 w-9/12 p-5 transform translate-x-full transition-all duration-700 ease-in bg-white rounded-lg text-swa-1 divide-y divide-gray-200"
+          }
         >
-          <ul className="w-1/2 p-5 space-y-5 bg-white rounded-lg text-swa-1">
-            {tempLinks}
-            <button className="w-full btn-dark">close</button>
-          </ul>
-        </div>
+          {mobileLinks}
+          <button className="w-full mt-8 btn-dark">close</button>
+        </ul>
       </div>
     </nav>
   );
