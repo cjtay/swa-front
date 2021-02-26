@@ -116,16 +116,16 @@ const Navbar = () => {
       <div
         className={
           isOpen
-            ? "visible opacity-100 absolute inset-0 z-10 flex items-start justify-center transition-all duration-700 ease-out bg-black bg-opacity-70 "
-            : "invisible opacity-0 absolute inset-0 z-10 flex items-start justify-center transition-all duration-700 ease-in bg-black bg-opacity-70 "
+            ? "visible opacity-100 absolute inset-0 z-10 flex items-start justify-center transition-all duration-300 ease-out bg-black bg-opacity-70 "
+            : "invisible opacity-0 absolute inset-0 z-10 flex items-start justify-center transition-all duration-300 ease-in bg-black bg-opacity-70 "
         }
         onClick={handleClose}
       >
         <ul
           className={
             isOpen
-              ? "mt-20 w-9/12 p-5  transform translate-x-0 transition-all duration-700 ease-out bg-white rounded-lg text-swa-1 divide-y divide-gray-200"
-              : "mt-20 w-9/12 p-5 transform translate-x-full transition-all duration-700 ease-in bg-white rounded-lg text-swa-1 divide-y divide-gray-200"
+              ? "mt-20 w-9/12 p-5  bg-white rounded-lg text-swa-1 divide-y divide-gray-200"
+              : "mt-20 w-9/12 p-5  bg-white rounded-lg text-swa-1 divide-y divide-gray-200"
           }
         >
           {mobileLinks}
