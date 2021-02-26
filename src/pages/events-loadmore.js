@@ -7,7 +7,6 @@ import { Wrapper, ContentWrapper } from "../styles/wrappers/Wrapper";
 import { SectionHead, Title, Description } from "../styles/SectionHeaders";
 import { ButtonDark, ButtonContainer } from "../styles/buttons/ButtonStyles";
 import EventCard from "../components/sections/events/EventCard";
-import SectionBackground from "../components/backgrounds/SectionBackground";
 
 const perPage = 4;
 
@@ -78,63 +77,66 @@ const Events = ({ data }) => {
   };
 
   return (
-    <Layout>
-      <SectionBackground />
-      <Wrapper>
-        <ContentWrapper>
-          <SectionHead>
-            <Title>Events</Title>
+    <>
+      {/* --- background pattern --- */}
+      <div className="absolute w-full h-32 z-n10 bg-gradient-to-r from-swa-1 to-swa-5"></div>
+      <Layout>
+        <Wrapper>
+          <ContentWrapper>
+            <SectionHead>
+              <Title>Events</Title>
 
-            <Description>
-              View events or acitivities by selecting the appropriate date
-              ranges or programmes
-            </Description>
-          </SectionHead>
+              <Description>
+                View events or acitivities by selecting the appropriate date
+                ranges or programmes
+              </Description>
+            </SectionHead>
 
-          <SearchSection>
-            <FilterSection>
-              <Label>Filter by programmes</Label>
-              <FilterItem>
-                {filterNames.map((filtername, i) => (
-                  <Search
-                    key={i}
-                    onClick={() => handleSearch(filtername)}
-                    name={filtername}
-                    selectedFilter={selectedFilter}
-                  >
-                    {filtername}
-                  </Search>
-                ))}
-              </FilterItem>
-            </FilterSection>
-          </SearchSection>
-          <List>
-            {loadData.map(event => (
-              <EventCard event={event} key={event.id} />
-            ))}
-          </List>
-          {loading && (
-            <ButtonContainer>
-              <p>loading...</p>
-            </ButtonContainer>
-          )}
-          {more && (
-            <ButtonContainer>
-              <ButtonDark
-                onClick={() => {
-                  dispatch({ type: "start" });
-                  const newData = events.slice(after, after + perPage);
-                  dispatch({ type: "loaded", newData });
-                  console.log("filteredEvents: ", filteredEvents);
-                }}
-              >
-                Load more
-              </ButtonDark>
-            </ButtonContainer>
-          )}
-        </ContentWrapper>
-      </Wrapper>
-    </Layout>
+            <SearchSection>
+              <FilterSection>
+                <Label>Filter by programmes</Label>
+                <FilterItem>
+                  {filterNames.map((filtername, i) => (
+                    <Search
+                      key={i}
+                      onClick={() => handleSearch(filtername)}
+                      name={filtername}
+                      selectedFilter={selectedFilter}
+                    >
+                      {filtername}
+                    </Search>
+                  ))}
+                </FilterItem>
+              </FilterSection>
+            </SearchSection>
+            <List>
+              {loadData.map(event => (
+                <EventCard event={event} key={event.id} />
+              ))}
+            </List>
+            {loading && (
+              <ButtonContainer>
+                <p>loading...</p>
+              </ButtonContainer>
+            )}
+            {more && (
+              <ButtonContainer>
+                <ButtonDark
+                  onClick={() => {
+                    dispatch({ type: "start" });
+                    const newData = events.slice(after, after + perPage);
+                    dispatch({ type: "loaded", newData });
+                    console.log("filteredEvents: ", filteredEvents);
+                  }}
+                >
+                  Load more
+                </ButtonDark>
+              </ButtonContainer>
+            )}
+          </ContentWrapper>
+        </Wrapper>
+      </Layout>
+    </>
   );
 };
 

@@ -7,14 +7,18 @@ import Layout from "../components/layout/layout";
 
 const How = () => {
   return (
-    <Layout>
-      <h1>How page</h1>
-      <ProfilePhotoAlt data={angela} />
+    <>
+      {/* --- background pattern --- */}
+      <div className="absolute w-full h-32 z-n10 bg-gradient-to-r from-swa-1 to-swa-5"></div>
+      <Layout>
+        <h1 className="text-swa-3">How page</h1>
+        <ProfilePhotoAlt data={angela} />
 
-      <Link to="/">
-        <p>back to home page</p>
-      </Link>
-    </Layout>
+        <Link to="/">
+          <p>back to home page</p>
+        </Link>
+      </Layout>
+    </>
   );
 };
 

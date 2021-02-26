@@ -11,6 +11,8 @@ import SponsorSection from "../components/sections/home/SponsorSection";
 const IndexPage = () => {
   return (
     <>
+      {/* --- background pattern --- */}
+      <div className="absolute w-full h-full bg-bottom bg-no-repeat bg-cover lg:bg-cover z-n10 bg-hero-pattern"></div>
       <SEO title="SWA Home" />
       <Layout>
         <HeroSection />

@@ -61,44 +61,43 @@ const Events = ({ data }) => {
   };
 
   return (
-    <Layout>
-      <SectionBackground />
-      <Wrapper>
-        <ContentWrapper>
-          <SectionHead>
-            <Title>Events</Title>
+    <>
+      {/* --- background pattern --- */}
+      <div className="absolute w-full h-32 z-n10 bg-gradient-to-r from-swa-1 to-swa-5"></div>
+      <Layout>
+        <SectionHead>
+          <h1 className="text-swa-3">Events</h1>
 
-            <Description>
-              View events or acitivities by selecting the appropriate date
-              ranges or programmes
-            </Description>
-          </SectionHead>
+          <Description>
+            View events or acitivities by selecting the appropriate date ranges
+            or programmes
+          </Description>
+        </SectionHead>
 
-          <SearchSection>
-            <FilterSection>
-              <Label>Filter by programmes</Label>
-              <FilterItem>
-                {filterNames.map((filtername, i) => (
-                  <Search
-                    key={i}
-                    onClick={() => handleSearch(filtername)}
-                    name={filtername}
-                    selectedFilter={selectedFilter}
-                  >
-                    {filtername}
-                  </Search>
-                ))}
-              </FilterItem>
-            </FilterSection>
-            <List>
-              {filteredEvents.map(event => (
-                <EventCard event={event} key={event.id} />
+        <SearchSection>
+          <FilterSection>
+            <Label>Filter by programmes</Label>
+            <FilterItem>
+              {filterNames.map((filtername, i) => (
+                <Search
+                  key={i}
+                  onClick={() => handleSearch(filtername)}
+                  name={filtername}
+                  selectedFilter={selectedFilter}
+                >
+                  {filtername}
+                </Search>
               ))}
-            </List>
-          </SearchSection>
-        </ContentWrapper>
-      </Wrapper>
-    </Layout>
+            </FilterItem>
+          </FilterSection>
+          <List>
+            {filteredEvents.map(event => (
+              <EventCard event={event} key={event.id} />
+            ))}
+          </List>
+        </SearchSection>
+      </Layout>
+    </>
   );
 };
 
