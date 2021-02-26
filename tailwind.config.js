@@ -28,6 +28,11 @@ module.exports = {
         n10: "-10",
         n100: "-100",
       },
+      backgroundImage: theme => ({
+        "hero-pattern": "url('../images/bg-1.svg')",
+        "featured-pattern": "url('../images/bg-3.svg')",
+        "sponsor-pattern": "url('../images/bg-2.svg')",
+      }),
     },
     variants: {
       extend: {},

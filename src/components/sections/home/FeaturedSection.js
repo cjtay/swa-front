@@ -1,6 +1,5 @@
 import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import bg3 from "../../../images/bg-3.svg";
 
 import FeaturedCard from "./FeaturedCard";
 
@@ -33,6 +32,9 @@ const FeaturedSection = () => {
 
   return (
     <section className="relative w-11/12 max-w-4xl px-2 mx-auto sm:w-4/5">
+      {/* --- background pattern ---  */}
+      <div className="absolute w-full h-full bg-left bg-no-repeat bg-cover md:bg-contain md:-right-64 top-24 bg-featured-pattern z-n10"></div>
+
       <div className="sm:w-3/5">
         <h2 className="text-purple-900">Featured events</h2>
         <p>
@@ -52,11 +54,6 @@ const FeaturedSection = () => {
           <FeaturedCard event={event} key={event.id} />
         ))}
       </div>
-      <img
-        src={bg3}
-        alt="background"
-        className="absolute right-0 transform scale-y-150 md:scale-y-75 md:top-0 top-20 z-n10"
-      />
     </section>
   );
 };

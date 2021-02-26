@@ -6,11 +6,16 @@ import styled from "styled-components";
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col justify-between">
-      <Navbar />
-      <div className="space-y-28">{children}</div>
-      <Footer />
-    </div>
+    <>
+      {/* --- background pattern --- */}
+      <div className="absolute w-full h-full bg-bottom bg-no-repeat bg-cover lg:bg-cover z-n10 bg-hero-pattern"></div>
+
+      <div className="flex flex-col justify-between">
+        <Navbar />
+        <div className="space-y-28">{children}</div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

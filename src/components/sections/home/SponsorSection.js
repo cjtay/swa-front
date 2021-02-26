@@ -5,8 +5,6 @@ import florray from "../../../images/florray.png";
 import moephosis from "../../../images/moephosis.png";
 import teamsalon from "../../../images/teamsalon.png";
 import yvonne from "../../../images/yvonne.png";
-import bg2 from "../../../images/bg-2.svg";
-// import SponsorBackground from "../../backgrounds/SponsorBackground";
 
 const SponsorSection = () => {
   return (
@@ -56,13 +54,6 @@ const SponsorSection = () => {
           />
         </div>
       </div>
-      {/* <SponsorBackground /> */}
-      <img
-        src={bg2}
-        alt="background"
-        className="absolute left-0 transform scale-110 -bottom-20 sm:scale-125 z-n10"
-      />
-      ;
     </section>
   );
 };
