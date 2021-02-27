@@ -8,6 +8,8 @@ import ProgrammeSection from "../components/sections/home/ProgrammeSection";
 import ParticipateSection from "../components/sections/home/ParticipateSection";
 import SponsorSection from "../components/sections/home/SponsorSection";
 
+// this is a test comment
+
 const IndexPage = () => {
   return (
     <>

@@ -1,18 +1,11 @@
-// Outstanding tasks
-// Display All filter - default on initial load
-// pagination
-// final styling
-
 import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
-// import Image from "gatsby-image";
+
 import Layout from "../components/layout/layout";
 import styled from "styled-components";
-import { Wrapper, ContentWrapper } from "../styles/wrappers/Wrapper";
-import { SectionHead, Title, Description } from "../styles/SectionHeaders";
-// import DropDownContent from "../components/sections/events/DropDownContent";
+
+import { SectionHead, Description } from "../styles/SectionHeaders";
 import EventCard from "../components/sections/events/EventCard";
-import SectionBackground from "../components/backgrounds/SectionBackground";
 
 const Events = ({ data }) => {
   const [events] = useState(data.allStrapiEvent.nodes);
