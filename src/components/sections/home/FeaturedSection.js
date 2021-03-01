@@ -43,10 +43,7 @@ const FeaturedSection = () => {
           vero ipsam ipsa exercitationem.
         </p>
 
-        <Link
-          to="/events/"
-          className="inline-block mt-2 mb-5 btn-dark md:mb-0 "
-        >
+        <Link to="/events/" className="inline-block mt-2 mb-5 btn-dark md:mb-0">
           View all event
         </Link>
       </div>
