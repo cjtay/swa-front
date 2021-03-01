@@ -21,7 +21,7 @@ const ProgrammeSection = () => {
         <div className="p-6 my-5 sm:flex sm:flex-row-reverse bg-gradient-to-br from-swa-5 via-swa-5 to-swa-1 rounded-xl">
           <div className="text-white">
             <h4>Elderly</h4>
-            <p className="text-base">
+            <p className="text-base text-white">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut
               mauris at felis faucibus consectetur. Proin enim lacus, sagittis
               vel turpis in, vehicula venenatis arcu. Sed ac nisl nec nisi
@@ -37,7 +37,7 @@ const ProgrammeSection = () => {
         <div className="p-6 my-5 sm:flex sm:flex-row-reverse bg-gradient-to-br from-swa-5 via-swa-5 to-swa-1 rounded-xl">
           <div className="text-white">
             <h4>Community</h4>
-            <p className="text-base">
+            <p className="text-base text-white">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut
               mauris at felis faucibus consectetur. Proin enim lacus, sagittis
               vel turpis in, vehicula venenatis arcu. Sed ac nisl nec nisi
@@ -53,7 +53,7 @@ const ProgrammeSection = () => {
         <div className="p-6 my-5 sm:flex sm:flex-row-reverse bg-gradient-to-br from-swa-5 via-swa-5 to-swa-1 rounded-xl">
           <div className="text-white">
             <h4>Diversity</h4>
-            <p className="text-base">
+            <p className="text-base text-white">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut
               mauris at felis faucibus consectetur. Proin enim lacus, sagittis
               vel turpis in, vehicula venenatis arcu. Sed ac nisl nec nisi
@@ -69,7 +69,7 @@ const ProgrammeSection = () => {
         <div className="p-6 my-5 sm:flex sm:flex-row-reverse bg-gradient-to-br from-swa-5 via-swa-5 to-swa-1 rounded-xl">
           <div className="text-white">
             <h4>Community</h4>
-            <p className="text-base">
+            <p className="text-base text-white">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut
               mauris at felis faucibus consectetur. Proin enim lacus, sagittis
               vel turpis in, vehicula venenatis arcu. Sed ac nisl nec nisi
