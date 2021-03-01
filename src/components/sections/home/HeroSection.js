@@ -8,11 +8,15 @@ const HeroSection = () => {
   return (
     <>
       {data.strapiHerosection.title !== "" && (
-        <section className="w-11/12 xl:w-8/12 p-8 mx-auto mt-8 text-white bg-black-transparent rounded-xl sm:flex sm:flex-row-reverse">
-          <div className="sm:w-1/2">
+        <section className="w-11/12 p-8 mx-auto mt-8 text-white xl:w-8/12 bg-black-transparent rounded-xl sm:flex sm:flex-row-reverse">
+          <div className=" sm:w-1/2">
             <h1 className="mb-2">{data.strapiHerosection.title}</h1>
-            <p>{data.strapiHerosection.description}</p>
-            <Link to={data.strapiHerosection.link} className="mt-2 btn-light">
+            <p className="text-white">{data.strapiHerosection.description}</p>
+
+            <Link
+              to={data.strapiHerosection.link}
+              className="inline-block mt-2 btn-light"
+            >
               Read more
             </Link>
           </div>

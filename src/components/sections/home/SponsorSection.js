@@ -10,7 +10,7 @@ const SponsorSection = () => {
   return (
     <section className="relative w-11/12 max-w-4xl px-2 mx-auto sm:w-4/5">
       <h2 className="text-purple-900">Sponsors</h2>
-      <p>
+      <p className="text-gray-700">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum accusamus
         fugiat expedita modi eveniet maxime aperiam excepturi repellendus
         similique! Molestiae sequi ex minima labore culpa pariatur dicta omnis

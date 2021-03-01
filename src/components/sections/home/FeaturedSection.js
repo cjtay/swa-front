@@ -37,7 +37,7 @@ const FeaturedSection = () => {
 
       <div className="sm:w-3/5">
         <h2 className="text-purple-900">Featured events</h2>
-        <p>
+        <p className="text-gray-700">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil
           non consequuntur odio obcaecati, consectetur in saepe officiis maxime
           vero ipsam ipsa exercitationem.

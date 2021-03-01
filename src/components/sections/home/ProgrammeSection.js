@@ -5,7 +5,7 @@ const ProgrammeSection = () => {
     <section className="w-11/12 max-w-4xl px-2 mx-auto sm:w-4/5">
       <div className="sm:w-3/5">
         <h2 className="text-purple-900">Key Programmes</h2>
-        <p>
+        <p className="text-gray-700">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
           fugiat hic eaque nobis modi laborum ipsam unde laboriosam earum
           explicabo, nostrum excepturi rem totam labore odio deleniti cupiditate
