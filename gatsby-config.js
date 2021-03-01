@@ -9,6 +9,12 @@ module.exports = {
     author: `Tay C J`,
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-preconnect",
+      options: {
+        domains: ["https://fonts.gstatic.com/"],
+      },
+    },
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     {

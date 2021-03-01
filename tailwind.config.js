@@ -34,16 +34,16 @@ module.exports = {
         "sponsor-pattern": "url('../images/bg-2.svg')",
       }),
     },
-    variants: {
-      backgroundColor: ["responsive", "hover", "focus", "active"],
-      extend: {},
-    },
+    variants: {},
   },
   plugins: [
     require("@tailwindcss/line-clamp"),
     // ...
   ],
   variants: {
+    extend: {
+      backgroundColor: ["active"],
+    },
     lineClamp: ["responsive", "hover"],
   },
 };

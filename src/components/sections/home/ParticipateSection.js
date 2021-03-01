@@ -30,7 +30,12 @@ const ParticipateSection = () => {
               architecto corporis dignissimos quo, iste beatae inventore nisi!
             </p>
 
-            <div className="inline-block my-4 btn-dark">Donate</div>
+            <a
+              href="#"
+              className="inline-block my-4 btn-dark active:bg-purple-900"
+            >
+              Donate
+            </a>
           </div>
         </div>
         <div className="p-6 my-5 bg-gray-100 sm:flex sm:flex-row-reverse rounded-xl">

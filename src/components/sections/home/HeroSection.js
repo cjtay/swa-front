@@ -15,7 +15,7 @@ const HeroSection = () => {
 
             <Link
               to={data.strapiHerosection.link}
-              className="inline-block mt-2 btn-light "
+              className="inline-block mt-2 btn-light active:bg-purple-900"
             >
               Read more
             </Link>
