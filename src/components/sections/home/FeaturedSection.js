@@ -42,11 +42,13 @@ const FeaturedSection = () => {
           non consequuntur odio obcaecati, consectetur in saepe officiis maxime
           vero ipsam ipsa exercitationem.
         </p>
-        <div className="flex flex-row justify-center sm:justify-start">
-          <Link to="/events/" className="mt-2 btn-dark">
-            View all event
-          </Link>
-        </div>
+
+        <Link
+          to="/events/"
+          className="inline-block mt-2 mb-5 btn-dark md:mb-0 "
+        >
+          View all event
+        </Link>
       </div>
 
       <div className="ml-auto sm:max-w-xl">

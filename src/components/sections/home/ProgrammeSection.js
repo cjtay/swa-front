@@ -11,11 +11,10 @@ const ProgrammeSection = () => {
           explicabo, nostrum excepturi rem totam labore odio deleniti cupiditate
           cum facilis?
         </p>
-        <div className="flex flex-row justify-center sm:justify-start ">
-          <Link to="/events/">
-            <div className="my-4 btn-dark">View programmes</div>
-          </Link>
-        </div>
+
+        <Link to="/events/" className="inline-block my-4 btn-dark">
+          View programmes
+        </Link>
       </div>
       <div className="mr-auto sm:max-w-xl">
         <div className="p-6 my-5 sm:flex sm:flex-row-reverse bg-gradient-to-br from-swa-5 via-swa-5 to-swa-1 rounded-xl">
