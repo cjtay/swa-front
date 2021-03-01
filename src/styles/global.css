@@ -18,7 +18,7 @@
 
 @layer components {
   .btn-dark {
-    @apply px-5 py-3 text-center text-white transition duration-300 ease-in-out rounded-md shadow cursor-pointer bg-swa-1 hover:bg-swa-2 focus:outline-none focus:ring-4 focus:ring-swa-4;
+    @apply px-5 py-3 text-center text-white transition duration-300 ease-in-out rounded-md cursor-pointer bg-swa-1 hover:bg-swa-2 focus:outline-none focus:ring-4 focus:ring-swa-4;
   }
   .btn-light {
     @apply px-5 py-3 text-center text-purple-900 transition duration-300 ease-in-out bg-white rounded-md shadow hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-swa-3;
