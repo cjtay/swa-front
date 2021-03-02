@@ -29,8 +29,8 @@ const ProfileCard = ({ member }) => {
 
   return (
     <>
-      <div className="relative flex flex-col p-5 my-10 overflow-visible rounded-lg shadow-xl md:max-w-2xl md:flex-row md:justify-center md:items-start">
-        <div className="p-2 md:mr-2 md:w-1/3">
+      <div className="relative flex flex-col self-center p-5 my-10 overflow-visible rounded-lg shadow-xl md:max-w-2xl md:flex-row md:justify-center md:items-start">
+        <div className="p-2 md:mr-2 md:w-1/2">
           {member.photo !== null && (
             <Image
               fluid={member.photo.childImageSharp.fluid}
@@ -39,7 +39,7 @@ const ProfileCard = ({ member }) => {
             />
           )}
         </div>
-        <div className="justify-between w-full p-2 md:flex md:flex-col">
+        <div className="justify-between w-full p-2 md:flex md:flex-col md:w-1/2">
           <div className="space-y-5 md:flex md:flex-col ">
             <div className="flex flex-col items-center md:items-start">
               <h4 className="text-swa-1">{member.name}</h4>
