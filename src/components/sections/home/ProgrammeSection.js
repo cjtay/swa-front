@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 const ProgrammeSection = () => {
   return (
-    <section className="w-11/12 max-w-4xl px-2 mx-auto sm:w-4/5">
+    <section className="max-w-4xl mx-auto sm:w-4/5">
       <div className="sm:w-3/5">
         <h2 className="text-purple-900">Key Programmes</h2>
         <p className="text-gray-700">

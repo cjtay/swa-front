@@ -12,7 +12,10 @@
     @apply text-2xl font-bold;
   }
   p {
-    @apply text-lg font-light text-gray-900;
+    @apply text-lg font-light;
+  }
+  li {
+    @apply text-base font-light;
   }
 }
 
@@ -21,6 +24,6 @@
     @apply px-5 py-3 text-center text-white uppercase transition duration-300 ease-in-out rounded-md cursor-pointer bg-swa-1 hover:bg-swa-2 focus:outline-none focus:ring-4 focus:ring-swa-4;
   }
   .btn-light {
-    @apply px-5 py-3 text-center text-purple-900 uppercase transition duration-300 ease-in-out bg-white rounded-md shadow hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-swa-3;
+    @apply px-5 py-3 text-center text-purple-900 uppercase transition duration-300 ease-in-out bg-white rounded-md shadow hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-swa-3 active:bg-swa-1;
   }
 }

@@ -31,7 +31,7 @@ const FeaturedSection = () => {
   const highlightedEvents = data.allStrapiEvent.nodes;
 
   return (
-    <section className="relative w-11/12 max-w-4xl px-2 mx-auto sm:w-4/5">
+    <section className="relative max-w-4xl mx-auto sm:w-4/5">
       {/* --- background pattern ---  */}
       <div className="absolute w-full h-full bg-left bg-no-repeat bg-cover md:bg-contain md:-right-64 top-24 bg-featured-pattern z-n10"></div>
 

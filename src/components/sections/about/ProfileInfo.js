@@ -1,133 +1,59 @@
 import React from "react";
 
-import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
-import {
-  ButtonContainer,
-  ButtonLight,
-} from "../../../styles/buttons/ButtonStyles";
 
 const ProfileInfo = ({ showMod, member, itemId, handleClose }) => {
   console.log("modal member info", member);
   console.log("modal itemId info", itemId);
   console.log("modal showMod ", showMod);
   return (
-    <ProfileStyle showMod={showMod} onClick={handleClose}>
-      {member.description && (
-        <>
-          <ProfileTitle>Description</ProfileTitle>
-          <ReactMarkdown source={member.description} />
-        </>
-      )}
-      {member.experience && (
-        <>
-          <ProfileTitle>Experience</ProfileTitle>
-          <ReactMarkdown source={member.experience} />
-        </>
-      )}
-      {member.contribution && (
-        <>
-          <ProfileTitle>Contribution</ProfileTitle>
-          <ReactMarkdown source={member.contribution} />
-        </>
-      )}
-      {member.aspiration && (
-        <>
-          <ProfileTitle>Aspiration</ProfileTitle>
-          <ReactMarkdown source={member.aspiration} />
-        </>
-      )}
-      <ButtonContainer center>
-        <ButtonLight>Close</ButtonLight>
-      </ButtonContainer>
-    </ProfileStyle>
+    <>
+      {/* ------ MODAL ------- */}
+
+      <div
+        className={
+          showMod
+            ? "visible opacity-100  inset-0 z-10 flex items-start justify-center transition-all duration-200 ease-out bg-black bg-opacity-70 fixed overflow-y-auto "
+            : "invisible opacity-0  inset-0 z-10 flex items-start justify-center transition-all duration-200 ease-in bg-black bg-opacity-70  fixed overflow-y-auto "
+        }
+        onClick={handleClose}
+      >
+        <div className="w-11/12 p-5 mt-20 bg-white divide-y divide-gray-200 rounded-lg xl:w-6/12 text-swa-1">
+          {member.name && (
+            <>
+              <h2 className="my-5">{member.name}</h2>
+            </>
+          )}
+          {member.description && (
+            <>
+              <h4>Description</h4>
+              <ReactMarkdown source={member.description} className="mb-5" />
+            </>
+          )}
+          {member.experience && (
+            <>
+              <h4>Experience</h4>
+
+              <ReactMarkdown source={member.experience} className="mb-5" />
+            </>
+          )}
+          {member.contribution && (
+            <>
+              <h4>Contribution</h4>
+              <ReactMarkdown source={member.contribution} className="mb-5 " />
+            </>
+          )}
+          {member.aspiration && (
+            <>
+              <h4>Aspiration</h4>
+              <ReactMarkdown source={member.aspiration} className="mb-5 " />
+            </>
+          )}
+          <button className="w-full mt-8 btn-dark">close</button>
+        </div>
+      </div>
+    </>
   );
 };
 
 export default ProfileInfo;
-
-const ProfileTitle = styled.h4`
-  color: var(--color-primary-1);
-`;
-
-const ProfileStyle = styled.div`
-  position: relative;
-
-  visibility: ${props => (props.showMod ? "visible" : "hidden")};
-  display: ${props => (props.showMod ? "block" : "none")};
-  opacity: ${props => (props.showMod ? 1 : 0)};
-  transition: 0.3s ease-in;
-  background-color: var(--color-primary-4);
-  z-index: 1;
-  top: -20px;
-  left: 0;
-  /* height: ${props => (props.showMod ? "90%" : "0")}; */
-  padding: 1em;
-  border-radius: 10px;
-
-  @media (min-width: 600px) {
-    width: ${props => (props.showMod ? "80%" : "0")};
-    margin: 0 auto;
-  }
-
-  h1 {
-    font-weight: 700;
-    color: var(--color-primary-1);
-  }
-
-  h2 {
-    font-weight: 700;
-    color: var(--color-primary-1);
-  }
-
-  h3 {
-    font-weight: 400;
-    color: var(--color-primary-1);
-  }
-
-  p {
-    color: var(--color-blacklight);
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 0.2em auto;
-  }
-
-  ul {
-    list-style-type: disc;
-    list-style-position: inside;
-    list-style-image: none;
-    font-size: 1rem;
-    margin: 1em auto;
-  }
-
-  em,
-  strong {
-    font-weight: 700;
-    color: var(--color-primary-2);
-  }
-
-  u {
-    text-decoration: underline;
-  }
-
-  blockquote > p {
-    display: inline-block;
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    color: var(--color-primary-1);
-    margin: 1em auto;
-    background-color: var(--color-primary-4);
-    border-radius: 15px;
-    padding: 0 0.8em 0 0;
-
-    ::before {
-      content: "Q";
-      font-size: 5rem;
-      font-weight: 400;
-      margin-right: 0.1em;
-      position: relative;
-      top: -7px;
-      right: -7px;
-    }
-  }
-`;

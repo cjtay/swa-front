@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   return (
     <div className="flex flex-col justify-between">
       <Navbar />
-      <div className="mt-12 space-y-28">{children}</div>
+      <div className="px-3 mt-12 space-y-28">{children}</div>
       <Footer />
     </div>
   );

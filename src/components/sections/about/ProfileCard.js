@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-
-import styled from "styled-components";
+import Image from "gatsby-image";
+import ReactMarkdown from "react-markdown";
 
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
-import ProfilePhoto from "./ProfilePhoto";
 import ProfileInfo from "./ProfileInfo";
-
-import photo from "../../../images/leelihua.jpg";
 
 const ProfileCard = ({ member }) => {
   const [showMod, setShowMod] = useState(false);
@@ -32,45 +29,34 @@ const ProfileCard = ({ member }) => {
 
   return (
     <>
-      <div className="flex flex-col mx-auto overflow-hidden rounded-lg shadow-lg  md:w-3/4 sm:flex-row">
-        <img src={photo} alt="Lee Li Hua" className="object-cover w-1/5" />
-        <div className="justify-between w-full p-2 sm:flex sm:flex-col">
-          <div className="sm:flex">
-            <div className="flex flex-col">
-              <h4>Lee Li Hua</h4>
-              <p className="mb-2 text-sm text-gray-500">President</p>
-              <p className="text-sm">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                sagittis lacus neque, vitae porttitor augue viverra a. Integer
-                bibendum malesuada orci ut convallis.
-              </p>
-              <div className="text-swa-3">Read more..</div>
-            </div>
-            <div className="flex ml-auto space-x-2">
-              <div className="text-2xl text-swa-3">
-                <FaFacebook />
-              </div>
-              <div className="text-2xl text-swa-3">
-                <FaInstagram />
-              </div>
-              <div className="text-2xl text-swa-3">
-                <FaLinkedin />
-              </div>
-            </div>
-          </div>
+      <div className="relative flex flex-col p-5 my-10 overflow-visible rounded-lg shadow-xl md:max-w-2xl md:flex-row md:justify-center md:items-start">
+        <div className="p-2 md:mr-2 md:w-1/3">
+          {member.photo !== null && (
+            <Image
+              fluid={member.photo.childImageSharp.fluid}
+              alt={member.name}
+              className="object-cover object-center w-32 h-32 mx-auto rounded-full"
+            />
+          )}
         </div>
-      </div>
-      <Card>
-        <ProfilePhotoContainer>
-          <ProfilePhoto data={member} />
-        </ProfilePhotoContainer>
-        <ProfileInfoContainer>
-          <ProfileName>{member.name}</ProfileName>
-          <ProfilePosition>{member.title}</ProfilePosition>
-          {socialIcons !== [] && (
-            <SocialList>
+        <div className="justify-between w-full p-2 md:flex md:flex-col">
+          <div className="space-y-5 md:flex md:flex-col ">
+            <div className="flex flex-col items-center md:items-start">
+              <h4 className="text-swa-1">{member.name}</h4>
+              <p className="mb-2 text-sm text-gray-500">President</p>
+              <div className="leading-snug text-gray-700 line-clamp-3 ">
+                <ReactMarkdown source={member.description} />
+              </div>
+              <button
+                className="mt-2 mb-5 btn-light text-swa-3"
+                onClick={() => handleShow(member.id)}
+              >
+                Read more
+              </button>
+            </div>
+            <div className="flex justify-center space-x-3 text-2xl sm:mr-auto text-swa-3">
               {socialIcons.map((icon, i) => (
-                <Social key={i}>
+                <div key={i}>
                   {icon === "Facebook" ? (
                     <a
                       href={socialUrls[i]}
@@ -104,115 +90,21 @@ const ProfileCard = ({ member }) => {
                       <FaLinkedin />
                     </a>
                   ) : null}
-                </Social>
+                </div>
               ))}
-            </SocialList>
-          )}
-          <Info onClick={() => handleShow(member.id)}>Read more</Info>
-        </ProfileInfoContainer>
-      </Card>
-      <ProfileInfo
-        showMod={showMod}
-        member={member}
-        itemId={itemId}
-        handleClose={handleClose}
-      />
+            </div>
+          </div>
+        </div>
+        <ProfileInfo
+          showMod={showMod}
+          member={member}
+          itemId={itemId}
+          handleClose={handleClose}
+          className="absolute"
+        />
+      </div>
     </>
   );
 };
 
 export default ProfileCard;
-
-const Card = styled.li`
-  box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(20px);
-  max-width: 550px;
-  border-radius: 15px;
-  margin: 1em auto;
-  padding: 0.8em;
-
-  @media (min-width: 600px) {
-    display: flex;
-    justify-content: flex-start;
-    /* justify-content: flex-start; */
-    /* align-items: flex-start; */
-    max-width: 80%;
-  }
-`;
-
-const ProfilePhotoContainer = styled.div`
-  @media (min-width: 600px) {
-    margin: 0 2em;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-`;
-const ProfileInfoContainer = styled.div``;
-
-const ProfileName = styled.h2`
-  color: var(--color-primary-1);
-  text-align: center;
-  @media (min-width: 600px) {
-    text-align: left;
-  }
-`;
-
-const ProfilePosition = styled.p`
-  color: var(--color-grey);
-  font-weight: 300;
-  font-size: 0.9rem;
-  text-align: center;
-  @media (min-width: 600px) {
-    text-align: left;
-  }
-`;
-
-const SocialList = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 1em auto;
-  @media (min-width: 600px) {
-    justify-content: flex-start;
-  }
-`;
-
-const Social = styled.div`
-  font-size: 1.5rem;
-  margin: 0.2em 0.3em;
-  color: var(--color-primary-1);
-`;
-
-const Info = styled.div`
-  display: inline-block;
-  padding: 0.3em 0.8em;
-  text-align: center;
-  border-radius: 10px;
-  border: 1px solid var(--color-primary-4);
-  background-color: var(--color-white);
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-
-  :hover {
-    background-color: var(--color-primary-4);
-  }
-
-  @media (min-width: 600px) {
-  }
-`;
-
-// const ProfileModal = styled.div`
-//   position: fixed;
-//   visibility: ${props => (props.isOpen ? "visible" : "hidden")};
-//   opacity: ${props => (props.isOpen ? 1 : 0)};
-//   transition: 0.3s ease-in;
-//   /* display: ${props => (props.isOpen ? "block" : "none")}; */
-//   background-color: var(--color-primary-4);
-//   z-index: 2;
-//   top: 100px;
-//   left: 0;
-//   width: 90%;
-//   padding: 1em;
-//   border-radius: 10px;
-// `;

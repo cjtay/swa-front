@@ -8,7 +8,7 @@ import yvonne from "../../../images/yvonne.png";
 
 const SponsorSection = () => {
   return (
-    <section className="relative w-11/12 max-w-4xl px-2 mx-auto sm:w-4/5">
+    <section className="relative max-w-4xl mx-auto sm:w-4/5">
       <h2 className="text-purple-900">Sponsors</h2>
       <p className="text-gray-700">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum accusamus
