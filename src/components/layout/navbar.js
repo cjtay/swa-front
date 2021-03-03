@@ -182,13 +182,13 @@ const Navbar = () => {
       {/* ------ MENU LIST & BUTTON------- */}
       <ul className="hidden text-white md:flex md:items-center md:ml-auto md:space-x-7 md:mt-5">
         {links}
+        <button
+          className="self-end ml-3 btn-light text-swa-3"
+          onClick={handleSubNav2}
+        >
+          Donate
+        </button>
       </ul>
-      <button
-        className="self-end ml-3 btn-light text-swa-3"
-        onClick={handleSubNav2}
-      >
-        Donate
-      </button>
 
       {/* ------ BURGER ICON ------- */}
       <div
