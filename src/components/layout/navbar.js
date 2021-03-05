@@ -1,84 +1,8 @@
 import React, { useState } from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import Image from "gatsby-image";
-import { FaHome, FaHandsHelping, FaBook } from "react-icons/fa";
-import { BsFillPeopleFill, BsCalendar } from "react-icons/bs";
 
-const mainNav = [
-  {
-    id: 1,
-    text: "Home",
-    url: "/",
-    icon: <FaHome />,
-  },
-  {
-    id: 2,
-    text: "What",
-    url: "#",
-    icon: <BsFillPeopleFill />,
-    sub: "subNav1",
-  },
-  {
-    id: 3,
-    text: "How",
-    url: "#",
-    icon: <FaBook />,
-    sub: "subNav2",
-  },
-  {
-    id: 4,
-    text: "Events",
-    url: "/events/",
-    icon: <BsCalendar />,
-  },
-  {
-    id: 5,
-    text: "Participate",
-    url: "/participate/",
-    icon: <FaHandsHelping />,
-  },
-];
-
-const subNav1 = [
-  {
-    id: 21,
-    text: "History",
-    url: "/what/history",
-  },
-  {
-    id: 22,
-    text: "Our board",
-    url: "/what/board",
-  },
-  {
-    id: 23,
-    text: "Our work",
-    url: "/what/work",
-  },
-  {
-    id: 24,
-    text: "Testimonials / awards",
-    url: "/what/testimonials",
-  },
-  {
-    id: 25,
-    text: "Press release / media ",
-    url: "/what/press",
-  },
-];
-
-const subNav2 = [
-  {
-    id: 31,
-    text: "Fundraising",
-    url: "/how/history",
-  },
-  {
-    id: 32,
-    text: "Miss Singapore Pageant Int",
-    url: "/how/mspi",
-  },
-];
+import { mainNav, subNav1, subNav2 } from "../../constants/menu";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -88,6 +12,7 @@ const Navbar = () => {
   const data = useStaticQuery(getLogo);
 
   const handleClick = () => {
+    console.log("click");
     setIsOpen(!isOpen);
   };
 
@@ -97,12 +22,15 @@ const Navbar = () => {
 
   const handleSubMenuClick = id => {
     console.log("sub id: ", id);
-    if ((id = "subNav1")) {
+    if (id === "What") {
       setShowSub2(false);
       setShowSub(!showSub);
-    } else if ((id = "subNav2")) {
+    } else if (id === "How") {
       setShowSub(false);
       setShowSub2(!showSub2);
+    } else {
+      setShowSub(false);
+      setShowSub2(false);
     }
   };
 
@@ -118,10 +46,15 @@ const Navbar = () => {
     return (
       <li key={link.id}>
         <Link to={link.url}>
-          <div className="relative flex items-center w-full px-2 py-3 space-x-2 transition rounded divide-solid hover:text-swa-4">
+          <div
+            onClick={() => {
+              handleSubMenuClick(link.text);
+            }}
+            className="relative flex items-center w-full px-2 py-3 space-x-2 transition rounded divide-solid hover:text-swa-4"
+          >
             <span>{link.icon}</span>
-            <div onClick={() => handleSubMenuClick(link.sub)}>{link.text}</div>
-            {link.sub === "subNav1" ? (
+            <div>{link.text}</div>
+            {link.text === "What" ? (
               <div
                 className={
                   showSub
@@ -133,7 +66,7 @@ const Navbar = () => {
                   return <li key={link.id}>{link.text}</li>;
                 })}
               </div>
-            ) : link.sub === "subNav2" ? (
+            ) : link.text === "How" ? (
               <div
                 className={
                   showSub2
@@ -182,12 +115,7 @@ const Navbar = () => {
       {/* ------ MENU LIST & BUTTON------- */}
       <ul className="hidden text-white md:flex md:items-center md:ml-auto md:space-x-7 md:mt-5">
         {links}
-        <button
-          className="self-end ml-3 btn-light text-swa-3"
-          onClick={handleSubNav2}
-        >
-          Donate
-        </button>
+        <button className="self-end ml-3 btn-light text-swa-3">Donate</button>
       </ul>
 
       {/* ------ BURGER ICON ------- */}
