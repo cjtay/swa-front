@@ -37,20 +37,20 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
               <div
                 className={
                   showSub
-                    ? "visible opacity-100 absolute w-52 p-3 space-y-3 rounded-lg bg-purple-50 text-swa-2 top-10 transition-all duration-300 ease-out lg:hidden"
+                    ? "visible opacity-100 absolute w-52 p-3 space-y-3 rounded-lg bg-purple-50 text-swa-2 top-10 transition-all duration-300 ease-out hidden md:block"
                     : "invisible opacity-0 absolute w-48 p-3 space-y-3 rounded-lg bg-swa-3 top-10 transition-all duration-300 ease-out"
                 }
               >
                 {subNav1.map(link => {
                   return (
-                    <li
-                      key={link.id}
-                      className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3"
-                    >
-                      <Link to={link.url}>
+                    <Link to={link.url}>
+                      <li
+                        key={link.id}
+                        className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3"
+                      >
                         <div>{link.text}</div>
-                      </Link>
-                    </li>
+                      </li>
+                    </Link>
                   );
                 })}
               </div>
@@ -58,20 +58,20 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
               <div
                 className={
                   showSub2
-                    ? "visible opacity-100 absolute w-48 p-3 space-y-3 rounded-lg bg-purple-50 text-swa-2 top-10 transition-all duration-300 ease-out lg:hidden"
+                    ? "visible opacity-100 absolute w-48 p-3 space-y-3 rounded-lg bg-purple-50 text-swa-2 top-10 transition-all duration-300 ease-out hidden md:block"
                     : "invisible opacity-0 absolute w-48 p-3 space-y-3 rounded-lg bg-swa-3 top-10 transition-all duration-300 ease-out"
                 }
               >
                 {subNav2.map(link => {
                   return (
-                    <li
-                      key={link.id}
-                      className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3"
-                    >
-                      <Link to={link.url}>
+                    <Link to={link.url}>
+                      <li
+                        key={link.id}
+                        className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3"
+                      >
                         <div>{link.text}</div>
-                      </Link>
-                    </li>
+                      </li>
+                    </Link>
                   );
                 })}
               </div>
@@ -79,20 +79,20 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
               <div
                 className={
                   showSub3
-                    ? "visible opacity-100 absolute w-48 p-3 space-y-3 rounded-lg bg-purple-50 text-swa-2 top-10 transition-all duration-300 ease-out lg:hidden"
+                    ? "visible opacity-100 absolute w-48 p-3 space-y-3 rounded-lg bg-purple-50 text-swa-2 top-10 transition-all duration-300 ease-out "
                     : "invisible opacity-0 absolute w-48 p-3 space-y-3 rounded-lg bg-swa-3 top-10 transition-all duration-300 ease-out"
                 }
               >
                 {subNav3.map(link => {
                   return (
-                    <li
-                      key={link.id}
-                      className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3"
-                    >
-                      <Link to={link.url}>
+                    <Link to={link.url}>
+                      <li
+                        key={link.id}
+                        className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3"
+                      >
                         <div>{link.text}</div>
-                      </Link>
-                    </li>
+                      </li>
+                    </Link>
                   );
                 })}
               </div>
