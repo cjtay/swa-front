@@ -37,22 +37,22 @@ export const mainNav = [
 
 export const subNav1 = [
   {
-    id: 21,
+    id: 11,
     text: "History",
     url: "/what/history",
   },
   {
-    id: 22,
+    id: 12,
     text: "Our board",
-    url: "/what/board",
+    url: "/what/about",
   },
   {
-    id: 23,
+    id: 13,
     text: "Our work",
     url: "/what/work",
   },
   {
-    id: 24,
+    id: 14,
     text: "Testimonials / awards",
     url: "/what/testimonials",
   },
@@ -65,13 +65,31 @@ export const subNav1 = [
 
 export const subNav2 = [
   {
-    id: 31,
+    id: 21,
     text: "Fundraising",
-    url: "/how/history",
+    url: "/how/fundraising",
+  },
+  {
+    id: 22,
+    text: "Miss Singapore Pageant Int",
+    url: "/how/mspi",
+  },
+];
+
+export const subNav3 = [
+  {
+    id: 31,
+    text: "Donate",
+    url: "/participate/donate",
   },
   {
     id: 32,
-    text: "Miss Singapore Pageant Int",
-    url: "/how/mspi",
+    text: "Volunteer",
+    url: "/participate/volunteer",
+  },
+  {
+    id: 33,
+    text: "Sponsor",
+    url: "/participate/sponsor",
   },
 ];
