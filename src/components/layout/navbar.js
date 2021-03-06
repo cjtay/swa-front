@@ -184,10 +184,11 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
   });
 
   return (
-    <nav className="z-20 flex items-center justify-center w-full max-w-6xl p-4 mx-auto">
+    <nav className="z-20 flex items-center justify-center w-full max-w-6xl p-4 mx-auto mt-5">
       {/* ------ LOGO ------- */}
+
       <Link to="/">
-        <div className="flex items-center mt-5 space-x-2 text-white">
+        <div className="flex items-center space-x-2 text-white">
           <Image
             fluid={data.file.childImageSharp.fluid}
             alt="logo"
@@ -196,6 +197,7 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
           <h4 className="md:hidden">Singapore Women's Association</h4>
         </div>
       </Link>
+
       {/* ------ MENU LIST & BUTTON------- */}
       <ul className="hidden text-white md:flex md:items-center md:ml-auto md:space-x-7 md:mt-5">
         {links}
@@ -205,11 +207,12 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
       </ul>
       {/* ------ BURGER ICON ------- */}
       <div
-        className="flex flex-col items-center justify-center w-12 h-12 p-2 ml-3 space-y-1 border-2 border-white rounded-full cursor-pointer md:hidden"
+        className="flex flex-col items-center justify-center w-12 h-12 p-2 ml-10 space-y-1 border-2 border-white rounded-full cursor-pointer md:hidden"
         onClick={handleClick}
       >
         <div className="w-6 mx-auto border border-white "></div>
-        <div className="w-6 mx-auto border border-white "></div>
+        {/* <div className="w-6 mx-auto border border-white "></div> */}
+        <p className="text-xs font-light text-white uppercase">menu</p>
         <div className="w-6 mx-auto border border-white "></div>
       </div>
       {/* ------ MODAL ------- */}
