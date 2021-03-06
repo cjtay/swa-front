@@ -199,7 +199,9 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
       {/* ------ MENU LIST & BUTTON------- */}
       <ul className="hidden text-white md:flex md:items-center md:ml-auto md:space-x-7 md:mt-5">
         {links}
-        <button className="self-end ml-3 btn-light text-swa-3">Donate</button>
+        <Link to="/participate/donate">
+          <button className="self-end ml-3 btn-light text-swa-3">Donate</button>
+        </Link>
       </ul>
       {/* ------ BURGER ICON ------- */}
       <div
