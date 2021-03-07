@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import Image from "gatsby-image";
+import logo from "../../assets/logo.png";
 
 import { mainNav, subNav1, subNav2, subNav3 } from "../../constants/menu";
 
@@ -184,7 +185,7 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
   });
 
   return (
-    <nav className="z-20 flex items-center justify-center w-full max-w-6xl p-4 mx-auto mt-5">
+    <nav className="z-20 flex items-center justify-center w-full max-w-6xl p-4 mx-auto mt-5 md:mt-0">
       {/* ------ LOGO ------- */}
 
       <Link to="/">
@@ -194,6 +195,7 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
             alt="logo"
             className="w-12"
           />
+
           <h4 className="md:hidden">Singapore Women's Association</h4>
         </div>
       </Link>

@@ -1,4 +1,4 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap");
 @tailwind base;
 @tailwind components;
@@ -11,6 +11,7 @@
   h2 {
     @apply text-2xl font-bold;
   }
+
   p {
     @apply text-lg font-light;
   }
@@ -25,5 +26,21 @@
   }
   .btn-light {
     @apply px-5 py-3 text-center text-purple-900 uppercase transition duration-300 ease-in-out bg-white rounded-md shadow hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-swa-3 active:bg-swa-1;
+  }
+
+  .gallery {
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 0.5em;
+    align-items: stretch;
+    grid-auto-rows: 250px;
+    grid-auto-flow: dense;
+  }
+
+  .gallery img {
+    border: 1px solid white;
+    max-width: 100%;
+    object-fit: cover;
   }
 }

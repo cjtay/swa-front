@@ -9,13 +9,13 @@ module.exports = {
     author: `Tay C J`,
   },
   plugins: [
+    `gatsby-plugin-postcss`,
     {
       resolve: "gatsby-plugin-preconnect",
       options: {
         domains: ["https://fonts.gstatic.com/"],
       },
     },
-    `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
