@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import angela from "../images/wls.jpg";
-
 import Layout from "../components/layout/layout";
 
 const How = () => {

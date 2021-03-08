@@ -4,16 +4,16 @@ import { useForm } from "react-hook-form";
 import { Ring } from "react-awesome-spinners";
 
 const ContactForm = () => {
-  const { register, handleSubmit, watch, errors, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [loader, setLoader] = useState(false);
-  const [test, setTest] = useState(false);
+  // const [test, setTest] = useState(false);
 
-  const handleClick = () => {
-    setTest(!test);
-  };
+  // const handleClick = () => {
+  //   setTest(!test);
+  // };
 
   const onSubmit = async submittedData => {
     console.log("submitted data: ", submittedData);

@@ -22,7 +22,7 @@ const About = ({ data }) => {
             molestiae fuga distinctio ea officiis!
           </p>
 
-          <div className="mx-2 mt-10">
+          <div className="flex flex-col items-center mt-10 space-y-9">
             {members.map((member, i) => (
               <ProfileCard key={i} member={member} />
             ))}

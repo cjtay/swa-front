@@ -2,7 +2,7 @@ import React from "react";
 
 const ParticipateSection = () => {
   return (
-    <section className="max-w-4xl mx-auto  sm:w-4/5">
+    <section className="max-w-4xl mx-auto sm:w-4/5">
       <div className="sm:w-3/5">
         <h2 className="text-purple-900">Get involved</h2>
         <p className="text-gray-700">
@@ -31,7 +31,7 @@ const ParticipateSection = () => {
             </p>
 
             <a
-              href="#"
+              href="/"
               className="inline-block my-4 btn-dark active:bg-purple-900"
             >
               Donate

@@ -13,43 +13,56 @@ const ProfileInfo = ({ showMod, member, itemId, handleClose }) => {
       <div
         className={
           showMod
-            ? "visible opacity-100  inset-0 z-10 flex items-start justify-center transition-all duration-200 ease-out bg-black bg-opacity-70 fixed overflow-y-auto "
-            : "invisible opacity-0  inset-0 z-10 flex items-start justify-center transition-all duration-200 ease-in bg-black bg-opacity-70  fixed overflow-y-auto "
+            ? "visible opacity-100  inset-0 z-50 flex items-start justify-center transition-all duration-200 ease-out bg-black bg-opacity-70 fixed overflow-y-auto "
+            : "invisible opacity-0  inset-0 z-50 flex items-start justify-center transition-all duration-200 ease-in bg-black bg-opacity-70  fixed overflow-y-auto "
         }
         onClick={handleClose}
+        onKeyDown={handleClose}
+        onFocus={handleClose}
+        role="close menu"
+        aria-modal
       >
-        <div className="w-11/12 p-5 mt-20 bg-white divide-y divide-gray-200 rounded-lg xl:w-6/12 text-swa-1">
+        <div className="w-11/12 p-5 mt-20 bg-white divide-y divide-gray-200 rounded-lg lg:w-6/12">
           {member.name && (
             <>
-              <h2 className="my-5">{member.name}</h2>
+              <h2 className="my-5 text-swa-3">{member.name}</h2>
             </>
           )}
           {member.description && (
             <>
-              <h4>Description</h4>
-              <ReactMarkdown source={member.description} className="mb-5" />
+              <h3 className="pt-2 text-lg font-black text-swa-3">
+                Description
+              </h3>
+              <div className="markdown">
+                <ReactMarkdown source={member.description} className="mb-5" />
+              </div>
             </>
           )}
           {member.experience && (
             <>
-              <h4>Experience</h4>
-
-              <ReactMarkdown source={member.experience} className="mb-5" />
+              <h3 className="pt-2 font-bold text-swa-3 ">Experience</h3>
+              <div className="markdown">
+                <ReactMarkdown source={member.experience} className="mb-5" />
+              </div>
             </>
           )}
           {member.contribution && (
             <>
-              <h4>Contribution</h4>
-              <ReactMarkdown source={member.contribution} className="mb-5 " />
+              <h3 className="pt-2 font-bold text-swa-3 ">Contribution</h3>
+              <div className="markdown">
+                <ReactMarkdown source={member.contribution} className="mb-5 " />
+              </div>
             </>
           )}
           {member.aspiration && (
             <>
-              <h4>Aspiration</h4>
-              <ReactMarkdown source={member.aspiration} className="mb-5 " />
+              <h3 className="pt-2 font-bold text-swa-3 ">Aspiration</h3>
+              <div className="markdown">
+                <ReactMarkdown source={member.aspiration} className="mb-5 " />
+              </div>
             </>
           )}
-          <button className="w-full mt-8 btn-dark">close</button>
+          <div className="w-full mt-8 btn-dark">close</div>
         </div>
       </div>
     </>

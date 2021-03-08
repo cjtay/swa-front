@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Footer from "../layout/footer";
 
 import Navbar from "./navbar";
-import styled from "styled-components";
 
 const Layout = ({ children }) => {
   const [showSub, setShowSub] = useState(false);
@@ -37,7 +36,12 @@ const Layout = ({ children }) => {
   };
 
   return (
-    <div className="flex flex-col justify-between" onClick={handleSubMenuClose}>
+    <div
+      className="flex flex-col justify-between"
+      onClick={handleSubMenuClose}
+      onKeyDown={handleSubMenuClose}
+      role="close menu"
+    >
       <Navbar
         showSub={showSub}
         showSub2={showSub2}
@@ -51,9 +55,3 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
-
-const LayoutWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-`;

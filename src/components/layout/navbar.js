@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import Image from "gatsby-image";
-import logo from "../../assets/logo.png";
 
 import { mainNav, subNav1, subNav2, subNav3 } from "../../constants/menu";
 
@@ -22,14 +21,18 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
   const links = mainNav.map(link => {
     return (
       <li key={link.id}>
-        <Link to={link.url}>
+        <Link to={link.url} role="show submenu">
           <div
             onClick={() => {
+              handleSubMenu(link.text);
+            }}
+            onKeyDown={() => {
               handleSubMenu(link.text);
             }}
             onMouseEnter={() => {
               handleSubMenu(link.text);
             }}
+            role="submenu"
             className="relative flex items-center w-full px-2 py-3 space-x-2 transition rounded divide-solid hover:text-swa-4"
           >
             <span>{link.icon}</span>
@@ -121,7 +124,7 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
                   key={link.id}
                   className="px-3 py-2 mb-2 font-bold rounded-lg bg-swa-4 ml-7 active:bg-swa-2"
                 >
-                  <Link to={link.url}>
+                  <Link to={link.url} onClick={handleClose}>
                     <div>{link.text}</div>
                   </Link>
                 </li>
@@ -142,7 +145,7 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
                   key={link.id}
                   className="px-3 py-2 mb-2 font-bold rounded-lg bg-swa-4 ml-7 active:bg-swa-2"
                 >
-                  <Link to={link.url}>
+                  <Link to={link.url} onClick={handleClose}>
                     <div>{link.text}</div>
                   </Link>
                 </li>
@@ -163,7 +166,7 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
                   key={link.id}
                   className="px-3 py-2 mb-2 font-bold rounded-lg bg-swa-4 ml-7 active:bg-swa-2"
                 >
-                  <Link to={link.url}>
+                  <Link to={link.url} onClick={handleClose}>
                     <div>{link.text}</div>
                   </Link>
                 </li>
@@ -171,7 +174,7 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
             })}
           </div>
         ) : (
-          <Link to={link.url}>
+          <Link to={link.url} onClick={handleClose}>
             <div className="flex flex-col w-full px-3 py-5 font-bold rounded divide-solid ">
               <div className="flex items-center space-x-3">
                 <span>{link.icon}</span>
@@ -190,12 +193,12 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
 
       <Link to="/">
         <div className="flex items-center space-x-2 text-white">
-          {/* <Image
+          <Image
             fluid={data.file.childImageSharp.fluid}
             alt="logo"
             className="w-12"
-          /> */}
-          <img src={logo} alt="" className="w-12" />
+          />
+
           <h4 className="md:hidden">Singapore Women's Association</h4>
         </div>
       </Link>
@@ -203,7 +206,7 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
       {/* ------ MENU LIST & BUTTON------- */}
       <ul className="hidden text-white md:flex md:items-center md:ml-auto md:space-x-7 md:mt-5">
         {links}
-        <Link to="/participate/donate">
+        <Link to="/participate/donate" role="button">
           <button className="self-end ml-3 btn-light text-swa-3">Donate</button>
         </Link>
       </ul>
@@ -211,6 +214,8 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
       <div
         className="flex flex-col items-center justify-center w-12 h-12 p-2 ml-10 space-y-1 border-2 border-white rounded-full cursor-pointer md:hidden"
         onClick={handleClick}
+        onKeyDown={handleClick}
+        role="mobile menu"
       >
         <div className="w-6 mx-auto border border-white "></div>
         {/* <div className="w-6 mx-auto border border-white "></div> */}

@@ -45,28 +45,19 @@ const Work = () => {
               <div class="gallery mt-2">
                 <img
                   src="https://source.unsplash.com/random/1200x800"
-                  alt="post-photo"
+                  alt="test"
                 />
                 <img
                   src="https://source.unsplash.com/random/800x600"
-                  alt="post-photo"
+                  alt="test"
                 />
                 <img
                   src="https://source.unsplash.com/random/500x1000"
-                  alt="post-photo"
+                  alt="test"
                 />
-                <img
-                  src="https://source.unsplash.com/EwKXn5CapA4"
-                  alt="post-photo"
-                />
-                <img
-                  src="https://source.unsplash.com/vltMzn0jqsA"
-                  alt="post-photo"
-                />
-                <img
-                  src="https://source.unsplash.com/vltMzn0jqsA"
-                  alt="post-photo"
-                />
+                <img src="https://source.unsplash.com/EwKXn5CapA4" alt="test" />
+                <img src="https://source.unsplash.com/vltMzn0jqsA" alt="test" />
+                <img src="https://source.unsplash.com/vltMzn0jqsA" alt="test" />
               </div>
             </div>
             <div className="my-8">
@@ -85,15 +76,15 @@ const Work = () => {
               <div class="gallery mt-2">
                 <img
                   src="https://source.unsplash.com/random/1200x800"
-                  alt="post-photo"
+                  alt="test"
                 />
                 <img
                   src="https://source.unsplash.com/random/1200x800"
-                  alt="post-photo"
+                  alt="test"
                 />
                 <img
                   src="https://source.unsplash.com/random/1200x800"
-                  alt="post-photo"
+                  alt="test"
                 />
               </div>
             </div>
@@ -119,15 +110,15 @@ const Work = () => {
               <div class="gallery mt-2">
                 <img
                   src="https://source.unsplash.com/random/1200x800"
-                  alt="post-photo"
+                  alt="test"
                 />
                 <img
                   src="https://source.unsplash.com/random/800x600"
-                  alt="post-photo"
+                  alt="test"
                 />
                 <img
                   src="https://source.unsplash.com/random/500x1000"
-                  alt="post-photo"
+                  alt="test"
                 />
               </div>
             </div>

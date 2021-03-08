@@ -80,6 +80,7 @@ const History = () => {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen
                     className="relative top-0 left-0 w-full h-full border-8 border-white"
+                    title="video"
                   ></iframe>
                 </div>
                 <div className="w-full text-gray-600">

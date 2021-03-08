@@ -43,4 +43,20 @@
     max-width: 100%;
     object-fit: cover;
   }
+
+  .markdown {
+    @apply border-t-0;
+  }
+
+  .markdown h3 {
+    @apply text-lg text-red-500;
+  }
+
+  .markdown p {
+    @apply text-base;
+  }
+
+  .markdown li {
+    @apply text-base list-disc list-inside;
+  }
 }

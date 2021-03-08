@@ -29,8 +29,12 @@ const ProfileCard = ({ member }) => {
 
   return (
     <>
-      <div className="relative flex flex-col self-center p-5 my-10 overflow-visible rounded-lg shadow-xl md:max-w-2xl md:flex-row md:justify-center md:items-start">
-        <div className="p-2 md:mr-2 md:w-1/2">
+      <div
+        className="relative flex flex-col w-full p-5 overflow-visible rounded-lg shadow-xl cursor-pointer md:w-11/12 md:flex-row md:items-start"
+        onClick={() => handleShow(member.id)}
+        onKeyDown={() => handleShow(member.id)}
+      >
+        <div className="p-2 mx-auto md:mr-5 md:w-1/4">
           {member.photo !== null && (
             <Image
               fluid={member.photo.childImageSharp.fluid}
@@ -39,20 +43,15 @@ const ProfileCard = ({ member }) => {
             />
           )}
         </div>
-        <div className="justify-between w-full p-2 md:flex md:flex-col md:w-1/2">
+        <div className="justify-between w-full p-2 md:flex md:flex-col ">
           <div className="space-y-5 md:flex md:flex-col ">
             <div className="flex flex-col items-center md:items-start">
-              <h4 className="text-swa-1">{member.name}</h4>
+              <h2 className=" text-swa-1">{member.name}</h2>
               <p className="mb-2 text-sm text-gray-500">President</p>
-              <div className="leading-snug text-gray-700 line-clamp-3 ">
+              <div className="w-full leading-snug text-gray-700 line-clamp-3">
                 <ReactMarkdown source={member.description} />
               </div>
-              <button
-                className="mt-2 mb-5 btn-light text-swa-3"
-                onClick={() => handleShow(member.id)}
-              >
-                Read more
-              </button>
+              <button className="mt-2 mb-5 btn-dark ">Read more...</button>
             </div>
             <div className="flex justify-center space-x-3 text-2xl sm:mr-auto text-swa-3">
               {socialIcons.map((icon, i) => (
