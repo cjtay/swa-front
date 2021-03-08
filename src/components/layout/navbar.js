@@ -190,12 +190,12 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
 
       <Link to="/">
         <div className="flex items-center space-x-2 text-white">
-          <Image
+          {/* <Image
             fluid={data.file.childImageSharp.fluid}
             alt="logo"
             className="w-12"
-          />
-
+          /> */}
+          <img src={logo} alt="" className="w-12" />
           <h4 className="md:hidden">Singapore Women's Association</h4>
         </div>
       </Link>

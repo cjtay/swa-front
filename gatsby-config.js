@@ -9,7 +9,6 @@ module.exports = {
     author: `Tay C J`,
   },
   plugins: [
-    `gatsby-plugin-postcss`,
     {
       resolve: "gatsby-plugin-preconnect",
       options: {
@@ -75,6 +74,7 @@ module.exports = {
         // },
       },
     },
+    `gatsby-plugin-postcss`,
 
     // If you want to use styled components you should add the plugin here.
     // 'gatsby-plugin-styled-components',
