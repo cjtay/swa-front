@@ -17,39 +17,47 @@ const Press = () => {
             corrupti et ducimus reiciendis facere, quod odio omnis, ipsa fuga,
             modi maiores debitis at ad? Asperiores sit eaque autem?
           </p>
-          <section className="my-8">
+          <section className="my-8 space-y-6">
             <h2 className="mb-2 text-swa-3">Media mentions</h2>
-            <h4>media 1</h4>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Exercitationem modi consequatur ratione necessitatibus rerum.
-              Quisquam consectetur vel repudiandae, laborum numquam tempora
-              nostrum voluptatem rem suscipit facilis. Quae ab natus amet.
-            </p>
-            <h4>media 2</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-              eveniet recusandae in maxime ducimus praesentium sunt quaerat
-              dolor ipsam, vel saepe laborum impedit itaque eum magni sequi
-              temporibus ab eligendi.
-            </p>
+            <div>
+              <h3>Media 1</h3>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Exercitationem modi consequatur ratione necessitatibus rerum.
+                Quisquam consectetur vel repudiandae, laborum numquam tempora
+                nostrum voluptatem rem suscipit facilis. Quae ab natus amet.
+              </p>
+            </div>
+            <div>
+              <h3>Media 2</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Obcaecati eveniet recusandae in maxime ducimus praesentium sunt
+                quaerat dolor ipsam, vel saepe laborum impedit itaque eum magni
+                sequi temporibus ab eligendi.
+              </p>
+            </div>
           </section>
-          <section className="my-8">
+          <section className="my-8 space-y-6">
             <h2 className="mb-2 text-swa-3">Press release</h2>
-            <h4>press release 1</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius
-              voluptate sed eos possimus corporis maiores quam. Recusandae nihil
-              deserunt illum molestiae esse nemo temporibus, magni quasi iure,
-              aliquid libero amet.
-              <h4>press release 2</h4>
+            <div>
+              <h3>Press release 1</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius
+                voluptate sed eos possimus corporis maiores quam. Recusandae
+                nihil deserunt illum molestiae esse nemo temporibus, magni quasi
+                iure, aliquid libero amet.
+              </p>
+            </div>
+            <div>
+              <h3>Press release 2</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde,
                 error consectetur maiores minus, ut impedit cumque, expedita non
                 quis dignissimos magnam. Nesciunt accusantium repellat
                 repudiandae. Numquam dicta ad placeat iste?
               </p>
-            </p>
+            </div>
           </section>
         </div>
       </Layout>

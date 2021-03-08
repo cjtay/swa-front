@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout/layout";
-import styled from "styled-components";
-
-import { SectionHead, Description } from "../styles/SectionHeaders";
 import EventCard from "../components/sections/events/EventCard";
 
 const Events = ({ data }) => {
@@ -40,16 +37,12 @@ const Events = ({ data }) => {
 
   const handleSearch = name => {
     if (name === "All") {
-      console.log("selected filter: ", name);
       setFilteredEvents(events);
       setSelectedFilter(name);
     } else {
       const filteredList = events.filter(e => e.programme === name);
-      console.log("selected filter: ", name);
-      console.log("Filtered List: ", filteredList);
       setFilteredEvents(filteredList);
       setSelectedFilter(name);
-      console.log("selected filter: ", name);
     }
   };
 
@@ -58,104 +51,45 @@ const Events = ({ data }) => {
       {/* --- background pattern --- */}
       <div className="absolute w-full h-32 z-n10 bg-gradient-to-r from-swa-1 to-swa-5"></div>
       <Layout>
-        <SectionHead>
+        <div className="max-w-4xl px-2 mx-auto sm:w-4/5">
           <h1 className="text-swa-3">Events</h1>
-
-          <Description>
+          <p>
             View events or acitivities by selecting the appropriate date ranges
             or programmes
-          </Description>
-        </SectionHead>
+          </p>
 
-        <SearchSection>
-          <FilterSection>
-            <Label>Filter by programmes</Label>
-            <FilterItem>
+          <div className="w-3/4 p-3 mx-auto mb-12 border border-gray-200 rounded-lg mt-9">
+            <p className="mb-3 text-sm text-gray-700">Filter by programmes</p>
+            <ul className="flex flex-wrap items-center justify-center space-x-3">
               {filterNames.map((filtername, i) => (
-                <Search
+                <li
                   key={i}
                   onClick={() => handleSearch(filtername)}
+                  onKeyDown={() => handleSearch(filtername)}
                   name={filtername}
                   selectedFilter={selectedFilter}
+                  className={`px-3 py-1 text-sm font-bold uppercase ${
+                    selectedFilter === filtername && `bg-swa-4`
+                  } bg-gray-200 rounded-lg cursor-pointer hover:bg-swa-4 mb-3 `}
                 >
                   {filtername}
-                </Search>
+                </li>
               ))}
-            </FilterItem>
-          </FilterSection>
-          <List>
+            </ul>
+          </div>
+
+          <div className="flex flex-col space-y-3 ">
             {filteredEvents.map(event => (
               <EventCard event={event} key={event.id} />
             ))}
-          </List>
-        </SearchSection>
+          </div>
+        </div>
       </Layout>
     </>
   );
 };
 
 export default Events;
-
-const Search = styled.div`
-  display: inline-block;
-  background-color: ${props =>
-    props.name === props.selectedFilter
-      ? "var(--color-primary-2)"
-      : "var(--color-white)"};
-  color: ${props =>
-    props.name === props.selectedFilter
-      ? "var(--color-white)"
-      : "var(--color-primary-2)"};
-  font-weight: 400;
-  font-size: 1rem;
-  padding: 0.1em 1.1em;
-  margin: 0 0.5em;
-  border-radius: 10px;
-  cursor: pointer;
-`;
-
-const SearchSection = styled.div`
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  @media (min-width: 600px) {
-    margin-top: 1em;
-  }
-`;
-
-const FilterSection = styled.div`
-  width: 100%;
-  border: 1px solid var(--color-lightgrey);
-  border-radius: 10px;
-  padding: 1em;
-
-  @media (min-width: 600px) {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 600px;
-    margin: 0 auto; */
-  }
-`;
-
-const FilterItem = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-
-const Label = styled.div`
-  font-weight: 300;
-  font-size: 0.8rem;
-  color: var(--color-primary-2);
-  margin-bottom: 1em;
-`;
-
-const List = styled.ul`
-  width: 100%;
-  margin-top: 2em;
-`;
 
 // -----------------------------------------
 // ...GatsbyImageSharpFluid

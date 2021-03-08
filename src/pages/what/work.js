@@ -26,7 +26,7 @@ const Work = () => {
               nam provident non ab ipsum quos, mollitia ea eum minima modi?
             </p>
             <div className="my-8">
-              <h4 className="text-swa-3">Elderly</h4>
+              <h3 className="text-swa-3">Elderly</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
                 quisquam quidem accusamus neque non architecto alias porro
@@ -61,7 +61,7 @@ const Work = () => {
               </div>
             </div>
             <div className="my-8">
-              <h4 className="text-swa-3">Community</h4>
+              <h3 className="text-swa-3">Community</h3>
 
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -89,7 +89,7 @@ const Work = () => {
               </div>
             </div>
             <div className="my-8">
-              <h4 className="text-swa-3">Diversity</h4>
+              <h3 className="text-swa-3">Diversity</h3>
 
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum

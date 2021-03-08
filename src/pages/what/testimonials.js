@@ -20,35 +20,41 @@ const Testimonials = () => {
             laudantium hic sit.
           </p>
 
-          <section className="my-8">
-            <h4>item 1</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum
-              nesciunt, tenetur libero iusto deserunt totam aliquid voluptates
-              reprehenderit beatae, possimus quasi, hic perferendis sapiente
-              quam sint blanditiis nisi quia consequatur.
-            </p>
-            <h4>item 2</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum
-              nesciunt, tenetur libero iusto deserunt totam aliquid voluptates
-              reprehenderit beatae, possimus quasi, hic perferendis sapiente
-              quam sint blanditiis nisi quia consequatur.
-            </p>
-            <h4>item 3</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum
-              nesciunt, tenetur libero iusto deserunt totam aliquid voluptates
-              reprehenderit beatae, possimus quasi, hic perferendis sapiente
-              quam sint blanditiis nisi quia consequatur.
-            </p>
+          <section className="my-8 space-y-6">
+            <div>
+              <h3>Item 1</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum
+                nesciunt, tenetur libero iusto deserunt totam aliquid voluptates
+                reprehenderit beatae, possimus quasi, hic perferendis sapiente
+                quam sint blanditiis nisi quia consequatur.
+              </p>
+            </div>
+            <div>
+              <h3>Item 2</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum
+                nesciunt, tenetur libero iusto deserunt totam aliquid voluptates
+                reprehenderit beatae, possimus quasi, hic perferendis sapiente
+                quam sint blanditiis nisi quia consequatur.
+              </p>
+            </div>
+            <div>
+              <h3>Item 3</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum
+                nesciunt, tenetur libero iusto deserunt totam aliquid voluptates
+                reprehenderit beatae, possimus quasi, hic perferendis sapiente
+                quam sint blanditiis nisi quia consequatur.
+              </p>
+            </div>
           </section>
 
           <section className="my-8">
             <h2 className="mb-2 text-swa-3">Our Awards</h2>
             <ul className="space-y-8">
               <li>
-                <h4>Award 1</h4>
+                <h3>Award 1</h3>
                 <img
                   src="https://source.unsplash.com/random/800x600"
                   alt=""
@@ -70,7 +76,7 @@ const Testimonials = () => {
                 </p>
               </li>
               <li>
-                <h4>Award 2</h4>
+                <h3>Award 2</h3>
                 <img
                   src="https://source.unsplash.com/random/800x600"
                   alt=""
@@ -93,7 +99,7 @@ const Testimonials = () => {
                 </p>
               </li>
               <li>
-                <h4>Award 3</h4>
+                <h3>Award 3</h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Harum nesciunt, tenetur libero iusto deserunt totam aliquid
