@@ -1,87 +1,25 @@
 import React from "react";
 import Image from "gatsby-image";
 import { Link } from "gatsby";
-import styled from "styled-components";
-import { Description } from "../../../styles/SectionHeaders";
 
 const FeaturedCard = ({ event }) => {
   return (
     <Link to={`/events/${event.slug}`}>
-      <Card>
-        <ImageContainer>
+      <div className="flex flex-col w-full p-5 my-5 overflow-hidden transition duration-300 bg-white rounded-lg shadow-lg cursor-pointer opacity-90 md:w-11/12 md:flex-row md:items-start hover:bg-gray-100 hover:opacity-70">
+        <div>
           <Image
             fluid={event.smallPhoto.childImageSharp.fluid}
             alt={event.title}
+            className="object-cover object-center mx-auto mb-2 md:w-48 md:mr-3 "
           />
-        </ImageContainer>
-        <Text>
-          <EventTitle>{event.title}</EventTitle>
-          <Description>{event.summary}</Description>
-        </Text>
-      </Card>
+        </div>
+        <div>
+          <h3 className=" text-swa-3">{event.title}</h3>
+          <p className="line-clamp-4">{event.summary}</p>
+        </div>
+      </div>
     </Link>
   );
 };
 
 export default FeaturedCard;
-
-const Card = styled.li`
-  background: rgba(112, 49, 140, 0.7);
-  background: -webkit-linear-gradient(
-    bottom right,
-    rgba(112, 49, 140, 0.7),
-    rgba(132, 137, 199, 0.7)
-  );
-  background: -moz-linear-gradient(
-    bottom right,
-    rgba(112, 49, 140, 0.7),
-    rgba(132, 137, 199, 0.7)
-  );
-  background: linear-gradient(
-    to top left,
-    rgba(112, 49, 140, 0.7),
-    rgba(120, 137, 199, 0.8)
-  );
-  display: flex;
-  flex-direction: column-reverse;
-  padding: 1em;
-  border-radius: 10px;
-  margin-top: 0.5em;
-
-  @media (min-width: 600px) {
-    flex-direction: row;
-    align-items: start;
-  }
-`;
-
-const Text = styled.div`
-  color: var(--color-white);
-  @media (min-width: 600px) {
-    width: 60%;
-  }
-`;
-
-const EventTitle = styled.h4`
-  margin-bottom: 0.2em;
-`;
-
-const ImageContainer = styled.div`
-  width: 100%;
-  overflow: hidden;
-  margin-bottom: 0.5em;
-
-  img {
-    display: block;
-    max-width: 100%;
-    max-height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    /* background-color: var(--color-white); */
-  }
-
-  @media (min-width: 600px) {
-    margin-top: 0;
-    margin-right: 1em;
-    width: 40%;
-  }
-`;

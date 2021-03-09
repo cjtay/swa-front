@@ -48,7 +48,7 @@ const Layout = ({ children }) => {
         showSub3={showSub3}
         handleSubMenu={handleSubMenu}
       />
-      <div className="px-3 mt-12 space-y-28">{children}</div>
+      <div className="px-5 mt-12 space-y-28">{children}</div>
       <Footer />
     </div>
   );

@@ -7,7 +7,7 @@ const EventCard = ({ event }) => {
   return (
     <Link to={`/events/${event.slug}`}>
       <>
-        <div className="relative flex flex-col w-full p-5 mx-auto overflow-visible transition duration-300 rounded-lg shadow-lg cursor-pointer md:flex-row md:w-11/12 md:items-start hover:bg-swa-4">
+        <div className="relative flex flex-col w-full p-5 mx-auto overflow-visible transition duration-300 rounded-lg shadow-lg cursor-pointer md:flex-row md:w-11/12 md:items-start hover:bg-gray-100 ">
           <div className="w-full p-2 mx-auto md:mr-3 md:w-3/4">
             {event.smallPhoto !== null && (
               <Image
@@ -27,7 +27,7 @@ const EventCard = ({ event }) => {
                 <div className="hidden my-2 text-xs btn-dark md:block">
                   read more...
                 </div>
-                <div className="flex justify-between w-full p-2 mt-5 bg-white rounded-lg md:mt-0 ">
+                <div className="flex justify-between w-full p-2 mt-5 md:mt-0 ">
                   <div className="flex items-center justify-start my-2 space-x-2">
                     <div>
                       {event.author !== null && (
@@ -38,15 +38,15 @@ const EventCard = ({ event }) => {
                         />
                       )}
                     </div>
-                    <p className="text-sm text-gray-600">{event.author.name}</p>
+                    <p className="text-xs text-gray-600">{event.author.name}</p>
                   </div>
                   <div>
+                    <div className="px-2 py-1 mb-2 text-xs font-bold uppercase rounded-lg bg-swa-4">
+                      {event.programme}
+                    </div>
                     <p className="text-sm text-gray-600">
                       {event.published_at}
                     </p>
-                    <div className="px-2 py-1 mt-2 text-xs font-bold uppercase rounded-lg bg-swa-4">
-                      {event.programme}
-                    </div>
                   </div>
                 </div>
               </div>

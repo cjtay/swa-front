@@ -78,7 +78,7 @@ const Events = ({ data }) => {
             </ul>
           </div>
 
-          <div className="flex flex-col space-y-3 ">
+          <div className="flex flex-col space-y-6 ">
             {filteredEvents.map(event => (
               <EventCard event={event} key={event.id} />
             ))}

@@ -48,10 +48,10 @@ const ProfileCard = ({ member }) => {
             <div className="flex flex-col items-center md:items-start">
               <h2 className=" text-swa-1">{member.name}</h2>
               <p className="mb-2 text-sm text-gray-500">President</p>
-              <div className="w-full leading-snug text-gray-700 line-clamp-3">
+              <div className="w-full leading-snug text-gray-700 line-clamp-2">
                 <ReactMarkdown source={member.description} />
               </div>
-              <button className="mt-2 mb-5 btn-dark ">Read more...</button>
+              <button className="mt-2 mb-5 btn-dark ">Read more</button>
             </div>
             <div className="flex justify-center space-x-3 text-2xl sm:mr-auto text-swa-3">
               {socialIcons.map((icon, i) => (

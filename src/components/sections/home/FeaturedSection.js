@@ -48,7 +48,7 @@ const FeaturedSection = () => {
         </Link>
       </div>
 
-      <div className="ml-auto sm:max-w-xl">
+      <div className="space-y-10 md:ml-auto sm:max-w-xl">
         {highlightedEvents.map(event => (
           <FeaturedCard event={event} key={event.id} />
         ))}

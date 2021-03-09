@@ -22,11 +22,11 @@ const ProfileInfo = ({ showMod, member, itemId, handleClose }) => {
         role="close menu"
         aria-modal
       >
-        <div className="w-11/12 p-5 mt-20 bg-white divide-y divide-gray-200 rounded-lg lg:w-6/12">
+        <div className="w-11/12 p-5 mt-20 bg-white rounded-lg lg:w-6/12">
           {member.name && (
-            <>
+            <div>
               <h2 className="my-5 text-swa-3">{member.name}</h2>
-            </>
+            </div>
           )}
           {member.description && (
             <>
