@@ -24,8 +24,8 @@ const EventCard = ({ event }) => {
                 <p className="w-full leading-snug text-gray-700 line-clamp-2">
                   {event.summary}
                 </p>
-                <div className="hidden my-2 text-xs btn-dark md:block">
-                  read more...
+                <div className="hidden my-2 btn-dark md:block">
+                  Read more...
                 </div>
                 <div className="flex justify-between w-full p-2 mt-5 md:mt-0 ">
                   <div className="flex items-center justify-start my-2 space-x-2">

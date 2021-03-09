@@ -29,11 +29,7 @@ const ProfileCard = ({ member }) => {
 
   return (
     <>
-      <div
-        className="relative flex flex-col w-full p-5 overflow-visible rounded-lg shadow-lg cursor-pointer md:w-11/12 md:flex-row md:items-start"
-        onClick={() => handleShow(member.id)}
-        onKeyDown={() => handleShow(member.id)}
-      >
+      <div className="relative flex flex-col w-full p-5 overflow-visible rounded-lg shadow-lg md:w-11/12 md:flex-row md:items-start">
         <div className="p-2 mx-auto md:mr-5 md:w-1/4">
           {member.photo !== null && (
             <Image
@@ -51,7 +47,13 @@ const ProfileCard = ({ member }) => {
               <div className="w-full leading-snug text-gray-700 line-clamp-2">
                 <ReactMarkdown source={member.description} />
               </div>
-              <button className="mt-2 mb-5 btn-dark ">Read more</button>
+              <button
+                className="mt-2 mb-5 btn-dark "
+                onClick={() => handleShow(member.id)}
+                onKeyDown={() => handleShow(member.id)}
+              >
+                Read more
+              </button>
             </div>
             <div className="flex justify-center space-x-3 text-2xl sm:mr-auto text-swa-3">
               {socialIcons.map((icon, i) => (
