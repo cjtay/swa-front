@@ -66,8 +66,6 @@ const Events = ({ data }) => {
                   key={i}
                   onClick={() => handleSearch(filtername)}
                   onKeyDown={() => handleSearch(filtername)}
-                  name={filtername}
-                  selectedFilter={selectedFilter}
                   className={`px-3 py-1 text-sm font-bold uppercase ${
                     selectedFilter === filtername && `bg-swa-4`
                   } bg-gray-200 rounded-lg cursor-pointer hover:bg-swa-4 mb-3 `}

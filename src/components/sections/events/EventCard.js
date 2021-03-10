@@ -4,6 +4,7 @@ import Image from "gatsby-image";
 import styled from "styled-components";
 
 const EventCard = ({ event }) => {
+  console.log("event author name: ", event.author.name);
   return (
     <Link to={`/events/${event.slug}`}>
       <>
@@ -38,15 +39,24 @@ const EventCard = ({ event }) => {
                         />
                       )}
                     </div>
-                    <p className="text-xs text-gray-600">{event.author.name}</p>
+
+                    {event.author.name !== null && (
+                      <p className="text-xs text-gray-600">
+                        {/* {event.author.name} */}
+                      </p>
+                    )}
                   </div>
                   <div>
-                    <div className="px-2 py-1 mb-2 text-xs font-bold uppercase rounded-lg bg-swa-4">
-                      {event.programme}
-                    </div>
-                    <p className="text-sm text-gray-600">
-                      {event.published_at}
-                    </p>
+                    {event.programme !== null && (
+                      <div className="px-2 py-1 mb-2 text-xs font-bold uppercase rounded-lg bg-swa-4">
+                        {event.programme}
+                      </div>
+                    )}
+                    {event.published_at !== null && (
+                      <p className="text-sm text-gray-600">
+                        {event.published_at}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>

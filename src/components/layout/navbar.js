@@ -10,7 +10,6 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
   const data = useStaticQuery(getLogo);
 
   const handleClick = () => {
-    console.log("click");
     setIsOpen(!isOpen);
   };
 
@@ -47,13 +46,10 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
               >
                 {subNav1.map(link => {
                   return (
-                    <Link to={link.url}>
-                      <li
-                        key={link.id}
-                        className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3"
-                      >
+                    <Link to={link.url} key={link.id}>
+                      <div className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3">
                         <div>{link.text}</div>
-                      </li>
+                      </div>
                     </Link>
                   );
                 })}
@@ -68,13 +64,10 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
               >
                 {subNav2.map(link => {
                   return (
-                    <Link to={link.url}>
-                      <li
-                        key={link.id}
-                        className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3"
-                      >
+                    <Link to={link.url} key={link.id}>
+                      <div className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3">
                         <div>{link.text}</div>
-                      </li>
+                      </div>
                     </Link>
                   );
                 })}
@@ -89,13 +82,10 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
               >
                 {subNav3.map(link => {
                   return (
-                    <Link to={link.url}>
-                      <li
-                        key={link.id}
-                        className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3"
-                      >
+                    <Link to={link.url} key={link.id}>
+                      <div className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3">
                         <div>{link.text}</div>
-                      </li>
+                      </div>
                     </Link>
                   );
                 })}
@@ -120,14 +110,14 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
             </div>
             {subNav1.map(link => {
               return (
-                <li
+                <div
                   key={link.id}
                   className="px-3 py-2 mb-2 font-bold rounded-lg bg-swa-4 ml-7 active:bg-swa-2"
                 >
                   <Link to={link.url} onClick={handleClose}>
                     <div>{link.text}</div>
                   </Link>
-                </li>
+                </div>
               );
             })}
           </div>
@@ -141,14 +131,14 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
             </div>
             {subNav2.map(link => {
               return (
-                <li
+                <div
                   key={link.id}
                   className="px-3 py-2 mb-2 font-bold rounded-lg bg-swa-4 ml-7 active:bg-swa-2"
                 >
                   <Link to={link.url} onClick={handleClose}>
                     <div>{link.text}</div>
                   </Link>
-                </li>
+                </div>
               );
             })}
           </div>
@@ -162,14 +152,14 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
             </div>
             {subNav3.map(link => {
               return (
-                <li
+                <div
                   key={link.id}
                   className="px-3 py-2 mb-2 font-bold rounded-lg bg-swa-4 ml-7 active:bg-swa-2"
                 >
                   <Link to={link.url} onClick={handleClose}>
                     <div>{link.text}</div>
                   </Link>
-                </li>
+                </div>
               );
             })}
           </div>
@@ -207,9 +197,7 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
       <ul className="hidden text-white md:flex md:items-center md:ml-auto md:space-x-7 md:mt-5">
         {links}
         <Link to="/participate/donate" role="button">
-          <button className="self-end ml-3 btn-light text-swa-3">
-            Donate
-          </button>
+          <button className="self-end ml-3 btn-light text-swa-3">Donate</button>
         </Link>
       </ul>
       {/* ------ BURGER ICON ------- */}

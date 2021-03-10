@@ -9,7 +9,6 @@ const Layout = ({ children }) => {
   const [showSub3, setShowSub3] = useState(false);
 
   const handleSubMenu = id => {
-    console.log("sub id: ", id);
     if (id === "What") {
       setShowSub2(false);
       setShowSub3(false);
