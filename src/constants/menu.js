@@ -14,12 +14,51 @@ export const mainNav = [
     text: "What",
     url: "#",
     icon: <BsFillPeopleFill />,
+    subNav: [
+      {
+        id: 11,
+        text: "History",
+        url: "/what/history",
+      },
+      {
+        id: 12,
+        text: "Our board",
+        url: "/what/about",
+      },
+      {
+        id: 13,
+        text: "Our work",
+        url: "/what/work",
+      },
+      {
+        id: 14,
+        text: "Testimonials / awards",
+        url: "/what/testimonials",
+      },
+      {
+        id: 15,
+        text: "Press release / media ",
+        url: "/what/press",
+      },
+    ],
   },
   {
     id: 3,
     text: "How",
     url: "#",
     icon: <FaBook />,
+    subNav: [
+      {
+        id: 21,
+        text: "Fundraising",
+        url: "/how/fundraising",
+      },
+      {
+        id: 22,
+        text: "Miss Singapore Pageant Int",
+        url: "/how/mspi",
+      },
+    ],
   },
   {
     id: 4,
@@ -32,6 +71,23 @@ export const mainNav = [
     text: "Participate",
     url: "/participate/",
     icon: <FaHandsHelping />,
+    subNav: [
+      {
+        id: 31,
+        text: "Donate",
+        url: "/participate/donate",
+      },
+      {
+        id: 32,
+        text: "Volunteer",
+        url: "/participate/volunteer",
+      },
+      {
+        id: 33,
+        text: "Sponsor",
+        url: "/participate/sponsor",
+      },
+    ],
   },
 ];
 
