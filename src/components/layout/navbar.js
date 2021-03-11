@@ -19,80 +19,106 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
 
   const links = mainNav.map(link => {
     return (
-      <li key={link.id}>
-        <Link to={link.url} role="show submenu">
-          <div
-            onClick={() => {
-              handleSubMenu(link.text);
-            }}
-            onKeyDown={() => {
-              handleSubMenu(link.text);
-            }}
-            onMouseEnter={() => {
-              handleSubMenu(link.text);
-            }}
-            role="submenu"
-            className="relative flex items-center w-full px-2 py-3 space-x-2 transition rounded divide-solid hover:text-swa-4"
-          >
+      <li
+        key={link.id}
+        onClick={() => {
+          handleSubMenu(link.text);
+        }}
+        onKeyDown={() => {
+          handleSubMenu(link.text);
+        }}
+        onMouseEnter={() => {
+          handleSubMenu(link.text);
+        }}
+        role="submenu"
+        className="relative flex items-center w-full px-2 py-3 space-x-2 transition rounded divide-solid hover:text-swa-4"
+      >
+        {link.text === "What" ? (
+          <>
             <span>{link.icon}</span>
             <div>{link.text}</div>
-            {link.text === "What" ? (
-              <div
-                className={
-                  showSub
-                    ? "visible opacity-100 absolute w-52 p-3 space-y-3 rounded-lg bg-purple-50 text-swa-2 top-10 transition-all duration-300 ease-out hidden md:block"
-                    : "invisible opacity-0 absolute w-48 p-3 space-y-3 rounded-lg bg-swa-3 top-10 transition-all duration-300 ease-out"
-                }
-              >
-                {subNav1.map(link => {
-                  return (
-                    <Link to={link.url} key={link.id}>
-                      <div className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3">
-                        <div>{link.text}</div>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            ) : link.text === "How" ? (
-              <div
-                className={
-                  showSub2
-                    ? "visible opacity-100 absolute w-48 p-3 space-y-3 rounded-lg bg-purple-50 text-swa-2 top-10 transition-all duration-300 ease-out hidden md:block"
-                    : "invisible opacity-0 absolute w-48 p-3 space-y-3 rounded-lg bg-swa-3 top-10 transition-all duration-300 ease-out"
-                }
-              >
-                {subNav2.map(link => {
-                  return (
-                    <Link to={link.url} key={link.id}>
-                      <div className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3">
-                        <div>{link.text}</div>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            ) : link.text === "Participate" ? (
-              <div
-                className={
-                  showSub3
-                    ? "visible opacity-100 absolute w-48 p-3 space-y-3 rounded-lg bg-purple-50 text-swa-2 top-10 transition-all duration-300 ease-out "
-                    : "invisible opacity-0 absolute w-48 p-3 space-y-3 rounded-lg bg-swa-3 top-10 transition-all duration-300 ease-out"
-                }
-              >
-                {subNav3.map(link => {
-                  return (
-                    <Link to={link.url} key={link.id}>
-                      <div className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3">
-                        <div>{link.text}</div>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            ) : null}
-          </div>
-        </Link>
+            <div
+              className={
+                showSub
+                  ? "visible opacity-100 absolute w-52 p-3 space-y-3 rounded-lg bg-purple-50 text-swa-2 top-10 transition-all duration-300 ease-out hidden md:block"
+                  : "invisible opacity-0 absolute w-48 p-3 space-y-3 rounded-lg bg-swa-3 top-10 transition-all duration-300 ease-out"
+              }
+            >
+              {subNav1.map(link => {
+                return (
+                  <Link to={link.url} key={link.id}>
+                    <div className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3">
+                      <div>{link.text}</div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </>
+        ) : link.text === "How" ? (
+          <>
+            <span>{link.icon}</span>
+            <div>{link.text}</div>
+            <div
+              className={
+                showSub2
+                  ? "visible opacity-100 absolute w-48 p-3 space-y-3 rounded-lg bg-purple-50 text-swa-2 top-10 transition-all duration-300 ease-out hidden md:block"
+                  : "invisible opacity-0 absolute w-48 p-3 space-y-3 rounded-lg bg-swa-3 top-10 transition-all duration-300 ease-out"
+              }
+            >
+              {subNav2.map(link => {
+                return (
+                  <Link to={link.url} key={link.id}>
+                    <div className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3">
+                      <div>{link.text}</div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </>
+        ) : link.text === "Participate" ? (
+          <>
+            <span>{link.icon}</span>
+            <div>{link.text}</div>
+            <div
+              className={
+                showSub3
+                  ? "visible opacity-100 absolute w-48 p-3 space-y-3 rounded-lg bg-purple-50 text-swa-2 top-10 transition-all duration-300 ease-out "
+                  : "invisible opacity-0 absolute w-48 p-3 space-y-3 rounded-lg bg-swa-3 top-10 transition-all duration-300 ease-out"
+              }
+            >
+              {subNav3.map(link => {
+                return (
+                  <Link to={link.url} key={link.id}>
+                    <div className="px-3 py-2 rounded-lg hover:text-white hover:bg-swa-3">
+                      <div>{link.text}</div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </>
+        ) : (
+          <Link to={link.url} role="show submenu">
+            <div
+              onClick={() => {
+                handleSubMenu(link.text);
+              }}
+              onKeyDown={() => {
+                handleSubMenu(link.text);
+              }}
+              onMouseEnter={() => {
+                handleSubMenu(link.text);
+              }}
+              role="submenu"
+              className="relative flex items-center w-full px-2 py-3 space-x-2 transition rounded divide-solid hover:text-swa-4"
+            >
+              <span>{link.icon}</span>
+              <div>{link.text}</div>
+            </div>
+          </Link>
+        )}
       </li>
     );
   });
