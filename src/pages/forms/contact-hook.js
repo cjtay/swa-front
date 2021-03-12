@@ -4,24 +4,26 @@ import { useForm } from "react-hook-form";
 import { Ring } from "react-awesome-spinners";
 
 const ContactForm = () => {
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    mode: "all",
+  });
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [loader, setLoader] = useState(false);
-  // const [test, setTest] = useState(false);
-
-  // const handleClick = () => {
-  //   setTest(!test);
-  // };
 
   const onSubmit = async submittedData => {
     console.log("submitted data: ", submittedData);
-
     setLoader(true);
     if (submittedData.honey !== "") {
       setError("Spam suspected");
-      console.log("spam suspected");
+      console.log(error);
+      setLoader(false);
     } else {
       try {
         // setTimeout(() => {
@@ -74,8 +76,15 @@ const ContactForm = () => {
                 id="name"
                 name="name"
                 className="block w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-purple-400"
-                ref={register}
+                ref={register({ required: true, maxLength: 5 })}
               />
+              {errors.name?.type === "required" ? (
+                <p className="visible text-red-500">Input required</p>
+              ) : errors.name?.type === "maxLength" ? (
+                <p className="visible text-red-500">Max 50 characters</p>
+              ) : (
+                <p className="invisible">none</p>
+              )}
             </div>
             <div className="sm:w-1/2">
               <label htmlFor="company" className="font-bold">
@@ -101,8 +110,20 @@ const ContactForm = () => {
                 id="email"
                 name="email"
                 className="block w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-purple-400"
-                ref={register}
+                ref={register({
+                  required: true,
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  },
+                })}
               />
+              {errors.email?.type === "required" ? (
+                <p className="visible text-red-500">Input required</p>
+              ) : errors.email?.type === "pattern" ? (
+                <p className="visible text-red-500">enter valid email</p>
+              ) : (
+                <p className="invisible">none</p>
+              )}
             </div>
             <div className="sm:w-1/2">
               <label htmlFor="phone" className="font-bold">
@@ -147,8 +168,15 @@ const ContactForm = () => {
               rows="5"
               col="35"
               className="block w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-purple-400"
-              ref={register}
+              ref={register({ required: true, maxLength: 5 })}
             />
+            {errors.message?.type === "required" ? (
+              <p className="visible text-red-500">Input required</p>
+            ) : errors.message?.type === "maxLength" ? (
+              <p className="visible text-red-500">Max 50 characters</p>
+            ) : (
+              <p className="invisible">none</p>
+            )}
           </div>
           <div>
             {loader ? (
