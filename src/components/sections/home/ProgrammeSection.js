@@ -16,70 +16,54 @@ const ProgrammeSection = () => {
           View programmes
         </Link>
       </div>
-      <div className="mr-auto sm:max-w-xl">
-        <div className="p-6 my-5 sm:flex sm:flex-row-reverse bg-gradient-to-br from-swa-5 via-swa-5 to-swa-1 rounded-xl">
-          <div className="text-white">
-            <h4>Elderly</h4>
-            <p className="text-base text-white">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut
-              mauris at felis faucibus consectetur. Proin enim lacus, sagittis
-              vel turpis in, vehicula venenatis arcu. Sed ac nisl nec nisi
-              ultrices convallis.
+      <div className="space-y-8">
+        <div class="sm:flex rounded-lg shadow-lg p-5 max-w-xl">
+          <div class="mb-4 flex-shrink-0 sm:mb-0 sm:mr-4">
+            <img
+              src="https://source.unsplash.com/random/800x600"
+              alt="programme"
+              class="h-72 w-full sm:w-32 sm:h-32"
+            />
+          </div>
+          <div>
+            <h4 class="text-lg font-bold text-swa-3">Elderly</h4>
+            <p class="mt-1">
+              Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam
+              expedita quia omnis voluptatem. Minus quidem ipsam quia iusto.
             </p>
           </div>
-          <img
-            src="https://source.unsplash.com/random/800x600"
-            alt=""
-            className="object-cover max-h-full mt-2 border-4 border-white sm:mb-2 sm:mt-0 sm:mr-4 sm:w-40"
-          />
         </div>
-        <div className="p-6 my-5 sm:flex sm:flex-row-reverse bg-gradient-to-br from-swa-5 via-swa-5 to-swa-1 rounded-xl">
-          <div className="text-white">
-            <h4>Community</h4>
-            <p className="text-base text-white">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut
-              mauris at felis faucibus consectetur. Proin enim lacus, sagittis
-              vel turpis in, vehicula venenatis arcu. Sed ac nisl nec nisi
-              ultrices convallis.
+        <div class="sm:flex rounded-lg shadow-lg p-5 max-w-xl">
+          <div class="mb-4 flex-shrink-0 sm:mb-0 sm:mr-4">
+            <img
+              src="https://source.unsplash.com/random/800x600"
+              alt="programme"
+              class="h-72 w-full sm:w-32 sm:h-32"
+            />
+          </div>
+          <div>
+            <h4 class="text-lg font-bold text-swa-3">Community</h4>
+            <p class="mt-1">
+              Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam
+              expedita quia omnis voluptatem. Minus quidem ipsam quia iusto.
             </p>
           </div>
-          <img
-            src="https://source.unsplash.com/random/600x1200"
-            alt=""
-            className="object-cover max-h-full mt-2 border-4 border-white sm:mb-2 sm:mt-0 sm:mr-4 sm:w-40"
-          />
         </div>
-        <div className="p-6 my-5 sm:flex sm:flex-row-reverse bg-gradient-to-br from-swa-5 via-swa-5 to-swa-1 rounded-xl">
-          <div className="text-white">
-            <h4>Diversity</h4>
-            <p className="text-base text-white">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut
-              mauris at felis faucibus consectetur. Proin enim lacus, sagittis
-              vel turpis in, vehicula venenatis arcu. Sed ac nisl nec nisi
-              ultrices convallis.
+        <div class="sm:flex rounded-lg shadow-lg p-5 max-w-xl">
+          <div class="mb-4 flex-shrink-0 sm:mb-0 sm:mr-4">
+            <img
+              src="https://source.unsplash.com/random/800x600"
+              alt="programme"
+              class="h-72 w-full sm:w-32 sm:h-32"
+            />
+          </div>
+          <div>
+            <h4 class="text-lg font-bold text-swa-3">Diversity</h4>
+            <p class="mt-1">
+              Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam
+              expedita quia omnis voluptatem. Minus quidem ipsam quia iusto.
             </p>
           </div>
-          <img
-            src="https://source.unsplash.com/random/1200x700"
-            alt=""
-            className="object-cover max-h-full mt-2 border-4 border-white sm:mb-2 sm:mt-0 sm:mr-4 sm:w-40"
-          />
-        </div>
-        <div className="p-6 my-5 sm:flex sm:flex-row-reverse bg-gradient-to-br from-swa-5 via-swa-5 to-swa-1 rounded-xl">
-          <div className="text-white">
-            <h4>Community</h4>
-            <p className="text-base text-white">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut
-              mauris at felis faucibus consectetur. Proin enim lacus, sagittis
-              vel turpis in, vehicula venenatis arcu. Sed ac nisl nec nisi
-              ultrices convallis.
-            </p>
-          </div>
-          <img
-            src="https://source.unsplash.com/random/800x1000"
-            alt=""
-            className="object-cover max-h-full mt-2 border-4 border-white sm:mb-2 sm:mt-0 sm:mr-4 sm:w-40"
-          />
         </div>
       </div>
     </section>
