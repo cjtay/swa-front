@@ -4,7 +4,15 @@ import Image from "gatsby-image";
 
 import { mainNav, subNav1, subNav2, subNav3 } from "../../constants/menu";
 
-const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
+const Navbar = ({
+  showWhat,
+  showHow,
+  showPart,
+  showSub,
+  showSub2,
+  showSub3,
+  handleSubMenu,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const data = useStaticQuery(getLogo);
@@ -31,7 +39,7 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
           handleSubMenu(link.text);
         }}
         role="submenu"
-        className="relative flex items-center w-full px-2 py-3 space-x-2 transition rounded divide-solid hover:text-swa-4"
+        className="relative z-50 flex items-center w-full px-2 py-3 space-x-2 transition rounded cursor-pointer divide-solid hover:text-swa-4"
       >
         {link.text === "What" ? (
           <>
@@ -39,7 +47,7 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
             <div>{link.text}</div>
             <div
               className={
-                showSub
+                showWhat
                   ? "visible opacity-100 absolute w-52 p-3 space-y-3 rounded-lg bg-purple-50 text-swa-2 top-10 transition-all duration-300 ease-out hidden md:block"
                   : "invisible opacity-0 absolute w-48 p-3 space-y-3 rounded-lg bg-swa-3 top-10 transition-all duration-300 ease-out"
               }
@@ -61,7 +69,7 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
             <div>{link.text}</div>
             <div
               className={
-                showSub2
+                showHow
                   ? "visible opacity-100 absolute w-48 p-3 space-y-3 rounded-lg bg-purple-50 text-swa-2 top-10 transition-all duration-300 ease-out hidden md:block"
                   : "invisible opacity-0 absolute w-48 p-3 space-y-3 rounded-lg bg-swa-3 top-10 transition-all duration-300 ease-out"
               }
@@ -83,7 +91,7 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
             <div>{link.text}</div>
             <div
               className={
-                showSub3
+                showPart
                   ? "visible opacity-100 absolute w-48 p-3 space-y-3 rounded-lg bg-purple-50 text-swa-2 top-10 transition-all duration-300 ease-out "
                   : "invisible opacity-0 absolute w-48 p-3 space-y-3 rounded-lg bg-swa-3 top-10 transition-all duration-300 ease-out"
               }
@@ -101,19 +109,7 @@ const Navbar = ({ showSub, showSub2, showSub3, handleSubMenu }) => {
           </>
         ) : (
           <Link to={link.url} role="show submenu">
-            <div
-              onClick={() => {
-                handleSubMenu(link.text);
-              }}
-              onKeyDown={() => {
-                handleSubMenu(link.text);
-              }}
-              onMouseEnter={() => {
-                handleSubMenu(link.text);
-              }}
-              role="submenu"
-              className="relative flex items-center w-full px-2 py-3 space-x-2 transition rounded divide-solid hover:text-swa-4"
-            >
+            <div className="relative flex items-center w-full px-2 py-3 space-x-2 transition rounded divide-solid hover:text-swa-4">
               <span>{link.icon}</span>
               <div>{link.text}</div>
             </div>
