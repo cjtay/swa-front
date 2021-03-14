@@ -17,49 +17,49 @@ const ProgrammeSection = () => {
         </Link>
       </div>
       <div className="space-y-8">
-        <div class="sm:flex rounded-lg shadow-lg p-5 max-w-xl">
-          <div class="mb-4 flex-shrink-0 sm:mb-0 sm:mr-4">
+        <div className="max-w-xl p-5 rounded-lg shadow-lg sm:flex">
+          <div className="flex-shrink-0 mb-4 sm:mb-0 sm:mr-4">
             <img
               src="https://source.unsplash.com/random/800x600"
               alt="programme"
-              class="h-72 w-full sm:w-32 sm:h-32"
+              className="w-full h-72 sm:w-32 sm:h-32"
             />
           </div>
           <div>
-            <h4 class="text-lg font-bold text-swa-3">Elderly</h4>
-            <p class="mt-1">
+            <h4 className="text-lg font-bold text-swa-3">Elderly</h4>
+            <p className="mt-1">
               Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam
               expedita quia omnis voluptatem. Minus quidem ipsam quia iusto.
             </p>
           </div>
         </div>
-        <div class="sm:flex rounded-lg shadow-lg p-5 max-w-xl">
-          <div class="mb-4 flex-shrink-0 sm:mb-0 sm:mr-4">
+        <div className="max-w-xl p-5 rounded-lg shadow-lg sm:flex">
+          <div className="flex-shrink-0 mb-4 sm:mb-0 sm:mr-4">
             <img
               src="https://source.unsplash.com/random/800x600"
               alt="programme"
-              class="h-72 w-full sm:w-32 sm:h-32"
+              className="w-full h-72 sm:w-32 sm:h-32"
             />
           </div>
           <div>
-            <h4 class="text-lg font-bold text-swa-3">Community</h4>
-            <p class="mt-1">
+            <h4 className="text-lg font-bold text-swa-3">Community</h4>
+            <p className="mt-1">
               Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam
               expedita quia omnis voluptatem. Minus quidem ipsam quia iusto.
             </p>
           </div>
         </div>
-        <div class="sm:flex rounded-lg shadow-lg p-5 max-w-xl">
-          <div class="mb-4 flex-shrink-0 sm:mb-0 sm:mr-4">
+        <div className="max-w-xl p-5 rounded-lg shadow-lg sm:flex">
+          <div className="flex-shrink-0 mb-4 sm:mb-0 sm:mr-4">
             <img
               src="https://source.unsplash.com/random/800x600"
               alt="programme"
-              class="h-72 w-full sm:w-32 sm:h-32"
+              className="w-full h-72 sm:w-32 sm:h-32"
             />
           </div>
           <div>
-            <h4 class="text-lg font-bold text-swa-3">Diversity</h4>
-            <p class="mt-1">
+            <h4 className="text-lg font-bold text-swa-3">Diversity</h4>
+            <p className="mt-1">
               Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam
               expedita quia omnis voluptatem. Minus quidem ipsam quia iusto.
             </p>

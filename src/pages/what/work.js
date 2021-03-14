@@ -42,7 +42,7 @@ const Work = () => {
                 illo quas assumenda optio excepturi quibusdam ipsa deleniti
                 ratione!
               </p>
-              <div class="gallery mt-2">
+              <div className="mt-2 gallery">
                 <img
                   src="https://source.unsplash.com/random/1200x800"
                   alt="test"
@@ -73,7 +73,7 @@ const Work = () => {
                 aut nostrum, velit suscipit pariatur inventore omnis esse
                 ratione amet delectus autem unde minima.
               </p>
-              <div class="gallery mt-2">
+              <div className="mt-2 gallery">
                 <img
                   src="https://source.unsplash.com/random/1200x800"
                   alt="test"
@@ -107,7 +107,7 @@ const Work = () => {
                 Eos odit eius sapiente tempora harum provident veniam asperiores
                 nihil hic voluptatum. Eveniet, est fugiat. Officiis, vitae.
               </p>
-              <div class="gallery mt-2">
+              <div className="mt-2 gallery">
                 <img
                   src="https://source.unsplash.com/random/1200x800"
                   alt="test"

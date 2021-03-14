@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/layout/layout";
-import SEO from "../components/layout/seo";
+// import SEO from "../components/layout/seo";
 import NoticeSection from "../components/sections/home/NoticeSection";
 import HeroSection from "../components/sections/home/HeroSection";
 import FeaturedSection from "../components/sections/home/FeaturedSection";
@@ -15,7 +15,7 @@ const IndexPage = () => {
     <>
       {/* --- background pattern --- */}
       <div className="absolute w-full h-full bg-bottom bg-no-repeat bg-cover lg:bg-cover z-n10 bg-hero-pattern"></div>
-      <SEO title="SWA Home" />
+      {/* <SEO title="SWA Home" /> */}
       <Layout>
         <HeroSection />
         <NoticeSection />

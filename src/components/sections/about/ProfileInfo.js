@@ -20,7 +20,7 @@ const ProfileInfo = ({ showMod, member, itemId, handleClose }) => {
         onKeyDown={handleClose}
         onFocus={handleClose}
         role="close menu"
-        aria-modal
+        aria-modal="true"
       >
         <div className="w-11/12 p-5 mt-20 bg-white rounded-lg lg:w-6/12">
           {member.name && (

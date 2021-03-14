@@ -4,15 +4,7 @@ import Image from "gatsby-image";
 
 import { mainNav, subNav1, subNav2, subNav3 } from "../../constants/menu";
 
-const Navbar = ({
-  showWhat,
-  showHow,
-  showPart,
-  showSub,
-  showSub2,
-  showSub3,
-  handleSubMenu,
-}) => {
+const Navbar = ({ showWhat, showHow, showPart, handleSubMenu }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const data = useStaticQuery(getLogo);

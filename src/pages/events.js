@@ -62,7 +62,7 @@ const Events = ({ data }) => {
             <p className="mb-3 text-sm text-gray-700">Filter by programmes</p>
             <ul className="flex flex-wrap items-center justify-center space-x-3">
               {filterNames.map((filtername, i) => (
-                <li
+                <button
                   key={i}
                   onClick={() => handleSearch(filtername)}
                   onKeyDown={() => handleSearch(filtername)}
@@ -71,7 +71,7 @@ const Events = ({ data }) => {
                   } bg-gray-200 rounded-lg cursor-pointer hover:bg-swa-4 mb-3 `}
                 >
                   {filtername}
-                </li>
+                </button>
               ))}
             </ul>
           </div>
