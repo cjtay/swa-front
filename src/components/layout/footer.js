@@ -1,5 +1,6 @@
 import React from "react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { Link } from "gatsby";
 
 const Footer = () => {
   return (
@@ -54,10 +55,18 @@ const Footer = () => {
             <div>
               <h5 className="mb-4 font-bold">Forms</h5>
               <ul className="space-y-2 text-sm font-light">
-                <li>MSPI Application</li>
-                <li>Volunteer</li>
-                <li>Sponsorship</li>
-                <li>Contact Us</li>
+                <li className="cursor-pointer">
+                  <Link to="/">MSPI Application</Link>
+                </li>
+                <li className="cursor-pointer">
+                  <Link to="/participate/volunteer">Volunteer</Link>
+                </li>
+                <li className="cursor-pointer">
+                  <Link to="/participate/sponsor">Sponsorship</Link>
+                </li>
+                <li className="cursor-pointer">
+                  <Link to="/forms/contactform">Contact Us</Link>
+                </li>
               </ul>
             </div>
           </div>
