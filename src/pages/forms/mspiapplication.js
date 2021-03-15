@@ -28,7 +28,7 @@ const MspiApplicationForm = setFieldValue => {
     occupation: "",
     facebook: "",
     instagram: "",
-    dob: "",
+    // dob: "",
     placeofBirth: "",
     height: "",
     weight: "",
@@ -54,6 +54,7 @@ const MspiApplicationForm = setFieldValue => {
       console.log("spam suspected");
     } else {
       try {
+        console.log("formData: ", formData);
         const response = await fetch("http://localhost:1337/forms-mspis", {
           method: "POST",
           body: formData,

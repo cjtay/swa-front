@@ -53,7 +53,7 @@ export const FormGroup = styled.div`
 
   button {
     background-color: var(--color-primary-1);
-    color: white;
+    /* color: white; */
     cursor: pointer;
   }
 
