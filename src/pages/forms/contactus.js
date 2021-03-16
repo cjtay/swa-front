@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Layout from "../../components/layout/layout";
+import { Link } from "gatsby";
 
 // --- Form imports ---
 import { Formik, Form } from "formik";
@@ -7,7 +8,6 @@ import * as Yup from "yup";
 import { Ring } from "react-awesome-spinners";
 
 import FormikControl from "../../components/forms/FormikControl";
-import TextArea from "../../components/forms/TextArea";
 // --------------------
 
 const ContactForm = () => {
@@ -18,6 +18,7 @@ const ContactForm = () => {
 
   const initialValues = {
     honey: "",
+    type: "",
     name: "",
     company: "test",
     email: "test@test.com",
@@ -63,6 +64,7 @@ const ContactForm = () => {
   };
 
   const validationSchema = Yup.object({
+    type: Yup.string().required("Please select one"),
     name: Yup.string()
       .required("Please provide your name")
       .max(50, "Max 50 characters"),
@@ -70,6 +72,14 @@ const ContactForm = () => {
       .required("Please enter your message")
       .max(1000, "Max 1000 characters"),
   });
+
+  const optionList = [
+    { key: "0", value: "Choose one" },
+    { key: "1", value: "General" },
+    { key: "2", value: "Feedback" },
+    { key: "3", value: "Complaint" },
+    { key: "4", value: "Others" },
+  ];
 
   return (
     <>
@@ -86,15 +96,23 @@ const ContactForm = () => {
           >
             {formik => (
               <Form className="p-8 mt-6 space-y-6 bg-gray-100">
+                <FormikControl
+                  control="input"
+                  type="hidden"
+                  name="honey"
+                  value=""
+                />
                 <div className="space-y-6 sm:flex sm:space-x-2 sm:space-y-0">
                   <div className="sm:w-1/2">
-                    {/* <Field type="hidden" name="honey" value="" /> */}
                     <FormikControl
-                      control="input"
-                      type="hidden"
-                      name="honey"
-                      value=""
+                      control="select"
+                      type="text"
+                      name="type"
+                      label="Type of enquiry"
+                      options={optionList}
                     />
+                  </div>
+                  <div className="sm:w-1/2">
                     <FormikControl
                       control="input"
                       type="text"
@@ -104,7 +122,7 @@ const ContactForm = () => {
                   </div>
                 </div>
                 <div>
-                  <TextArea
+                  <FormikControl
                     control="textarea"
                     type="textarea"
                     label="Message Component"
@@ -122,9 +140,16 @@ const ContactForm = () => {
                 {loader ? (
                   <Ring color="#A855F7" size="40" sizeUnit="px" />
                 ) : success ? (
-                  <p className="font-bold text-center text-green-500">
-                    Your enquiry has been submitted
-                  </p>
+                  <>
+                    <p className="font-bold text-center text-green-500">
+                      Your enquiry has been submitted
+                    </p>
+                    <Link to="/">
+                      <p className="font-bold text-center underline text-swa-3">
+                        Back to Home
+                      </p>
+                    </Link>
+                  </>
                 ) : error ? (
                   <>
                     <p className="font-bold text-center text-red-600">

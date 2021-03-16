@@ -3,7 +3,7 @@ import { Field, ErrorMessage } from "formik";
 import TextError from "../../components/TextError";
 
 const TextArea = props => {
-  const { label, name, as, ...rest } = props;
+  const { label, name, ...rest } = props;
   return (
     <div>
       <label htmlFor={name} className="label">
