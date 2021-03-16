@@ -13,7 +13,8 @@ const FormikContainer = () => {
     email: Yup.string().required("Required"),
   });
 
-  onSubmit = values => console.log("Form data", values);
+  const onSubmit = values => console.log("Form data", values);
+
   return (
     <Formik
       initialValues={initialValues}
@@ -28,7 +29,7 @@ const FormikContainer = () => {
             label="email"
             name="email"
           />
-          <button type="button">Submit</button>
+          <button type="submit">Submit</button>
         </Form>
       )}
     </Formik>

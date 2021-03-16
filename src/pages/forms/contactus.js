@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Layout from "../../components/layout/layout";
 
 // --- Form imports ---
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { Ring } from "react-awesome-spinners";
-import TextError from "../../components/TextError";
+
 import FormikControl from "../../components/forms/FormikControl";
 import TextArea from "../../components/forms/TextArea";
 // --------------------
@@ -19,10 +19,10 @@ const ContactForm = () => {
   const initialValues = {
     honey: "",
     name: "",
-    company: "",
-    email: "",
-    phone: "",
-    address: "",
+    company: "test",
+    email: "test@test.com",
+    phone: "123",
+    address: "test",
     message: "",
   };
 
@@ -37,6 +37,7 @@ const ContactForm = () => {
     if (values.honey !== "") {
       setError("Spam suspected");
       console.log("spam suspected");
+      setLoader(false);
     } else {
       try {
         const response = await fetch("http://localhost:1337/formcontacts", {
@@ -65,10 +66,6 @@ const ContactForm = () => {
     name: Yup.string()
       .required("Please provide your name")
       .max(50, "Max 50 characters"),
-    company: Yup.string().max(50, "Max 50 characters"),
-    email: Yup.string()
-      .email("Please enter valid email")
-      .required("Email address is required"),
     message: Yup.string()
       .required("Please enter your message")
       .max(1000, "Max 1000 characters"),
@@ -84,40 +81,44 @@ const ContactForm = () => {
           <p className="text-gray-500">We love to hear from you.</p>
           <Formik
             initialValues={initialValues}
-            onSubmit={onSubmit}
             validationSchema={validationSchema}
-            // validateOnChange={false}
-            // validateOnBlur={false}
+            onSubmit={onSubmit}
           >
-            <Form className="p-8 mt-6 space-y-6 bg-gray-100">
-              <div className="space-y-6 sm:flex sm:space-x-2 sm:space-y-0">
-                <div className="sm:w-1/2">
-                  <Field type="hidden" name="honey" value="" />
-                  <FormikControl
-                    control="input"
-                    type="text"
-                    label="Name"
-                    name="name"
-                  />
+            {formik => (
+              <Form className="p-8 mt-6 space-y-6 bg-gray-100">
+                <div className="space-y-6 sm:flex sm:space-x-2 sm:space-y-0">
+                  <div className="sm:w-1/2">
+                    {/* <Field type="hidden" name="honey" value="" /> */}
+                    <FormikControl
+                      control="input"
+                      type="hidden"
+                      name="honey"
+                      value=""
+                    />
+                    <FormikControl
+                      control="input"
+                      type="text"
+                      label="Name"
+                      name="name"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div>
-                <TextArea
-                  control="textarea"
-                  type="textarea"
-                  label="Message Component"
-                  name="message"
-                  rows="5"
-                  col="35"
-                  validate={validateMessageLength}
-                  maxlength="1001"
-                />
-                <p className="text-sm text-right text-gray-500">
-                  Number of characters: {count} (max 1000)
-                </p>
-              </div>
+                <div>
+                  <TextArea
+                    control="textarea"
+                    type="textarea"
+                    label="Message Component"
+                    name="message"
+                    rows="5"
+                    col="35"
+                    validate={validateMessageLength}
+                    maxLength="1001"
+                  />
+                  <p className="text-sm text-right text-gray-500">
+                    Number of characters: {count} (max 1000)
+                  </p>
+                </div>
 
-              <div>
                 {loader ? (
                   <Ring color="#A855F7" size="40" sizeUnit="px" />
                 ) : success ? (
@@ -139,9 +140,8 @@ const ContactForm = () => {
                     Submit
                   </button>
                 )}
-              </div>
-              <div></div>
-            </Form>
+              </Form>
+            )}
           </Formik>
         </div>
       </Layout>

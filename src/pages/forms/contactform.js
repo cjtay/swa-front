@@ -176,7 +176,7 @@ const ContactForm = () => {
                   col="35"
                   className="textarea"
                   validate={validateMessageLength}
-                  maxlength="1001"
+                  maxLength="1001"
                 />
                 <p className="text-sm text-right text-gray-500">
                   Number of characters: {count} (max 1000)
