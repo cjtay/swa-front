@@ -52,7 +52,7 @@
   }
 
   .date {
-    @apply block w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-purple-400;
+    @apply block px-4 py-2 border rounded focus:outline-none border-swa-4 focus:border-purple-400;
   }
 
   .gallery {

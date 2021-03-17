@@ -15,6 +15,7 @@ const MasterForm = () => {
   const [success, setSuccess] = useState(false);
   const [loader, setLoader] = useState(false);
   const [count, setCount] = useState(0);
+  const [file, setFile] = useState(null);
 
   const initialValues = {
     honey: "",
@@ -22,7 +23,9 @@ const MasterForm = () => {
     name: "",
     radio: "",
     checkbox: [],
-    dob: null,
+    dob: "",
+    dob2: "",
+    file: "",
 
     email: "test@test.com",
     phone: "123",
@@ -30,12 +33,17 @@ const MasterForm = () => {
     message: "",
   };
 
+  const handleUpload = event => {
+    setFile(event.target.files[0].name);
+    console.log("file: ", event.target.files[0].name);
+  };
+
   const validateMessageLength = value => {
     setCount(value.length);
   };
 
   const onSubmit = async (values, onSubmitProps) => {
-    console.log("submitted data: ", values);
+    // console.log("submitted data: ", values);
 
     setLoader(true);
     if (values.honey !== "") {
@@ -44,6 +52,17 @@ const MasterForm = () => {
       setLoader(false);
     } else {
       try {
+        let newDate = new Date(values.dob).toISOString();
+        let newDate2 = new Date(values.dob2).toISOString();
+        const formData = new FormData();
+        formData.append("data", JSON.stringify(values));
+        formData.append("files.file", file);
+        formData.append("dob", newDate);
+        formData.append("dob2", newDate2);
+        for (var pair of formData.entries()) {
+          console.log("formData: ", pair[0] + ", " + pair[1]);
+        }
+
         // const response = await fetch("http://localhost:1337/formcontacts", {
         //   method: "POST",
         //   headers: { "Content-Type": "application/json" },
@@ -73,7 +92,9 @@ const MasterForm = () => {
       .max(50, "Max 50 characters"),
     radio: Yup.string().required("Please select one radio button"),
     checkbox: Yup.array().required("Please select one or more checkboxes"),
-    dob: Yup.date().required("Select a date"),
+    dob: Yup.date().required("Select a date").nullable(),
+    dob2: Yup.date().required("Select a date").nullable(),
+    // file: Yup.file().required("Please upload a file"),
     message: Yup.string()
       .required("Please enter your message")
       .max(1000, "Max 1000 characters"),
@@ -165,7 +186,24 @@ const MasterForm = () => {
                         name="dob"
                       />
                     </div>
-
+                    <div>
+                      <FormikControl
+                        control="datepicker"
+                        label="Date of Birth"
+                        name="dob2"
+                      />
+                    </div>
+                    <div>
+                      <FormikControl
+                        control="file"
+                        label="Upload a file"
+                        name="file"
+                        onChange={handleUpload}
+                      />
+                    </div>
+                    <p className="text-sm text-right text-gray-500">
+                      File selected: {file}
+                    </p>
                     <div>
                       <FormikControl
                         control="textarea"

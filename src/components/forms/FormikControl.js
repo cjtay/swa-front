@@ -5,6 +5,8 @@ import Select from "./Select";
 import Radio from "./Radio";
 import CheckBox from "./CheckBox";
 import Date from "./Date";
+import DatePicker from "./DatePicker";
+import Upload from "./Upload";
 
 const FormikControl = props => {
   const { control, ...rest } = props;
@@ -21,7 +23,10 @@ const FormikControl = props => {
       return <CheckBox {...rest} />;
     case "date":
       return <Date {...rest} />;
+    case "datepicker":
+      return <DatePicker {...rest} />;
     case "file":
+      return <Upload {...rest} />;
     default:
       return null;
   }

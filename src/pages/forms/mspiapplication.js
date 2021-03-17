@@ -54,7 +54,9 @@ const MspiApplicationForm = setFieldValue => {
       console.log("spam suspected");
     } else {
       try {
-        console.log("formData: ", formData);
+        for (var pair of formData.entries()) {
+          console.log("formData: ", pair[0] + ", " + pair[1]);
+        }
         const response = await fetch("http://localhost:1337/forms-mspis", {
           method: "POST",
           body: formData,
