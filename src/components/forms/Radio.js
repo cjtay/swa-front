@@ -14,13 +14,14 @@ const Radio = props => {
           {({ field }) => {
             return options.map(option => {
               return (
-                <div key={option.key} className="radio">
+                <div key={option.key} className="radio ">
                   <input
                     type="radio"
                     id={option.value}
                     {...field}
                     value={option.value}
                     checked={field.value === option.value}
+                    className="focus:ring-swa-3 text-swa-3"
                   />
                   <label htmlFor={option.value}>{option.value}</label>
                 </div>

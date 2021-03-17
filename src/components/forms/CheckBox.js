@@ -21,6 +21,7 @@ const CheckBox = props => {
                     {...field}
                     value={option.value}
                     checked={field.value.includes(option.value)}
+                    className="focus:ring-swa-3 text-swa-3"
                   />
                   <label htmlFor={option.value}>{option.value}</label>
                 </div>

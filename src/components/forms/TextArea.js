@@ -14,7 +14,7 @@ const TextArea = props => {
         id={name}
         name={name}
         {...rest}
-        className="textarea"
+        className="textarea "
       />
       <ErrorMessage name={name} component={TextError} />
     </>

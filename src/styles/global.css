@@ -36,23 +36,23 @@
     @apply font-bold text-swa-3;
   }
   .input-text {
-    @apply block w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-purple-400;
+    @apply block w-full border border-gray-200 rounded focus:outline-none focus:border-purple-400 focus:ring-swa-4;
   }
   .select {
-    @apply block w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-purple-400;
+    @apply block w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-purple-400 focus:ring-swa-4;
   }
   .textarea {
-    @apply block w-full px-4 py-2 border border-gray-200 rounded bg-gray-50 focus:outline-none focus:border-purple-400;
+    @apply block w-full px-4 py-2 border border-gray-200 rounded bg-gray-50 focus:outline-none focus:border-purple-400 focus:ring-swa-4;
   }
   .radio {
-    @apply w-32 p-2 mb-2 space-x-2 bg-gray-200 rounded;
+    @apply w-32 p-2 mb-2 space-x-2 bg-gray-200 rounded focus:ring-swa-4 focus:border-swa-4;
   }
   .checkbox {
-    @apply w-32 p-2 mb-2 space-x-2 bg-gray-200 rounded;
+    @apply w-32 p-2 mb-2 space-x-2 bg-gray-200 rounded focus:ring-swa-4 focus:border-swa-4;
   }
 
   .date {
-    @apply block px-4 py-2 border rounded focus:outline-none border-swa-4 focus:border-purple-400;
+    @apply block px-4 py-2 border rounded focus:outline-none border-swa-4 focus:border-purple-400 focus:ring-swa-3;
   }
 
   .gallery {
