@@ -28,7 +28,7 @@ const MspiApplicationForm = setFieldValue => {
     occupation: "",
     facebook: "",
     instagram: "",
-    // dob: "",
+    dob: "",
     placeofBirth: "",
     height: "",
     weight: "",

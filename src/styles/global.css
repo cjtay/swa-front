@@ -45,6 +45,10 @@
     @apply block w-full px-4 py-2 border border-gray-200 rounded bg-gray-50 focus:outline-none focus:border-purple-400;
   }
 
+  .date {
+    @apply block w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-purple-400;
+  }
+
   .gallery {
     display: grid;
     max-width: 100%;

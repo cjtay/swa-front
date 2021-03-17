@@ -10,7 +10,7 @@ import { Ring } from "react-awesome-spinners";
 import FormikControl from "../../components/forms/FormikControl";
 // --------------------
 
-const ContactForm = () => {
+const MasterForm = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [loader, setLoader] = useState(false);
@@ -20,10 +20,13 @@ const ContactForm = () => {
     honey: "",
     type: "",
     name: "",
-    company: "test",
+    radio: "",
+    checkbox: [],
+    dob: null,
+
     email: "test@test.com",
     phone: "123",
-    address: "test",
+
     message: "",
   };
 
@@ -41,21 +44,21 @@ const ContactForm = () => {
       setLoader(false);
     } else {
       try {
-        const response = await fetch("http://localhost:1337/formcontacts", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(values),
-        });
-        const data = await response.json();
+        // const response = await fetch("http://localhost:1337/formcontacts", {
+        //   method: "POST",
+        //   headers: { "Content-Type": "application/json" },
+        //   body: JSON.stringify(values),
+        // });
+        // const data = await response.json();
         setLoader(false);
         onSubmitProps.resetForm();
         console.log("Successfully sent to Strapi!");
-        console.log("response received: ", data);
-        if (data.statusCode) {
-          setError(data.message);
-        } else if (data.created_at) {
-          setSuccess(true);
-        }
+        // console.log("response received: ", data);
+        // if (data.statusCode) {
+        //   setError(data.message);
+        // } else if (data.created_at) {
+        setSuccess(true);
+        // }
       } catch (error) {
         console.log("error received: ", error.message);
         setLoader(false);
@@ -68,6 +71,9 @@ const ContactForm = () => {
     name: Yup.string()
       .required("Please provide your name")
       .max(50, "Max 50 characters"),
+    radio: Yup.string().required("Please select one radio button"),
+    checkbox: Yup.array().required("Please select one or more checkboxes"),
+    // dob: Yup.date().required("Select a date"),
     message: Yup.string()
       .required("Please enter your message")
       .max(1000, "Max 1000 characters"),
@@ -79,6 +85,18 @@ const ContactForm = () => {
     { key: "2", value: "Feedback" },
     { key: "3", value: "Complaint" },
     { key: "4", value: "Others" },
+  ];
+
+  const radioOptions = [
+    { key: "1", value: "Complaint" },
+    { key: "2", value: "General" },
+    { key: "3", value: "Feedback" },
+  ];
+
+  const checkBoxOptions = [
+    { key: "1", value: "Apple" },
+    { key: "2", value: "Orange" },
+    { key: "3", value: "Pear" },
   ];
 
   return (
@@ -96,47 +114,75 @@ const ContactForm = () => {
           >
             {formik => (
               <Form className="p-8 mt-6 space-y-6 bg-gray-100">
-                <FormikControl
-                  control="input"
-                  type="hidden"
-                  name="honey"
-                  value=""
-                />
-                <div className="space-y-6 sm:flex sm:space-x-2 sm:space-y-0">
-                  <div className="sm:w-1/2">
-                    <FormikControl
-                      control="select"
-                      type="text"
-                      name="type"
-                      label="Type of enquiry"
-                      options={optionList}
-                    />
-                  </div>
-                  <div className="sm:w-1/2">
+                {!success && (
+                  <>
                     <FormikControl
                       control="input"
-                      type="text"
-                      label="Name"
-                      name="name"
+                      type="hidden"
+                      name="honey"
+                      value=""
                     />
-                  </div>
-                </div>
-                <div>
-                  <FormikControl
-                    control="textarea"
-                    type="textarea"
-                    label="Message Component"
-                    name="message"
-                    rows="5"
-                    col="35"
-                    validate={validateMessageLength}
-                    maxLength="1001"
-                  />
-                  <p className="text-sm text-right text-gray-500">
-                    Number of characters: {count} (max 1000)
-                  </p>
-                </div>
+                    <div className="space-y-6 sm:flex sm:space-x-2 sm:space-y-0">
+                      <div className="sm:w-1/2">
+                        <FormikControl
+                          control="select"
+                          type="text"
+                          name="type"
+                          label="Dropdown list"
+                          options={optionList}
+                        />
+                      </div>
+                      <div className="sm:w-1/2">
+                        <FormikControl
+                          control="input"
+                          type="text"
+                          label="Text input"
+                          name="name"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <FormikControl
+                        control="radio"
+                        label="Radio options"
+                        name="radio"
+                        options={radioOptions}
+                      />
+                    </div>
+                    <div>
+                      <FormikControl
+                        control="checkbox"
+                        label="Checkbox options"
+                        name="checkbox"
+                        options={checkBoxOptions}
+                      />
+                    </div>
+                    <div>
+                      <FormikControl
+                        control="date"
+                        type="date"
+                        label="Date of Birth"
+                        name="dob"
+                      />
+                    </div>
 
+                    <div>
+                      <FormikControl
+                        control="textarea"
+                        type="textarea"
+                        label="Text Area"
+                        name="message"
+                        rows="5"
+                        col="35"
+                        validate={validateMessageLength}
+                        maxLength="1001"
+                      />
+                      <p className="text-sm text-right text-gray-500">
+                        Number of characters: {count} (max 1000)
+                      </p>
+                    </div>
+                  </>
+                )}
                 {loader ? (
                   <Ring color="#A855F7" size="40" sizeUnit="px" />
                 ) : success ? (
@@ -174,4 +220,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default MasterForm;

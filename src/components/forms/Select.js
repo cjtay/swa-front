@@ -5,7 +5,7 @@ import TextError from "../../components/TextError";
 const Select = props => {
   const { label, name, options, ...rest } = props;
   return (
-    <div>
+    <>
       <label htmlFor={name} className="label">
         {label}
       </label>
@@ -33,7 +33,7 @@ const Select = props => {
         })}
       </Field>
       <ErrorMessage name={name} component={TextError} />
-    </div>
+    </>
   );
 };
 
