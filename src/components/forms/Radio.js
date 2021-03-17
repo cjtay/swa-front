@@ -14,10 +14,7 @@ const Radio = props => {
           {({ field }) => {
             return options.map(option => {
               return (
-                <div
-                  key={option.key}
-                  className="w-32 p-2 mb-2 space-x-2 bg-gray-200 rounded text-swa-3"
-                >
+                <div key={option.key} className="radio">
                   <input
                     type="radio"
                     id={option.value}

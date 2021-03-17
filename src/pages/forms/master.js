@@ -73,7 +73,7 @@ const MasterForm = () => {
       .max(50, "Max 50 characters"),
     radio: Yup.string().required("Please select one radio button"),
     checkbox: Yup.array().required("Please select one or more checkboxes"),
-    // dob: Yup.date().required("Select a date"),
+    dob: Yup.date().required("Select a date"),
     message: Yup.string()
       .required("Please enter your message")
       .max(1000, "Max 1000 characters"),
